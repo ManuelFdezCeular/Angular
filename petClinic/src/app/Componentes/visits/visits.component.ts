@@ -12,7 +12,7 @@ export class VisitsComponent implements OnInit {
 
   @Input() visitas:Visit[];
 
-  @Output() eliminado = new EventEmitter();
+  //@Output() eliminado = new EventEmitter();
 
   constructor(private servicioVisitas:VisitsService) { }
 
