@@ -1,0 +1,40 @@
+<h3>{{accion}} propietario</h3>
+<form class="form-horizontal" #ownerFormm="ngForm">
+    <div class="form-group">
+        <label for="firstName">Nombre:</label>
+        <input type="text" class="form-control" required [(ngModel)]="propietario.firstName" name="firstName">
+        <!--<div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+            El nombre es obligatorio
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label for="lastName">Apellidos:</label>
+        <input type="text" class="form-control" required [(ngModel)]="propietario.lastName" name="lastName">
+        <!--<div [hidden]="lastName.valid || firstName.pristine" class="alert alert-danger">
+            El apellido es obligatorio
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label for="address">Dirección:</label>
+        <input type="text" class="form-control" required [(ngModel)]="propietario.address" name="address">
+        <!--<div [hidden]="address.valid || address.pristine" class="alert alert-danger">
+            La dirección es obligatoria
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label for="city">Ciudad:</label>
+        <input type="text" class="form-control" required [(ngModel)]="propietario.city" name="city">
+        <!--<div [hidden]="city.valid || city.pristine" class="alert alert-danger">
+            La ciudad es obligatoria
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label for="telephone">Teléfono:</label>
+        <input type="text" class="form-control" required [(ngModel)]="propietario.telephone" name="telephone">
+        <!--<div [hidden]="telephone.valid || telephone.pristine" class="alert alert-danger">
+            El teléfono es obligatorio
+        </div>-->
+    </div>
+    <button (click)="anadirOModificar()" class="btn btn-dark">{{accion}}</button>
+    <button routerLink="/owners" routerLinkActive="router-link-active" class="btn btn-dark">Cancelar</button>
+</form>

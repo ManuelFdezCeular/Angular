@@ -1,0 +1,34 @@
+<h3>{{accion}} mascota</h3>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="nombrePropietario">Propietario:</label>
+        <input type="text" class="form-control" required [(ngModel)]="nombrePropietario" name="nombrePropietario" readonly>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" required [(ngModel)]="mascota.name" name="nombre">
+        <!--<div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+            El nombre es obligatorio
+        </div>-->
+    </div>
+    <div class="form-group">
+        <label for="fechaCumple">Fecha de nacimiento:</label>
+        <input type="Date" class="form-control" required [(ngModel)]="mascota.birthDate" name="fechaCumple">
+        <!--<div [hidden]="fechaCumple.valid || fechaCumple.pristine" class="alert alert-danger">
+            La fecha es obligatorio
+        </div>-->
+    </div>
+    <!--<div class="form-group">
+        <label for="ID">ID tipo:</label>
+        <input type="text" class="form-control" required [(ngModel)]="mascota.type.id" name="tipoId">
+    </div>
+    <div class="form-group">
+        <label for="tipoAnimal">Tipo de animal:</label>
+        <input type="text" class="form-control" required [(ngModel)]="mascota.type.name" name="tipoAnimal">
+    </div>-->
+    <select id="tiposMascota" required [(ngModel)]="mascota.type" name="selectMascota" class="browser-default custom-select mt-4">
+        <option *ngFor="let tipo of tipos;" [ngValue]="tipo" class="form-control">{{tipo.name}}</option>
+    </select>
+    <button (click)="anadirOModificarMascota()" class="btn btn-dark mr-5 mt-5">{{accion}} mascota</button>
+    <button routerLink="/owners/{{idPropietario}}" routerLinkActive="router-link-active" class="btn btn-dark mt-5">Cancelar</button>
+</form>

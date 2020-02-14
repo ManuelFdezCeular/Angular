@@ -1,0 +1,34 @@
+<h3>PROPIETARIO:</h3>
+<table class="table">
+    <tr scope="row">
+        <th scope="col">Nombre:</th>
+        <td scope="col">{{propietario.firstName}} {{propietario.lastName}}</td>
+    </tr>
+    <tr scope="row">
+        <th scope="col">Dirección:</th>
+        <td scope="col">{{propietario.address}}</td>
+    </tr>
+    <tr scope="row">
+        <th scope="col">Ciudad:</th>
+        <td scope="col">{{propietario.city}}</td>
+    </tr>
+    <tr scope="row">
+        <th scope="col">Teléfono:</th>
+        <td scope="col">{{propietario.telephone}}</td>
+    </tr>
+    <tr *ngIf="propietario.pets" scope="row">
+        <th scope="col">Mascotas:</th>
+        <td scope="col">{{propietario.pets}}</td>
+    </tr>
+</table>
+<div class="container-fluid">
+    <div class="btn-group-justified">
+        <button class="btn btn-dark mr-3 mb-5" routerLink="/owners" routerLinkActive="router-link-active">Volver a propietarios</button>
+        <button class="btn btn-dark mr-3 mb-5" (click)="borrar(propietario)">Eliminar Propietario</button>
+        <button class="btn btn-dark mr-3 mb-5" routerLink="/owners-add/{{propietario.id}}">Editar</button>
+        <button class="btn btn-dark mr-3 mb-5" routerLink="/pets-add/{{propietario.id}}/{{propietario.firstName}} {{propietario.lastName}}/-1">Añadir Mascota</button>
+    </div>
+</div>
+<div *ngIf="propietario.id != undefined">
+    <app-pets [idPropietario]="propietario.id" [nombrePropietario]="nombrePropietario"></app-pets>
+</div>

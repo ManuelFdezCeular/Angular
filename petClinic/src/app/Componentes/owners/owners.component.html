@@ -1,0 +1,30 @@
+<h3>Propietarios:</h3>
+<a
+  class="btn btn-dark"
+  routerLink="/owners-add/-1"
+  routerLinkActive="router-link-active"
+  >Añadir Propietario</a
+>
+<table class="table">
+  <thead class="thead-danger">
+    <tr scope="row">
+      <th scope="col">Nombre</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Teléfono</th>
+      <th scope="col">Mascotas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr scope="row" *ngFor="let propietario of propietarios">
+      <td scope="col">
+        <a routerLink="/owners/{{ propietario.id }}" routerLinkActive="router-link-active"
+          >{{ propietario.firstName }} {{ propietario.lastName }}</a>
+      </td>
+      <td scope="col">{{ propietario.city }}</td>
+      <td scope="col">{{ propietario.address }}</td>
+      <td scope="col">{{ propietario.telephone }}</td>
+      <td scope="col">{{ propietario.pets }}</td>
+    </tr>
+  </tbody>
+</table>

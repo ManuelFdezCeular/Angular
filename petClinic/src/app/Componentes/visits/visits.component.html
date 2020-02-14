@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+        <tr scope="row">
+            <th scope="col">Fecha Visita</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="visitas.length!=0">
+        <tr scope="row" *ngFor="let visita of visitas">
+            <td scope="col">
+                <ul class="list-group">
+                    <li class="list-group-item">{{visita.visitDate}}</li>
+                </ul>
+            </td>
+            <td scope="col">
+                <ul class="list-group">
+                    <li class="list-group-item">{{visita.description}}</li>
+                </ul>
+            </td>
+            <td>
+                <div class="btn-group-sm">
+                    <button class="btn btn-success active mb-2">Modificar Visita</button>
+                    <button class="btn btn-success active" (click)="borrarVisita(visita.id)">Borrar Visita</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

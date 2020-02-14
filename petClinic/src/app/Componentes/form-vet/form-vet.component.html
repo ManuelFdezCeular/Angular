@@ -1,0 +1,13 @@
+<h3>Añadir mascota</h3>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="nombreVeterinario">Veterinario:</label>
+        <input type="text" class="form-control" required [(ngModel)]="veterinario.firstName" name="nombreVeterinario">
+    </div>
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" class="form-control" required [(ngModel)]="veterinario.lastName" name="nombre">
+    </div>
+    <button (click)="anadir()" class="btn btn-dark mr-5">Añadir</button>
+    <button routerLink="/Vets" routerLinkActive="router-link-active" class="btn btn-dark mr-5">Cancelar</button>
+</form>
