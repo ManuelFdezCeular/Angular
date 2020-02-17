@@ -19,6 +19,10 @@ export class VisitsComponent implements OnInit {
   ngOnInit() {
   }
 
+  /*lanzar(event){
+    this.eliminado.emit({})
+  }*/
+
   borrarVisita(id:number){
     console.log("idVisita",id);
     this.servicioVisitas.delVisita(id).subscribe(resultado=>{
