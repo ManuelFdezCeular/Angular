@@ -1,0 +1,5 @@
+package org.iesvelazquez.spring.dto;
+
+public class ProductoDTO {
+
+}

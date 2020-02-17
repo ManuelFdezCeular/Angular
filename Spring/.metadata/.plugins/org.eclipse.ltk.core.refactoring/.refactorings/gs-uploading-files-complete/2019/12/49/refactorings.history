@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;hello.storage&apos; to &apos;formulario_con_imagen/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;gs-uploading-files-complete&apos;&#x0D;&#x0A;- Destination element: &apos;formulario_con_imagen/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;gs-uploading-files-complete/src/main/java/hello.storage&apos;" description="Copy package" destination="=formulario_con_imagen/src\/main\/java" element1="/src\/main\/java&lt;hello.storage" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1575539478534" version="1.0"/>
+</session>

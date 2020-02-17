@@ -1,0 +1,5 @@
+package org.iesvelazquez.spring.modelo;
+
+public class ProductoRepositorio {
+
+}

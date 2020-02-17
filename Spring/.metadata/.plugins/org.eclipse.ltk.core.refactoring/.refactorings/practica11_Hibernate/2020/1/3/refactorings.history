@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;org.iesvelazquez.spring.servicios.EmpleadoServicio&apos; to &apos;EmpleadoServicioMemoria&apos;&#x0D;&#x0A;- Original project: &apos;practica11_Hibernate&apos;&#x0D;&#x0A;- Original element: &apos;org.iesvelazquez.spring.servicios.EmpleadoServicio&apos;&#x0D;&#x0A;- Renamed element: &apos;org.iesvelazquez.spring.servicios.EmpleadoServicioMemoria&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EmpleadoServicio&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;org.iesvelazquez.spring.servicios{EmpleadoServicio.java[EmpleadoServicio" matchStrategy="1" name="EmpleadoServicioMemoria" qualified="false" references="true" similarDeclarations="false" stamp="1579262053620" textual="false" version="1.0"/>
+</session>

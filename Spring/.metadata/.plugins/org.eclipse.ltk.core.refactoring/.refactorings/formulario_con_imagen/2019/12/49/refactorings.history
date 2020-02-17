@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;hello.storage&apos; to &apos;org.iesvelazquez.spring.storage&apos;&#x0D;&#x0A;- Original project: &apos;formulario_con_imagen&apos;&#x0D;&#x0A;- Original element: &apos;formulario_con_imagen/src/main/java/hello.storage&apos;&#x0D;&#x0A;- Renamed element: &apos;formulario_con_imagen/src/main/java/org.iesvelazquez.spring.storage&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;hello.storage&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java&lt;hello.storage" name="org.iesvelazquez.spring.storage" qualified="false" references="true" stamp="1575539502389" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,11 @@
+package org.iesvelazquez.spring.modelo;
+
+@Data @NoArgsConstructor @AllArgsConstructor
+@Entity
+public class Categoria {
+
+	@Id @GeneratedValue
+	private Long id;
+	private String nombre;
+	
+}

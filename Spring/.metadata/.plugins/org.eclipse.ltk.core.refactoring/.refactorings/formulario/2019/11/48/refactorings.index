@@ -1,0 +1,19 @@
+1574843234889	Rename resource 'NewFile.html'
+1574843381666	Rename package 'org.iesvelazquez.demo'
+1574843425672	Move 'ListadoFormulario.html' to 'templates'
+1574843431237	Move 'formulario.html' to 'templates'
+1574843659273	Move 'starter-template.css' to 'css'
+1574843861320	Copy compilation unit
+1574843866794	Delete element
+1574843870433	Delete element
+1574845297858	Delete element
+1574845699533	Rename resource 'ListadoFormulario.html'
+1574845711044	Rename resource 'List.html'
+1574845717433	Rename resource 'formulario.html'
+1574847144293	Rename package 'controlador'
+1574847162514	Rename package 'entidades'
+1574847179330	Rename package 'org.iesvelazquez.entidades'
+1574847195059	Rename package 'org.iesvelazquez.controlador'
+1574847386498	Rename package 'controlador'
+1574847400765	Rename package 'entidades'
+1574847421808	Rename package 'servicios'

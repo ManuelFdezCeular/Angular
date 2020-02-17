@@ -1,0 +1,23 @@
+package org.iesvelazquez.spring.controladores;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class ControladorPrincipal {
+	@GetMapping("/")
+	public String Bienvenido() {
+		return "index";
+	}
+//para pasar datos se hace con la clase Model 	
+	@GetMapping("/que")
+	public String QueHacemos(Model model) {
+		model.addAttribute("mensaje", "Estamos en la pagina de que hacemos enviado como dato desde el controlador");
+		return "que";
+	}
+	@GetMapping("/contacto")
+	public String Contacto() {
+		return "contacto";
+	}
+}

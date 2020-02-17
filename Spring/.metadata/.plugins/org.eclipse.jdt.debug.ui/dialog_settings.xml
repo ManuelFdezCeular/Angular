@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=subida_de_fichero/src\/main\/java&amp;lt;org.iesvelazquez.spring{SubidaDeFicheroApplication.java[SubidaDeFicheroApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=gs-uploading-files-complete/src\/main\/java&amp;lt;hello{Application.java[Application&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=gs-securing-web-complete/src\/main\/java&amp;lt;hello{Application.java[Application&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=gs-securing-web-redis/src\/main\/java&amp;lt;hello{Application.java[Application&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=formulario_direccion/src\/main\/java&amp;lt;org.iesvelazquez.spring{FormularioApplication.java[FormularioApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=formulario_con_edicion/src\/main\/java&amp;lt;org.iesvelazquez.spring{FormularioApplication.java[FormularioApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=formulario_con_imagen/src\/main\/java&amp;lt;org.iesvelazquez.spring{FormularioApplication.java[FormularioApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=gs-accessing-data-jpa-complete/src\/main\/java&amp;lt;com.example.accessingdatajpa{AccessingDataJpaApplication.java[AccessingDataJpaApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=practica11_Hibernate/src\/main\/java&amp;lt;org.iesvelazquez.spring{Practica09SeguridadApplication.java[Practica09SeguridadApplication&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=practica12_Consultas/src\/main\/java&amp;lt;org.iesvelazquez.spring{Practica12Consultas.java[Practica12Consultas&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="417"/>
+			<item key="DIALOG_Y_ORIGIN" value="88"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+</section>

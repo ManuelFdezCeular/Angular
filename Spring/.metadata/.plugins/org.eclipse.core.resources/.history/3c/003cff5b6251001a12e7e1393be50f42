@@ -1,0 +1,5 @@
+package org.iesvelazquez.spring.config;
+
+public class MiConfiguracion {
+
+}
