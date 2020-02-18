@@ -34,7 +34,7 @@ export class VisitsService {
       accion: "ModificaVisit",
       visit: visita
     })
-
+    console.log("visitaMod", visitaMod);
     return this.http.post<boolean>(this.urlAccion, visitaMod);
   }
 

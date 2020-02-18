@@ -68,11 +68,11 @@ export class PetService {
 
   getIdOwner(id:number){
     let mascota = JSON.stringify({
-      accion: "ObtenerOwnerId",
+      accion: "ObtenerPetIdOwner",
       id: id
     })
 
-    return this.http.post<Owner>(this.urlAccion, mascota);
+    return this.http.post<Pet>(this.urlAccion, mascota);
   }
  
 }

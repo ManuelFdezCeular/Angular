@@ -16,19 +16,17 @@ export class FormVisitsComponent implements OnInit {
   public accion:string;
   public idVisita = this.ruta.snapshot.params["idVisita"];
   public idMascota = this.ruta.snapshot.params["idMascota"];
-  public propietario:Owner;
   public visita:Visit;
   
   constructor(private servicioVisitas:VisitsService, private servicioPets:PetService, private router:Router, private ruta:ActivatedRoute) {
-    this.propietario = <Owner>{};
     this.visita = <Visit>{};
     this.visita.pet = <Pet>{}
+    this.visita.pet.owner = <Owner>{};
     if(this.idVisita == -1){
       this.accion = "Añadir";
     }else{
       this.accion = "Modificar";
       this.servicioVisitas.obtenerVisita(this.idVisita).subscribe(resultado=>{
-        console.log("visita", resultado);
         this.visita = resultado;
       })
     }
@@ -36,26 +34,24 @@ export class FormVisitsComponent implements OnInit {
 
   ngOnInit() {
     this.servicioPets.getIdOwner(this.idMascota).subscribe(resultado=>{
-      console.log(resultado);
-      this.propietario = resultado;
+      this.visita.pet = resultado;
     })
 
     this.servicioPets.getPetId(this.idMascota).subscribe(resultado=>{
+      console.log("pet", resultado);
       this.visita.pet = resultado;
     })
   }
 
   anadirOModificarVisita(){
-    console.log("Visita", this.visita);
-    console.log("idVisita",this.idVisita);
     if(this.idVisita == -1){
       this.servicioVisitas.addVisita(this.visita).subscribe(resultado=>{
         console.log("Añade");
-        this.router.navigate(['/owners/'+this.propietario.id]);
+        this.router.navigate(['/owners/'+this.visita.pet.owner.id]);
       })
     }else{
       this.servicioVisitas.modVisita(this.visita).subscribe(resultado=>{
-        this.router.navigate(['/owners/'+this.propietario.id]);
+        this.router.navigate(['/owners/'+this.visita.pet.owner.id]);
       })
     }
   }

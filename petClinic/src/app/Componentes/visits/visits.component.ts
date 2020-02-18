@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { VisitsService } from 'src/app/Servicios/visits.service';
 import { Visit } from 'src/app/Modelos/visit';
-import { EventEmitter } from 'protractor';
+import { Pet } from 'src/app/Modelos/pet';
+import { PetService } from 'src/app/Servicios/pet.service';
 
 @Component({
   selector: 'app-visits',
@@ -11,22 +12,30 @@ import { EventEmitter } from 'protractor';
 export class VisitsComponent implements OnInit {
 
   @Input() visitas:Visit[];
+  @Input() idMascota:number;
+  public mascota:Pet;
 
-  //@Output() eliminado = new EventEmitter();
+  @Output() eliminado = new EventEmitter();
 
-  constructor(private servicioVisitas:VisitsService) { }
+  constructor(private servicioVisitas:VisitsService, private servicioMascotas:PetService) {
+    console.log("visitas",this.visitas);
+   }
 
   ngOnInit() {
   }
 
   /*lanzar(event){
-    this.eliminado.emit({})
+    
   }*/
 
   borrarVisita(id:number){
-    console.log("idVisita",id);
-    this.servicioVisitas.delVisita(id).subscribe(resultado=>{
-      console.log(resultado);
+    this.servicioMascotas.getPetId(this.idMascota).subscribe(resultado=>{
+      this.mascota = resultado;
+      if(confirm("Quiere borrar a la visita de "+this.mascota.name)){
+        this.servicioVisitas.delVisita(id).subscribe(resultado=>{
+          this.eliminado.emit(resultado);
+        })
+      }
     })
   }
 }

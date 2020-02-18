@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Pet } from 'src/app/Modelos/pet';
 import { PetService } from 'src/app/Servicios/pet.service';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-pets',
@@ -36,5 +37,17 @@ export class PetsComponent implements OnInit {
         })
       }
     })
+  }
+
+  actualizarDatos(event){
+    console.log("evento", event);
+    if(event.result == "OK"){
+      this.servicio.getPetIdOwner(this.idPropietario).subscribe(resultado=>{
+        console.log(resultado);
+        this.mascotas = resultado;
+      })
+    }else{
+      alert("Fallo al borrar");
+    }
   }
 }

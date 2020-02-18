@@ -1,4 +1,34 @@
 <h3>{{accion}} visita</h3>
+<table class="table" *ngIf="this.visita.pet.name!=undefined">
+    <tr scope="row">
+        <th scope="col">
+            Nombre mascota
+        </th>
+        <th scope="col">
+            Cumpleaños
+        </th>
+        <th scope="col">
+            Tipo
+        </th>
+        <th scope="col">
+            Propietario
+        </th>
+    </tr>
+    <tr scope="row">
+        <td scope="col">
+            {{this.visita.pet.name}}
+        </td>
+        <td scope="col">
+            {{this.visita.pet.birthDate}}
+        </td>
+        <td scope="col">
+            {{this.visita.pet.type.name}}
+        </td>
+        <td scope="col">
+            {{this.visita.pet.owner.firstName}} {{this.visita.pet.owner.lastName}}
+        </td>
+    </tr>
+</table>
 <form class="form-horizontal">
     <div class="form-group">
         <label for="Visita">Fecha de la visita:</label>
@@ -8,6 +38,6 @@
         <label for="nombre">Descripción de la visita:</label>
         <input type="text" class="form-control" required [(ngModel)]="visita.description" name="descripcion">
     </div>
-    <button (click)="anadirOModificarVisita()" class="btn btn-dark mr-5">Añadir Visita</button>
-    <button routerLink="/owners/{{propietario.id}}" routerLinkActive="router-link-active" class="btn btn-dark mr-5">Cancelar</button>
+    <button (click)="anadirOModificarVisita()" class="btn btn-dark mr-5">{{accion}} Visita</button>
+    <button routerLink="/owners/{{visita.pet.owner.id}}" routerLinkActive="router-link-active" class="btn btn-dark mr-5">Cancelar</button>
 </form>

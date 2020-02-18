@@ -27,7 +27,7 @@
         <input type="text" class="form-control" required [(ngModel)]="mascota.type.name" name="tipoAnimal">
     </div>-->
     <select id="tiposMascota" required [(ngModel)]="mascota.type" name="selectMascota" class="browser-default custom-select mt-4">
-        <option *ngFor="let tipo of tipos;" [ngValue]="tipo" class="form-control">{{tipo.name}}</option>
+        <option *ngFor="let tipo of tipos" [ngValue]="tipo" class="form-control">{{tipo.name}}</option>
     </select>
     <button (click)="anadirOModificarMascota()" class="btn btn-dark mr-5 mt-5">{{accion}} mascota</button>
     <button routerLink="/owners/{{idPropietario}}" routerLinkActive="router-link-active" class="btn btn-dark mt-5">Cancelar</button>

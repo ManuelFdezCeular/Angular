@@ -9,7 +9,7 @@
         <p>{{mascota.typeName}}</p>
     </div>
     <div class="col-6">
-        <app-visits [visitas]="mascota.visits" (eliminado)="actualizarDatos($event)"></app-visits>
+        <app-visits [visitas]="mascota.visits" [idMascota]="mascota.id" (eliminado)="actualizarDatos($event)"></app-visits>
     </div>
     <div class="row">
         <div class="btn-group-justified">
