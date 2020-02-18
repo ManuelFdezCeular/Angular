@@ -10,10 +10,12 @@ export const environment = {
   },
 
   SeleccionaObj: function(lista, obj){
+    let res;
     lista.forEach(valor => {
       if(environment.jsonEqual(valor, obj))
-        return valor;
+        res = valor;
     });
+    return res;
   }
 };
 

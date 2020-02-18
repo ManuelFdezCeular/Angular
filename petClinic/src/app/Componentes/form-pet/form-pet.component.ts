@@ -32,7 +32,7 @@ export class FormPetComponent implements OnInit {
       this.accion = "Modificar";
       this.servicioPet.getPetId(this.idMascota).subscribe(resultado=>{
         console.log(resultado);
-        this.mascota = resultado;
+        this.mascota = resultado;        
       })
     }
   }
@@ -43,6 +43,7 @@ export class FormPetComponent implements OnInit {
     })
     this.servicioPet.listaTipos().subscribe(resultado=>{
       this.tipos = resultado;
+      this.mascota.type = environment.SeleccionaObj(this.tipos, this.mascota.type);
     })
   }
 
