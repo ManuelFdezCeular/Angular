@@ -24,10 +24,6 @@ export class VisitsComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*lanzar(event){
-    
-  }*/
-
   borrarVisita(id:number){
     this.servicioMascotas.getPetId(this.idMascota).subscribe(resultado=>{
       this.mascota = resultado;

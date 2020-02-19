@@ -25,7 +25,7 @@
     <div class="btn-group-justified">
         <button class="btn btn-dark mr-3 mb-5" routerLink="/owners" routerLinkActive="router-link-active">Volver a propietarios</button>
         <button class="btn btn-dark mr-3 mb-5" (click)="borrar(propietario)">Eliminar Propietario</button>
-        <button class="btn btn-dark mr-3 mb-5" routerLink="/owners-add/{{propietario.id}}">Editar</button>
+        <button class="btn btn-dark mr-3 mb-5" routerLink="/owners-add/{{propietario.id}}">Editar Propietario</button>
         <button class="btn btn-dark mr-3 mb-5" routerLink="/pets-add/{{propietario.id}}/{{propietario.firstName}} {{propietario.lastName}}/-1">Añadir Mascota</button>
     </div>
 </div>

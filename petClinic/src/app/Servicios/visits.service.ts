@@ -47,4 +47,13 @@ export class VisitsService {
     return this.http.post<Visit>(this.urlAccion, visita);
   }
 
+  arrayVisitas(id:number){
+    let visitas = JSON.stringify({
+      accion: "ListarVisitasPet",
+      id: id
+    })
+
+    return this.http.post<Visit[]>(this.urlAccion, visitas);
+  }
+
 }

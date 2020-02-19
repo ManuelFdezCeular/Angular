@@ -17,6 +17,7 @@ export class FormVisitsComponent implements OnInit {
   public idVisita = this.ruta.snapshot.params["idVisita"];
   public idMascota = this.ruta.snapshot.params["idMascota"];
   public visita:Visit;
+  public visitas:Visit[];
   
   constructor(private servicioVisitas:VisitsService, private servicioPets:PetService, private router:Router, private ruta:ActivatedRoute) {
     this.visita = <Visit>{};
@@ -33,13 +34,13 @@ export class FormVisitsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.servicioPets.getIdOwner(this.idMascota).subscribe(resultado=>{
-      this.visita.pet = resultado;
-    })
-
     this.servicioPets.getPetId(this.idMascota).subscribe(resultado=>{
       console.log("pet", resultado);
       this.visita.pet = resultado;
+      this.servicioVisitas.arrayVisitas(this.visita.pet.id).subscribe(resultado=>{
+        console.log("array visitas", resultado);
+        this.visitas = resultado;
+      })
     })
   }
 
