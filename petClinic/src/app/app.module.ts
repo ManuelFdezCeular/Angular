@@ -14,6 +14,7 @@ import { FormVetComponent } from './Componentes/form-vet/form-vet.component';
 import { FormVisitsComponent } from './Componentes/form-visits/form-visits.component';
 import { PetsComponent } from './Componentes/pets/pets.component';
 import { VisitsComponent } from './Componentes/visits/visits.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { VisitsComponent } from './Componentes/visits/visits.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

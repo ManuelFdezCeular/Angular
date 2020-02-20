@@ -1,9 +1,34 @@
 <div class="container">
   <h1 class="bg-dark text-light">Clinica de mascotas</h1>
-  <ul class="list-inline">
-    <li routerLink="/" routerLinkAction="active" class="list-group-item">Inicio</li>
-    <li routerLink="/owners" routerLinkAction="acitve" class="list-group-item">Owners</li>
-    <li routerLink="/vets" routerLinkAction="active" class="list-group-item">Veterinarios</li>
-  </ul>
+  <!--<ul class="list-inline">
+    <li routerLink="/" routerLinkAction="active" class="list-inline-item">Inicio</li>
+    <li routerLink="/owners" routerLinkAction="acitve" class="list-inline-item">Propietarios</li>
+    <li routerLink="/vets" routerLinkAction="active" class="list-inline-item">Veterinarios</li>
+  </ul>-->
+  <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="#">PetClinic</a>
+    <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+    <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio <span class="sr-only">(current)</span></a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.owners.dropdown = !navBar.owners.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Propietarios
+						</a>
+          <div [ngbCollapse]="navBar.owners.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/owners" routerLinkActive="active" (click)="navBar.owners.dropdown = !navBar.owners.dropdown">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
+            <a class="dropdown-item" routerLink="/owners-add/-1" routerLinkActive="active" (click)="navBar.owners.dropdown = !navBar.owners.dropdown">Añadir nuevo</a>
+          </div>
+        </li>
+
+        <a class="nav-item nav-link" routerLink="/vets" routerLinkActive="active">Veterinarios</a>
+
+      </div>
+    </div>
+  </nav>
   <router-outlet></router-outlet>
 </div>

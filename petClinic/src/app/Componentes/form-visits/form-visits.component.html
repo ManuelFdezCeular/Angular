@@ -1,5 +1,5 @@
 <h3>{{accion}} visita</h3>
-<table class="table" *ngIf="this.visita.pet.name!=undefined">
+<table class="table" *ngIf="visita.pet.name!=undefined">
     <tr scope="row">
         <th scope="col">
             Nombre mascota
@@ -16,16 +16,16 @@
     </tr>
     <tr scope="row">
         <td scope="col">
-            {{this.visita.pet.name}}
+            {{visita.pet.name}}
         </td>
         <td scope="col">
-            {{this.visita.pet.birthDate}}
+            {{visita.pet.birthDate}}
         </td>
         <td scope="col">
-            {{this.visita.pet.type.name}}
+            {{visita.pet.type.name}}
         </td>
         <td scope="col">
-            {{this.visita.pet.owner.firstName}} {{this.visita.pet.owner.lastName}}
+            {{visita.pet.owner.firstName}} {{visita.pet.owner.lastName}}
         </td>
     </tr>
 </table>
@@ -46,4 +46,3 @@
 <div *ngIf="visitas!=undefined">
     <app-visits [visitas]="visitas"></app-visits>
 </div>
-
