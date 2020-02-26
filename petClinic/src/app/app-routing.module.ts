@@ -40,11 +40,7 @@ const routes: Routes = [
     component: FormPetComponent
   },
   {
-    path: "vets-add/-1",
-    component: FormVetComponent
-  },
-  {
-    path: "vets-add/:id",
+    path: "vets-add/:idVeterinario",
     component: FormVetComponent
   },
   {

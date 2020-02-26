@@ -28,4 +28,13 @@ export class VetService {
     return this.http.post<Vet[]>(this.urlAccion, vet);
   }
 
+  getVet(id:number){
+    let vet = JSON.stringify({
+      accion: "ObtenerVetId",
+      id: id
+    })
+
+    return this.http.post<Vet>(this.urlAccion, vet);
+  }
+
 }

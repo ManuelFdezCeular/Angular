@@ -1,28 +1,29 @@
-<h3>Veterinarioss:</h3>
+<h3>Veterinarios:</h3>
+<div class="content-fluid">
+  <button class="btn btn-dark mr-5" routerLink="/vets-add/-1" routerLinkActive="router-link-active">Añadir Veterinario</button>
+</div>
 <table class="table">
   <thead>
     <tr scope="row">
       <th scope="col">Nombre</th>
       <th scope="col">Especialidades</th>
+      <th scope="col">Modificar</th>
+      <th scope="col">Borrar</th>
     </tr>
   </thead>
   <tbody>
     <tr scope="row" *ngFor="let veterinario of veterinarios">
-      <td scope="col"><a routerLink="/vets/veterinario.id" routerLinkActive="router-link-active">
-        {{ veterinario.firstName }} {{ veterinario.lastName }}</a>
-      </td>
+      <td scope="col">{{ veterinario.firstName }} {{ veterinario.lastName }}</td>
       <td scope="col">
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let especialidades of veterinario.specialties">
+        <ul class="list-unstyled">
+          <li  *ngFor="let especialidades of veterinario.specialties">
             {{ especialidades.name }}
           </li>
         </ul>
       </td>
+      <td scope="col"><button class="btn btn-success" routerLink="/vets-add/{{veterinario.id}}" routerLinkActive="router-link-active">Modificar {{ veterinario.firstName }} {{ veterinario.lastName }}</button></td>
+      <td scope="col"><button class="btn btn-danger">Borrar {{ veterinario.firstName }} {{ veterinario.lastName }}</button></td>
     </tr>
   </tbody>
 </table>
-<div class="content-fluid">
-  <button class="btn btn-dark mr-5" routerLink="/vets/veterinario.id" routerLinkActive="router-link-active">Añadir</button>
-  <button class="btn btn-dark mr-5" (click)="borrarVet()">Eliminar</button>
-  <button class="btn btn-dark mr-5">Añadir especialidad</button>
-</div>
+
