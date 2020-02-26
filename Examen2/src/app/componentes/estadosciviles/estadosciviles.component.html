@@ -1,0 +1,21 @@
+<ul>
+    <li routerLink="/">Inicio</li>
+    <li routerLink="/alumnos">Alumnos</li>
+    <li routerLink="/estadoCivil">Estados Civiles</li>
+</ul>
+<h1>ESTADOS CIVILES</h1>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>NOMBRE</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estCiv of listaEstadosCiviles">
+            <td>{{estCiv.ID}}</td>
+            <td>{{estCiv.NOMBRE}}</td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="listaEstadosCiviles">
+        <th>Total: {{listaEstadosCiviles.length}} estados civiles</th>
+    </tfoot>
+</table>

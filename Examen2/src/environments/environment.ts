@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  jsonEqual: function(a, b){
+    return JSON.stringify(a) === JSON.stringify(b);
+  },
+
+  SeleccionaObj: function(lista, obj){
+    let res;
+    lista.forEach(valor => {
+      if(environment.jsonEqual(valor, obj))
+        res = valor;
+    });
+    return res;
+  }
 };
 
 /*

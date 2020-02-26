@@ -12,6 +12,7 @@ import org.iesvelazquez.spring.modelo.Producto;
 import org.iesvelazquez.spring.modelo.ProductoRepositorio;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin(origins="*")
 @RestController
 @RequiredArgsConstructor
 public class ProductoControlador {
@@ -37,6 +39,7 @@ public class ProductoControlador {
 	 * 
 	 * @return 404 si no hay productos, 200 y lista de productos si hay uno o más
 	 */
+	@CrossOrigin(origins="*")
 	@GetMapping("/producto")
 	public ResponseEntity<?> obtenerTodos() {
 		List<Producto> result = productoRepositorio.findAll();

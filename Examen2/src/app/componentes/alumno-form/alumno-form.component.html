@@ -1,0 +1,40 @@
+<h1>{{accion}} alumn@</h1>
+<form  (ngSubmit)="anadirOModificarAlumno(alumnoForm.value)" #alumnoForm="ngForm">
+    <label for="nombre">Nombre:</label>
+    <input required #nombre="ngModel" id="nombre" type="text" [(ngModel)]="alumno.NOMBRE" name="NOMBRE">
+    <div [hidden]="nombre.valid || nombre.pristine">
+            El nombre es obligatorio
+    </div>
+    <br/>
+    <label for="apellidos">Apellidos:</label>
+    <input required #apellidos="ngModel" id="apellidos" type="text" [(ngModel)]="alumno.APELLIDOS" name="APELLIDOS">
+    <div [hidden]="apellidos.valid || apellidos.pristine">
+        Los apellidos son obligatorios
+    </div>
+    <br/>
+    <label for="sexo">Sexo:</label>
+    <select required #sexo="ngModel" id="sexo" required [(ngModel)]="alumno.SEXO" name="SEXO">
+        <option *ngFor="let sexo of sexos" [ngValue]="sexo.CODIGO">{{sexo.NOMBRE}}</option>
+    </select>
+    <div [hidden]="sexo.valid || sexo.pristine">
+        El sexo es obligatorio
+    </div>
+    <br/>
+    <label for="fecha">Fecha Nacimiento:</label>
+    <input required #fecha="ngModel" type="Date" required [(ngModel)]="alumno.FECHA_NACIMIENTO" name="FECHA_NACIMIENTO">
+    <div [hidden]="fecha.valid || fecha.pristine">
+        La fecha de nacimiento es obligatoria
+    </div>
+    <br/>
+    <label for="estciv">Estado Civil:</label>
+    <select required #estciv="ngModel" id="estCiv" required [(ngModel)]="alumno.ESTADO_CIVIL" name="ESTADO_CIVIL">
+        <option *ngFor="let estciv of estadosCiviles" [ngValue]="estciv.ID">{{estciv.NOMBRE}}</option>
+    </select>
+    <div [hidden]="estciv.valid || estciv.pristine">
+        El estado civil es obligatorio
+    </div>
+    <br/>
+    <br/>
+    <button type="submit" [disabled]="!alumnoForm.valid">{{accion}} alumno</button>
+    <button type="button" routerLink="/alumnos">Cancelar</button>
+</form>

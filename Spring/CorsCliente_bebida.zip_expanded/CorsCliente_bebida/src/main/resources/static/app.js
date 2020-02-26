@@ -5,7 +5,7 @@
 $(document).ready(function(){
 	
 	$.ajax({
-		url: 'http://localhost:8080/producto/',
+		url: 'http://172.26.2.41:8080/producto/',
 		type: 'GET',
 		success: function(data) {
 			var html = "";

@@ -1,0 +1,40 @@
+<ul>
+    <li routerLink="/">Inicio</li>
+    <li routerLink="/alumnos">Alumnos</li>
+    <li routerLink="/estadoCivil">Estados Civiles</li>
+</ul>
+<h1>LISTADO DE ALUMN@S</h1>
+<button routerLink="/anadirAlumno/-1">Añadir alumno</button>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDOS</th>
+            <th>SEXO</th>
+            <th>FECHA_NACIMIENTO</th>
+            <th>ESTADO_CIVIL</th>
+            <th>MOD</th>
+            <th>DEL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let alumno of listaAlumnos">
+            <td>{{alumno.ID}}</td>
+            <td>{{alumno.NOMBRE}}</td>
+            <td>{{alumno.APELLIDOS}}</td>
+            <td>{{alumno.SEXO_NOMBRE}}</td>
+            <td>{{alumno.FECHA_NACIMIENTO | date:"dd-MM-yyyy"}}</td>
+            <td>{{alumno.NOMBRE_EC}}</td>
+            <td><button routerLink="/anadirAlumno/{{alumno.ID}}" [disabled]="mostrar">MOD</button></td>
+            <td><button (click)="mostrarDiv(alumno)" [disabled]="mostrar">DEL</button></td>
+        </tr>
+    </tbody>
+    <tfoot *ngIf="listaAlumnos">
+        <th>Total: {{listaAlumnos.length}} alumnos</th>
+    </tfoot>
+</table>
+<div class="principal" *ngIf="mostrar">
+    <app-alumno-del [alumno]="alumno" (noMostrar)="cancelarDiv($event)"></app-alumno-del>
+</div>
+
