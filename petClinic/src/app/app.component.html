@@ -12,7 +12,7 @@
 		</button>
     <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio<span class="sr-only">(current)</span></a>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.owners.dropdown = !navBar.owners.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -24,9 +24,16 @@
             <a class="dropdown-item" routerLink="/owners-add/-1" routerLinkActive="active" (click)="navBar.owners.dropdown = !navBar.owners.dropdown">Añadir nuevo</a>
           </div>
         </li>
-
-        <a class="nav-item nav-link" routerLink="/vets" routerLinkActive="active">Veterinarios</a>
-
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.vets.dropdown = !navBar.vets.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Veterinarios
+						</a>
+          <div [ngbCollapse]="navBar.vets.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/vets" routerLinkActive="active" (click)="navBar.vets.dropdown = !navBar.vets.dropdown">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
+            <a class="dropdown-item" routerLink="/vets-add/-1" routerLinkActive="active" (click)="navBar.vets.dropdown = !navBar.vets.dropdown">Añadir nuevo</a>
+          </div>
+        </li>
       </div>
     </div>
   </nav>
