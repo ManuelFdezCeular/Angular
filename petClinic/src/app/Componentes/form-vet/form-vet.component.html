@@ -1,5 +1,5 @@
 <h3>{{accion}} veterinario</h3>
-<form class="form-horizontal" #vetFormm="ngForm" (ngSubmit)="anadirOModificarVeterinario(vetForm.value)">
+<form class="form-horizontal" #vetForm="ngForm" (ngSubmit)="anadirOModificarVeterinario(vetForm.value)">
     <div class="form-group">
         <label for="firstName">Nombre:</label>
         <input required #nombre="ngModel" type="text" class="form-control" required [(ngModel)]="veterinario.firstName" name="firstName">
@@ -14,9 +14,13 @@
             El apellido es obligatorio
         </div>
     </div>
-    <select #nombre="ngModel" id="tiposEspecialidades" required [(ngModel)]="veterinario.specialties" name="selectEspecialidades" class="browser-default custom-select mt-4">
+    
+    <select multiple #specialties="ngModel" id="tiposEspecialidades" required [(ngModel)]="veterinario.specialties" name="specialties" class="browser-default custom-select mt-4">
         <option *ngFor="let especialidad of especialidades" [ngValue]="especialidad" class="form-control">{{ especialidad.name }}</option>
     </select>
-    <button type="submit" class="btn btn-dark" [disabled]="!vetForm.valid">{{accion}} Veterinario</button>
+    
+    <button type="submit" class="btn btn-dark" [disabled]="!vetForm.valid">{{accion}} veterinario</button>
     <button type="button" routerLink="/vets" routerLinkActive="router-link-active" class="btn btn-dark">Cancelar</button>
+    
+
 </form>

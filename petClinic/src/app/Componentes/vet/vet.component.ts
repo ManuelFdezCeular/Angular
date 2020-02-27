@@ -29,4 +29,17 @@ export class VetComponent implements OnInit {
       this.router.navigate(['/vets']);
     })
   }
+
+  borrar(id:number){
+    console.log(id);
+    this.servicio.getVet(id).subscribe(resultado=>{
+      this.veterinario = resultado;
+      if(confirm('Quiere borrar al veterinario '+this.veterinario.firstName+' '+this.veterinario.lastName+'?')){
+        this.servicio.delVet(this.veterinario.id).subscribe(resultado=>{
+          console.log(resultado);
+          //this.veterinarios = resultado;
+        })
+      }
+    })
+  }
 }

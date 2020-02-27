@@ -15,6 +15,8 @@ import { FormVisitsComponent } from './Componentes/form-visits/form-visits.compo
 import { PetsComponent } from './Componentes/pets/pets.component';
 import { VisitsComponent } from './Componentes/visits/visits.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
+import { TiposMascotaComponent } from './componentes/tipos-mascota/tipos-mascota.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormVetComponent,
     FormVisitsComponent,
     PetsComponent,
-    VisitsComponent
+    VisitsComponent,
+    EspecialidadesComponent,
+    TiposMascotaComponent
   ],
   imports: [
     BrowserModule,

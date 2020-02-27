@@ -16,8 +16,21 @@ export const environment = {
         res = valor;
     });
     return res;
+  },
+
+  SeleccionaArrObj: function(lista:Array<Object>, listaSeleccionada:Array<Object>){
+    let res = new Array();
+    listaSeleccionada.forEach(element => {
+      lista.forEach(valor => {
+        if(environment.jsonEqual(valor, element))
+          res.push(valor);
+      });
+    });
+    return res;
   }
+
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -12,9 +12,9 @@ export class EspecialidadesService {
   constructor(private http:HttpClient) { }
 
   getEspecialidades(){
-    let especialidad = {
+    let especialidad = JSON.stringify({
       accion: "ListarSpecialties"
-    }
+    })
 
     return this.http.post<Especialidad[]>(this.urlAccion, especialidad);
   }
