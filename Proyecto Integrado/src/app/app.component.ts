@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ProyectoIntegrado';
+
+  public navBar = {
+    isNavbarCollapsed: true,
+    dropdown: true,
+    investigadores: {
+      dropdown: true
+    },
+    fenomenosParanormales: {
+      dropdown: true
+    }
+  }
 }
