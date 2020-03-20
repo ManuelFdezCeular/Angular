@@ -19,6 +19,7 @@ export class ModificarInvestigadorComponent implements OnInit {
     this.servicioDescripcionInvestigador.obtenerInvestigador(this.id).subscribe(resultado=>{
       console.log("resultado: ",resultado);
       this.investigador = resultado;
+      this.investigador.id = resultado.id;
     })
   }
 
