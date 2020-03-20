@@ -1,1 +1,50 @@
-<p>modificar-investigador works!</p>
+<div *ngIf="investigador!=undefined">
+    <form class="form-horizontal container" #investigadorForm="ngForm" (ngSubmit)="modificarInvestigador()">
+    <h3>Modificar Investigador</h3>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" required [(ngModel)]="investigador.nombre" name="nombre" #nombre="ngModel">
+            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" class="form-control" required [(ngModel)]="investigador.apellidos" name="apellidos" #apellidos="ngModel">
+            <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger">
+                Los apellidos son obligatorios
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">DNI:</label>
+            <input type="text" class="form-control" required [(ngModel)]="investigador.dni" name="dni" #dni="ngModel">
+            <div [hidden]="dni.valid || dni.pristine" class="alert alert-danger">
+                El dni es obligatorio
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Teléfono:</label>
+            <input type="text" class="form-control" required [(ngModel)]="investigador.telefono" name="telefono" #telefono="ngModel">
+            <div [hidden]="telefono.valid || telefono.pristine" class="alert alert-danger">
+                El teléfono es obligatorio
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Email:</label>
+            <input type="Email" class="form-control" required [(ngModel)]="investigador.email" name="email" #email="ngModel">
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                El email es obligatorio
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Residencia:</label>
+            <input type="text" class="form-control" required [(ngModel)]="investigador.residencia" name="residencia" #residencia="ngModel">
+            <div [hidden]="residencia.valid || residencia.pristine" class="alert alert-danger">
+                La residencia es obligatoria
+            </div>
+        </div>
+        <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Añadir</button>
+        <button routerLink="/investigadores/{{ id }}" class="btn btn-dark">Cancelar</button>
+    </form>
+</div>
+

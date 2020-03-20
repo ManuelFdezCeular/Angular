@@ -19,12 +19,10 @@
             </tr>
         </tbody>
     </table>
-    <button class="mt-2 btn btn-info">Añadir nuevo fenómeno</button>
+    <button class="mt-2 btn btn-info" routerLink="/anadir-fenomenoParanormal/{{ idInvestigador }}">Añadir nuevo fenómeno</button>
 </div>
 <div class="container mt-3" *ngIf="!mostrar">
     <p class="bg-dark text-light text-center">Aún no ha agregado ningún fenómeno paranormal. Anímese a compartir sus investigaciones con la comunidad!</p>
     <br/>
-    <button class="mt-2 btn btn-info" (click)="/anadir-fenomenoParanormal/{{ idInvestigador }}">Añadir nuevo fenómeno</button>
+    <button class="mt-2 btn btn-info" routerLink="/anadir-fenomenoParanormal/{{ idInvestigador }}">Añadir nuevo fenómeno</button>
 </div>
-
-
