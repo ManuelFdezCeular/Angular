@@ -1,0 +1,28 @@
+
+<div class="container">
+    <table class="table-bordered">
+        <legend class="bg-dark text-light text-center">Investigador: {{ investigador.nombre }} {{ investigador.apellidos }}</legend>
+        <div class="row">
+            <h5 class="col-4">DNI: </h5>
+            <p class="col-4">{{ investigador.dni }}
+        </div>
+        <div class="row">
+            <h5 class="col-4">Teléfono: </h5>
+            <p class="col-4">{{ investigador.telefono }}
+        </div>
+        <div class="row">
+            <h5 class="col-4">Email: </h5>
+            <p class="col-4">{{ investigador.email }}
+        </div>
+        <div class="row">
+            <h5 class="col-4">Residencia: </h5>
+            <p class="col-4">{{ investigador.residencia }}
+        </div>
+    </table>
+    <button class="mr-3 btn btn-dark" routerLink="/investigadores">Volver</button>
+    <button class="mr-3 btn btn-dark" routerLink="/modificar-investigador/{{ investigador.id }}">Modificar</button>
+    <button class="btn btn-dark" routerLink="/borrar-investigador/{{ investigador.id }}">Borrar</button>
+</div>
+<div *ngIf="investigador.id != undefined">
+    <app-listado-investigador-fen-par [idInvestigador]="investigador.id"></app-listado-investigador-fen-par>
+</div>

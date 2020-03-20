@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Investigador } from '../investigador';
+import { ListarInvestigadorService } from './listar-investigador.service';
 
 @Component({
   selector: 'app-listar-investigador',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarInvestigadorComponent implements OnInit {
 
-  constructor() { }
+  public investigadores:Investigador[];
+
+  constructor(private servicioListar:ListarInvestigadorService) { }
 
   ngOnInit() {
+    this.servicioListar.obtenerInvestigadores().subscribe(resultado=>{
+      this.investigadores = resultado;
+    })
   }
 
 }

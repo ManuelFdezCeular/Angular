@@ -5,17 +5,18 @@ import { Investigador } from '../investigador';
 @Injectable({
   providedIn: 'root'
 })
-export class ListarInvestigadorService {
+export class DescripcionInvestigadorService {
 
-  url="http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php";
+  url = "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php";
 
   constructor(private http:HttpClient) { }
 
-  obtenerInvestigadores(){
+  obtenerInvestigador(id:number){
     let objeto = JSON.stringify({
-      accion: "Investigadores"
+      accion: "Investigador",
+      id: id
     })
 
-    return this.http.post<Investigador[]>(this.url, objeto);
+    return this.http.post<Investigador>(this.url, objeto);
   }
 }

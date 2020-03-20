@@ -1,0 +1,30 @@
+<div class="container mt-3" *ngIf="mostrar">
+    <h4 class="bg-dark text-light text-center p-2">Fenomenos Paranormales Registrados</h4>
+    <table class="table table-hover">
+        <thead>
+            <tr scope="row">
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let fenomenoParanormal of fenPar">
+            <tr scope="row">
+                <td scope="col">{{ fenomenoParanormal.descripcion }}</td>
+                <td scope="col">{{ fenomenoParanormal.fechaOcurrencia }}</td>
+                <td scope="col">{{ fenomenoParanormal.lugarOcurrencia }}</td>
+                <td scope="col"><button class="btn btn-info mr-2">Archivar</button>
+                                <button class="btn btn-info">Actualizar</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="mt-2 btn btn-info">Añadir nuevo fenómeno</button>
+</div>
+<div class="container mt-3" *ngIf="!mostrar">
+    <p class="bg-dark text-light text-center">Aún no ha agregado ningún fenómeno paranormal. Anímese a compartir sus investigaciones con la comunidad!</p>
+    <br/>
+    <button class="mt-2 btn btn-info" (click)="/anadir-fenomenoParanormal/{{ idInvestigador }}">Añadir nuevo fenómeno</button>
+</div>
+
+

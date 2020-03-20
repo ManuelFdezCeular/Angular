@@ -9,7 +9,7 @@ header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');  //  Todo se devolverá en formato JSON.
 */
 
-require_once 'modelos.php';
+require_once 'MiModelo.php';
 $modelo = new Modelo();
 
 $datos = file_get_contents('php://input'); 

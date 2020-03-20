@@ -31,7 +31,7 @@ class Modelo {
 	public function ListarFenomenosParanormales(){
 		try {
 			$query = "Select descripcion, fechaOcurrencia, lugarOcurrencia from fenomenosparanormales";
-			$stm = $this-pdo->prepare($query);
+			$stm = $this->pdo->prepare($query);
 			$stm->execute();
 			return ($stm->fetchAll(PDO::FETCH_ASSOC));
 		}catch(Exception $e){
@@ -42,7 +42,7 @@ class Modelo {
 	public function ObtenerInvestigador($id){
 		try {
 			$query = "Select inv.id, inv.nombre, inv.apellidos, inv.residencia from investigadores inv join fenomenosparanormales fP on(inv.id = fP.investigador_id) where inv.id = ?";
-			$stm = $this-pdo->prepare($query);
+			$stm = $this->pdo->prepare($query);
 			$stm->execute();
 			return ($stm->fetchAll(PDO::FETCH_ASSOC));
 		}catch(Exception $e){
@@ -53,7 +53,7 @@ class Modelo {
 	public function ObtenerFenParInvestigador($id){
 		try {
 			$query = "Select fP.id, fP.descripcion, fP.fechaOcurrencia, fP.lugarOcurrencia from fenomenosparanormales fP join investigadores inv on(fP.investigador_id = inv.id) where fP.investigador_id = ?";
-			$stm = $this-pdo->prepare($query);
+			$stm = $this->pdo->prepare($query);
 			$stm->execute();
 			return ($stm->fetchAll(PDO::FETCH_ASSOC));
 		}catch(Exception $e){

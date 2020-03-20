@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Investigador } from '../investigador';
+import { FenomenoParanormal } from '../fenomeno-paranormal';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ListarInvestigadorService {
+export class ListadoInvestigadorFenParService {
 
   url="http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php";
 
   constructor(private http:HttpClient) { }
 
-  obtenerInvestigadores(){
+  listarFenParInvestigador(id:number){
     let objeto = JSON.stringify({
-      accion: "Investigadores"
+      accion: "FenParInvestigador",
+      id: id
     })
 
-    return this.http.post<Investigador[]>(this.url, objeto);
+    return this.http.post<FenomenoParanormal[]>(this.url, objeto);
   }
 }

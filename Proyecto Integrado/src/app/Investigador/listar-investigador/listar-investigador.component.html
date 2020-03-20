@@ -1,1 +1,25 @@
-<p>listar-investigador works!</p>
+<div class="container-fluid">
+    <h1 class="container">Listado de Investigadores</h1>
+    <table class="table">
+        <thead class="thead-danger">
+            <tr scope="row">
+                <th scope="col">Nombre</th>
+                <th scope="col">DNI</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Residencia</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let investigador of investigadores">
+                <td scope="col">
+                    <a routerLink="/investigador/{{ investigador.id }}">{{ investigador.nombre }} {{ investigador.apellidos }}</a>
+                </td>
+                <td scope="col">{{ investigador.dni }}</td>
+                <td scope="col">{{ investigador.telefono }}</td>
+                <td scope="col">{{ investigador.email }}</td>
+                <td scope="col">{{ investigador.residencia }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

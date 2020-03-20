@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Investigador } from '../investigador';
+import { AnadirInvestigadorService } from './anadir-investigador.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-anadir-investigador',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnadirInvestigadorComponent implements OnInit {
 
-  constructor() { }
+  public investigador:Investigador;
+
+  constructor(private servicioAnadirInvestigador:AnadirInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
+    this.investigador=<Investigador>{};
+  }
 
   ngOnInit() {
   }
 
+  anadirInvestigador(){
+    this.servicioAnadirInvestigador.anadir(this.investigador).subscribe(resultado=>{
+      this.router.navigate(["/investigadores"]);
+    })
+  }
 }

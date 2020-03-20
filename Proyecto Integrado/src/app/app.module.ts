@@ -15,6 +15,8 @@ import { InicioComponent } from './Inicio/inicio/inicio.component';
 //import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { DescripcionInvestigadorComponent } from './Investigador/descripcion-investigador/descripcion-investigador.component';
+import { ListadoInvestigadorFenParComponent } from './FenomenoParanormal/listado-investigador-fen-par/listado-investigador-fen-par.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormsModule } from '@angular/forms';
     AnadirInvestigadorComponent,
     ModificarInvestigadorComponent,
     BorrarInvestigadorComponent,
-    InicioComponent
+    InicioComponent,
+    DescripcionInvestigadorComponent,
+    ListadoInvestigadorFenParComponent
   ],
   imports: [
     BrowserModule,
