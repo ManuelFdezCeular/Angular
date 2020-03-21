@@ -1,1 +1,6 @@
-<p>borrar-investigador works!</p>
+<div *ngIf="investigador!=undefined">
+    <p><span>Desea eliminar al investigador {{investigador.nombre}} {{investigador.apellidos}}?</span></p>
+    <br/><br/>
+    <button (click)="borrarInvestigador()">Eliminar</button>
+    <button (click)="noMostrarDiv()">Cancelar</button>
+</div>

@@ -17,9 +17,7 @@ export class ModificarInvestigadorComponent implements OnInit {
 
   constructor(private servicioModificarServicio:ModificarInvestigadorService, private servicioDescripcionInvestigador:DescripcionInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
     this.servicioDescripcionInvestigador.obtenerInvestigador(this.id).subscribe(resultado=>{
-      console.log("resultado: ",resultado);
       this.investigador = resultado;
-      this.investigador.id = resultado.id;
     })
   }
 
@@ -27,9 +25,8 @@ export class ModificarInvestigadorComponent implements OnInit {
   }
 
   modificarInvestigador(){
-    console.log("investigador modificado:", this.investigador)
     this.servicioModificarServicio.modificar(this.investigador).subscribe(resultado=>{
-      this.router.navigate(["/investigadores"]);
+      this.router.navigate(["/investigador/"+this.id]);
     })
   }
 

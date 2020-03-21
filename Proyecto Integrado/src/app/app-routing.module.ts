@@ -36,10 +36,6 @@ const routes: Routes = [
     component: ModificarInvestigadorComponent
   },
   {
-    path: "borrar-investigador/:id",
-    component: BorrarInvestigadorComponent
-  },
-  {
     path: "anadir-fenomenoParanormal/:idInvestigador",
     component: AnadirFenomenoParanormalComponent
   }

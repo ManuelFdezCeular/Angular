@@ -19,10 +19,13 @@
             <p class="col-4">{{ investigador.residencia }}
         </div>
     </table>
-    <button class="mr-3 btn btn-dark" routerLink="/investigadores">Volver</button>
-    <button class="mr-3 btn btn-dark" routerLink="/modificar-investigador/{{ investigador.id }}">Modificar</button>
-    <button class="btn btn-dark" routerLink="/borrar-investigador/{{ investigador.id }}">Borrar</button>
+    <button class="mr-3 btn btn-dark" routerLink="/investigadores" [disabled]="mostrar">Volver</button>
+    <button class="mr-3 btn btn-dark" routerLink="/modificar-investigador/{{ investigador.id }}" [disabled]="mostrar">Modificar</button>
+    <button class="btn btn-dark" (click)="mostrarDiv(investigador)" [disabled]="mostrar">Borrar</button>
 </div>
 <div *ngIf="investigador.id != undefined">
     <app-listado-investigador-fen-par [idInvestigador]="investigador.id"></app-listado-investigador-fen-par>
+</div>
+<div class="principal" *ngIf="mostrar">
+    <app-borrar-investigador [investigador]="investigador" (noMostrar)="cancelarDiv($event)"></app-borrar-investigador>
 </div>

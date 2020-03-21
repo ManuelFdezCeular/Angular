@@ -10,7 +10,8 @@ import { Investigador } from '../investigador';
 })
 export class DescripcionInvestigadorComponent implements OnInit {
 
-  public investigador:Investigador
+  public investigador:Investigador;
+  public mostrar:boolean = false;
 
   constructor(private servicioDescripcionInvestigador:DescripcionInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
     this.investigador = <Investigador>{};
@@ -22,5 +23,15 @@ export class DescripcionInvestigadorComponent implements OnInit {
       console.log(resultado);
       this.investigador = resultado;
     })
+  }
+
+  mostrarDiv(investigadorABorrar:Investigador){
+    this.investigador = investigadorABorrar;
+    console.log("investigador a borrar",this.investigador);
+    this.mostrar = true;
+  }
+
+  cancelarDiv(event){
+    this.mostrar = false;
   }
 }

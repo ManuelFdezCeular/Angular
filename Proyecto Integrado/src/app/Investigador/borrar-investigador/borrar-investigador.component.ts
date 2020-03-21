@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Investigador } from '../investigador';
+import { BorrarInvestigadorService } from './borrar-investigador.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-borrar-investigador',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorrarInvestigadorComponent implements OnInit {
 
-  constructor() { }
+  @Input() investigador:Investigador;
+
+  @Output() noMostrar = new EventEmitter();
+
+  constructor(private servicioBorrar:BorrarInvestigadorService, private router:Router, private ruta:ActivatedRoute) {}
 
   ngOnInit() {
   }
 
+  borrarInvestigador(){
+    this.servicioBorrar.borrarInvestigador(this.investigador.id).subscribe(resultado=>{
+      this.noMostrar.emit(resultado);
+      this.router.navigate(["/investigadores"]);
+    })
+  }
+
+  noMostrarDiv(){
+    this.noMostrar.emit(null);
+  }
 }
