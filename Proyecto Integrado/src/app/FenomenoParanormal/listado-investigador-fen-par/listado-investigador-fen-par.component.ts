@@ -18,7 +18,6 @@ export class ListadoInvestigadorFenParComponent implements OnInit {
 
   ngOnInit(){
     this.servicioListadoFenParInvestigador.listarFenParInvestigador(this.idInvestigador).subscribe(resultado=>{
-      console.log(resultado);
       this.fenPar = resultado;
       if(this.fenPar.length>0)
         this.mostrar = true;

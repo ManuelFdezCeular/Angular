@@ -1,10 +1,11 @@
 export class FenomenoParanormal {
 
     id:number;
-    id_investigador:number;
+    investigador_id:number;
     descripcion:string;
-    fecha:Date;
-    lugar:string;
-    provincia:string;
-    comunidad:string;
+    fechaOcurrencia:Date;
+    lugarOcurrencia:string;
+    provinciaOcurrencia:string;
+    comunidadAutonoma:string;
+    estado_id:number;
 }

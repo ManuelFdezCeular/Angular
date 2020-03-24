@@ -1,1 +1,51 @@
-<p>anadir-fenomeno-paranormal works!</p>
+<form class="form-horizontal container" #fenParForm="ngForm" (ngSubmit)="anadirFenomenoParanormal()">
+<h3>Añadir Fenómeno Paranormal</h3>
+    <div class="form-group" *ngIf="investigador!=undefined">
+        <label for="nombre">Investigador:</label>
+        <input type="text" class="form-control" value="{{ investigador.nombre }} {{ investigador.apellidos }}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripción:</label>
+        <input type="text" class="form-control" required [(ngModel)]="fenPar.descripcion" name="descripcion" #descripcion="ngModel">
+        <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">
+            La descripcion es obligatoria
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Fecha">Fecha:</label>
+        <input type="date" class="form-control" required [(ngModel)]="fenPar.fechaOcurrencia" name="fechaOcurrencia" #fechaOcurrencia="ngModel">
+        <div [hidden]="fechaOcurrencia.valid || fechaOcurrencia.pristine" class="alert alert-danger">
+            La fecha es obligatoria
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Lugar">Lugar:</label>
+        <input type="text" class="form-control" required [(ngModel)]="fenPar.lugarOcurrencia" name="lugarOcurrencia" #lugarOcurrencia="ngModel">
+        <div [hidden]="lugarOcurrencia.valid || lugarOcurrencia.pristine" class="alert alert-danger">
+            El lugar es obligatorio
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Provincia">Provincia:</label>
+        <input type="text" class="form-control" required [(ngModel)]="fenPar.provinciaOcurrencia" name="provinciaOcurrencia" #provinciaOcurrencia="ngModel">
+        <div [hidden]="provinciaOcurrencia.valid || provinciaOcurrencia.pristine" class="alert alert-danger">
+            La provincia es obligatorio
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comunidad">Comunidad Autónoma:</label>
+        <input type="text" class="form-control" required [(ngModel)]="fenPar.comunidadAutonoma" name="comunidadAutomona" #comunidadAutomona="ngModel">
+        <div [hidden]="comunidadAutomona.valid || comunidadAutomona.pristine" class="alert alert-danger">
+            La comunidad autónoma es obligatoria
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nombre">Estados:</label>
+        <select #estado="ngModel" required [(ngModel)]="fenPar.estado_id" name="estado" class="browser-default custom-select mt-4">
+            <option *ngFor="let estado of estados" [ngValue]="estado.id" class="form-control">{{ estado.nombreEstado }}</option>
+        </select>
+    </div>
+    <button type="submit" [disabled]="!fenParForm.valid" class="btn btn-dark">Añadir</button>
+    <button routerLink="/investigador/{{ idInvestigador }}" class="btn btn-dark">Cancelar</button>
+</form>
+

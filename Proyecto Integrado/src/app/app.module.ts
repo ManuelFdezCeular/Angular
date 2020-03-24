@@ -17,6 +17,12 @@ import { DescripcionInvestigadorComponent } from './Investigador/descripcion-inv
 import { ListadoInvestigadorFenParComponent } from './FenomenoParanormal/listado-investigador-fen-par/listado-investigador-fen-par.component';
 import { ListadoFenomenosParanormalesComponent } from './FenomenoParanormal/listado-fenomenos-paranormales/listado-fenomenos-paranormales.component';
 import { ArchivarFenomenoParanormalComponent } from './fenomenoParanormal/archivar-fenomeno-paranormal/archivar-fenomeno-paranormal.component';
+import { ListarEstadosComponent } from './Estado/listar-estados/listar-estados.component';
+import { AnadirEstadoComponent } from './Estado/anadir-estado/anadir-estado.component';
+import { ModificarEstadoComponent } from './Estado/modificar-estado/modificar-estado.component';
+import { BorrarEstadoComponent } from './Estado/borrar-estado/borrar-estado.component';
+import { ListarArchivoComponent } from './Archivo/listar-archivo/listar-archivo.component';
+import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { ArchivarFenomenoParanormalComponent } from './fenomenoParanormal/archiv
     DescripcionInvestigadorComponent,
     ListadoInvestigadorFenParComponent,
     ListadoFenomenosParanormalesComponent,
-    ArchivarFenomenoParanormalComponent
+    ArchivarFenomenoParanormalComponent,
+    ListarEstadosComponent,
+    AnadirEstadoComponent,
+    ModificarEstadoComponent,
+    BorrarEstadoComponent,
+    ListarArchivoComponent,
+    BorrarArchivoComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { AnadirInvestigadorComponent } from './Investigador/anadir-investigador/
 import { AnadirFenomenoParanormalComponent } from './FenomenoParanormal/anadir-fenomeno-paranormal/anadir-fenomeno-paranormal.component';
 import { ModificarInvestigadorComponent } from './Investigador/modificar-investigador/modificar-investigador.component';
 import { BorrarInvestigadorComponent } from './Investigador/borrar-investigador/borrar-investigador.component';
+import { ModificarFenomenoParanormalComponent } from './FenomenoParanormal/modificar-fenomeno-paranormal/modificar-fenomeno-paranormal.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,10 @@ const routes: Routes = [
   {
     path: "anadir-fenomenoParanormal/:idInvestigador",
     component: AnadirFenomenoParanormalComponent
+  },
+  {
+    path: "modificar-fenomenoParanormal/:idFenPar/:idInvestigador",
+    component: ModificarFenomenoParanormalComponent
   }
 ];
 
