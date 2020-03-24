@@ -14,8 +14,8 @@
                 <td scope="col">{{ fenomenoParanormal.descripcion }}</td>
                 <td scope="col">{{ fenomenoParanormal.fechaOcurrencia }}</td>
                 <td scope="col">{{ fenomenoParanormal.lugarOcurrencia }}</td>
-                <td scope="col"><button class="btn btn-info mr-2">Archivar</button>
-                                <button class="btn btn-info">Actualizar</button></td>
+                <td scope="col"><button class="btn btn-info mr-2" routerLink="/archivar-fenomenoParanormal/{{ fenomenoParanormal.id }}">Archivar</button>
+                                <button class="btn btn-info" routerLink="/modificar-fenomenoParanormal/{{ fenomenoParanormal.id }}">Actualizar</button></td>
             </tr>
         </tbody>
     </table>

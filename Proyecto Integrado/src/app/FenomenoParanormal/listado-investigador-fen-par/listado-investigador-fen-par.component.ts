@@ -17,7 +17,6 @@ export class ListadoInvestigadorFenParComponent implements OnInit {
   constructor(private servicioListadoFenParInvestigador:ListadoInvestigadorFenParService, private router:Router, private ruta:ActivatedRoute) { }
 
   ngOnInit(){
-    console.log("id que paso: ", this.idInvestigador);
     this.servicioListadoFenParInvestigador.listarFenParInvestigador(this.idInvestigador).subscribe(resultado=>{
       console.log(resultado);
       this.fenPar = resultado;

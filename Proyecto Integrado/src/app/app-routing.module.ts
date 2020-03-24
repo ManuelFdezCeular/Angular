@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InicioComponent } from './Inicio/inicio/inicio.component';
 import { ListarInvestigadorComponent } from './Investigador/listar-investigador/listar-investigador.component';
-import { ListadoFenomenoParanormalComponent } from './FenomenoParanormal/listado-fenomeno-paranormal/listado-fenomeno-paranormal.component';
 import { DescripcionInvestigadorComponent } from './Investigador/descripcion-investigador/descripcion-investigador.component';
 import { AnadirInvestigadorComponent } from './Investigador/anadir-investigador/anadir-investigador.component';
 import { AnadirFenomenoParanormalComponent } from './FenomenoParanormal/anadir-fenomeno-paranormal/anadir-fenomeno-paranormal.component';
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: "investigadores",
     component: ListarInvestigadorComponent
-  },
-  {
-    path: "fenomenosParanormales",
-    component: ListadoFenomenoParanormalComponent
   },
   {
     path: "investigador/:id",

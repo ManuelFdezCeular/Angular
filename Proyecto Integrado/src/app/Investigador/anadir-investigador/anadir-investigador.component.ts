@@ -20,6 +20,7 @@ export class AnadirInvestigadorComponent implements OnInit {
   }
 
   anadirInvestigador(){
+    console.log('investigador:', this.investigador);
     this.servicioAnadirInvestigador.anadir(this.investigador).subscribe(resultado=>{
       this.router.navigate(["/investigadores"]);
     })

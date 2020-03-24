@@ -27,7 +27,6 @@ export class DescripcionInvestigadorComponent implements OnInit {
 
   mostrarDiv(investigadorABorrar:Investigador){
     this.investigador = investigadorABorrar;
-    console.log("investigador a borrar",this.investigador);
     this.mostrar = true;
   }
 

@@ -1,0 +1,21 @@
+<h3>Fenomenos Paranormales Registrados</h3>
+<table class="table">
+        <thead class="thead-danger">
+            <tr scope="row">
+                <th scope="col">Descripción</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Provincia</th>
+                <th scope="col">Comunidad Autónoma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let fenPar of fenomenosParanormales">
+                <td scope="col">{{ fenPar.descripcion }}</td>
+                <td scope="col">{{ fenPar.fechaOcurrencia }}</td>
+                <td scope="col">{{ fenPar.lugarOcurrencia }}</td>
+                <td scope="col">{{ fenPar.provinciaOcurrencia }}</td>
+                <td scope="col">{{ fenPar.comunidadAutonoma }}</td>
+            </tr>
+        </tbody>
+    </table>
