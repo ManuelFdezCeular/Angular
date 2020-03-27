@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Archivo } from '../archivo';
+import { BorrarArchivoService } from './borrar-archivo.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-borrar-archivo',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorrarArchivoComponent implements OnInit {
 
-  constructor() { }
+  @Input() archivo:Archivo;
 
-  ngOnInit(): void {
+  @Output() noMostrar = new EventEmitter();
+
+  constructor(private servicioBorrar:BorrarArchivoService, private router:Router, private ruta:ActivatedRoute) {}
+
+  ngOnInit() {
+  }
+
+  borrarArchivo(){
+    this.servicioBorrar.borrar(this.archivo.id).subscribe(resultado=>{
+      this.noMostrar.emit(resultado);
+    })
+  }
+
+  noMostrarDiv(){
+    this.noMostrar.emit(null);
   }
 
 }

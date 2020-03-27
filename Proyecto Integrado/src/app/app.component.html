@@ -18,6 +18,15 @@
             <a class="dropdown-item" routerLink="/anadir-investigador" routerLinkActive="active" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown">Añadir nuevo</a>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							Fenómenos Archivados
+						</a>
+          <div [ngbCollapse]="navBar.archivos.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" routerLink="/listar-archivos" routerLinkActive="active" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
+          </div>
+        </li>
       </div>
     </div>
   </nav>

@@ -1,1 +1,30 @@
-
+<form class="form-horizontal container" #archivoForm="ngForm" (ngSubmit)="archivarFenomenoParanormal()" *ngIf="fenPar!=undefined">
+<h3>Archivar Fenómeno Paranormal</h3>
+    <div class="form-group">
+        <label for="nombre">Fenomeno Paranormal:</label>
+        <input type="text" class="form-control" value="{{ fenPar.descripcion }}, {{ fenPar.fechaOcurrencia }}, {{ fenPar.lugarOcurrencia }}" readonly>
+    </div>
+    <div class="form-group">
+        <label for="Explicacion">Explicación:</label>
+        <input type="text" class="form-control" required [(ngModel)]="archivo.explicacion" name="explicacion" #explicacion="ngModel">
+        <div [hidden]="explicacion.valid || explicacion.pristine" class="alert alert-danger">
+            La explicacion es obligatoria
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Fecha">Fecha:</label>
+        <input type="date" class="form-control" required [(ngModel)]="archivo.fechaArchivo" name="fechaArchivo" #fechaArchivo="ngModel">
+        <div [hidden]="fechaArchivo.valid || fechaArchivo.pristine" class="alert alert-danger">
+            La fecha es obligatoria
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Lugar">Lugar:</label>
+        <input type="text" class="form-control" required [(ngModel)]="archivo.lugarArchivo" name="lugarArchivo" #lugarArchivo="ngModel">
+        <div [hidden]="lugarArchivo.valid || lugarArchivo.pristine" class="alert alert-danger">
+            El lugar es obligatorio
+        </div>
+    </div>
+    <button type="submit" [disabled]="!archivoForm.valid" class="btn btn-dark">Archivar</button>
+    <button routerLink="/investigador/{{ fenPar.investigador_id }}" class="btn btn-dark">Cancelar</button>
+</form>

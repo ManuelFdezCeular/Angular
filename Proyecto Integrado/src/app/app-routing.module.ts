@@ -6,8 +6,10 @@ import { DescripcionInvestigadorComponent } from './Investigador/descripcion-inv
 import { AnadirInvestigadorComponent } from './Investigador/anadir-investigador/anadir-investigador.component';
 import { AnadirFenomenoParanormalComponent } from './FenomenoParanormal/anadir-fenomeno-paranormal/anadir-fenomeno-paranormal.component';
 import { ModificarInvestigadorComponent } from './Investigador/modificar-investigador/modificar-investigador.component';
-import { BorrarInvestigadorComponent } from './Investigador/borrar-investigador/borrar-investigador.component';
 import { ModificarFenomenoParanormalComponent } from './FenomenoParanormal/modificar-fenomeno-paranormal/modificar-fenomeno-paranormal.component';
+import { ArchivarFenomenoParanormalComponent } from './fenomenoParanormal/archivar-fenomeno-paranormal/archivar-fenomeno-paranormal.component';
+import { LoginComponent } from './login/login.component';
+import { ListarArchivoComponent } from './Archivo/listar-archivo/listar-archivo.component';
 
 
 const routes: Routes = [
@@ -38,6 +40,18 @@ const routes: Routes = [
   {
     path: "modificar-fenomenoParanormal/:idFenPar/:idInvestigador",
     component: ModificarFenomenoParanormalComponent
+  },
+  {
+    path: "archivar-fenomenoParanormal/:idFenPar",
+    component: ArchivarFenomenoParanormalComponent
+  },
+  {
+    path: "listar-archivos",
+    component: ListarArchivoComponent
+  },
+  {
+    path: "login",
+    component: LoginComponent
   }
 ];
 

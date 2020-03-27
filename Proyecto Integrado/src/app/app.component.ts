@@ -14,7 +14,7 @@ export class AppComponent {
     investigadores: {
       dropdown: true
     },
-    fenomenosParanormales: {
+    archivos: {
       dropdown: true
     }
   }

@@ -10,7 +10,6 @@ import { AnadirInvestigadorComponent } from './Investigador/anadir-investigador/
 import { ModificarInvestigadorComponent } from './Investigador/modificar-investigador/modificar-investigador.component';
 import { BorrarInvestigadorComponent } from './Investigador/borrar-investigador/borrar-investigador.component';
 import { InicioComponent } from './Inicio/inicio/inicio.component';
-//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { DescripcionInvestigadorComponent } from './Investigador/descripcion-investigador/descripcion-investigador.component';
@@ -22,6 +21,7 @@ import { AnadirEstadoComponent } from './Estado/anadir-estado/anadir-estado.comp
 import { ModificarEstadoComponent } from './Estado/modificar-estado/modificar-estado.component';
 import { BorrarEstadoComponent } from './Estado/borrar-estado/borrar-estado.component';
 import { ListarArchivoComponent } from './Archivo/listar-archivo/listar-archivo.component';
+import { LoginComponent } from './login/login.component';
 import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.component';
 
 @NgModule({
@@ -43,6 +43,7 @@ import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.
     ModificarEstadoComponent,
     BorrarEstadoComponent,
     ListarArchivoComponent,
+    LoginComponent,
     BorrarArchivoComponent
   ],
   imports: [
@@ -50,7 +51,6 @@ import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    //NgbModule
     NgbModule
   ],
   providers: [],

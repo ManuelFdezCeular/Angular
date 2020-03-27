@@ -1,1 +1,26 @@
-<p>listar-archivo works!</p>
+<div class="container-fluid">
+    <h1 class="container">Archivo de Fenómenos Paranormales</h1>
+    <table class="table">
+        <thead class="thead-danger">
+            <tr scope="row">
+                <th scope="col">Nombre</th>
+                <th scope="col">Explicación del fenómeno paranormal</th>
+                <th scope="col">Fecha de Archivo</th>
+                <th scope="col">Lugar</th>
+                <th scope="col">Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let archivo of archivos">
+                <td scope="col">{{ archivo.nombre }} {{ archivo.apellidos }}</td>
+                <td scope="col">{{ archivo.explicacion }}</td>
+                <td scope="col">{{ archivo.fechaArchivo }}</td>
+                <td scope="col">{{ archivo.lugarArchivo }}</td>
+                <td scope="col"><button (click)="mostrarDiv(archivo)">Borrar definitivamente</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="principal" *ngIf="mostrar">
+    <app-borrar-archivo [archivo]="archivo" (noMostrar)="cancelarDiv($event)"></app-borrar-archivo>
+</div>
