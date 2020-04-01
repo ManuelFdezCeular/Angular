@@ -1,5 +1,5 @@
 <form class="form-horizontal container" #investigadorForm="ngForm" (ngSubmit)="anadirInvestigador()">
-<h3>Añadir Investigador</h3>
+<h3>Registro</h3>
     <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" class="form-control" required [(ngModel)]="investigador.nombre" name="nombre" #nombre="ngModel">
@@ -56,6 +56,6 @@
             La residencia es obligatoria
         </div>
     </div>
-    <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Añadir</button>
+    <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Registrarse</button>
     <button routerLink="/investigadores" class="btn btn-dark">Cancelar</button>
 </form>

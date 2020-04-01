@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS investigadores (
   id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(30),
   apellidos VARCHAR(30),
-  clave VARCHAR(60),
+  clave VARCHAR(100),
   dni VARCHAR(10),
   telefono VARCHAR(15),
   email VARCHAR(40),

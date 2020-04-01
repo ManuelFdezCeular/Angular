@@ -1,24 +1,30 @@
 <h1>Consulta de Fenómenos Paranormales</h1>
+<h3 *ngIf="navBar.login">Bienvenido {{ navBar.usuario }}</h3>
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="#">PetClinic</a>
+    <a class="navbar-brand" href="#">Fenómenos Paranormales</a>
     <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+    <a *ngIf="!navBar.login" class="nav-item nav-link" routerLink="/login" routerLinkActive="active">LOGIN</a>
+
+    <a *ngIf="navBar.login" class="nav-item nav-link" (click)="cerrarLogin()" style="cursor: pointer;" routerLinkActive="active">LOGOUT</a>
+    
     <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
+    
+      <div  class="navbar-nav">
         <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio<span class="sr-only">(current)</span></a>
 
-        <li class="nav-item dropdown">
+        <li *ngIf="navBar.login" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Investigadores
-						</a>
+					</a>
           <div [ngbCollapse]="navBar.investigadores.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" routerLink="/investigadores" routerLinkActive="active" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown">
 								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
             <a class="dropdown-item" routerLink="/anadir-investigador" routerLinkActive="active" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown">Añadir nuevo</a>
           </div>
         </li>
-        <li class="nav-item dropdown">
+        <li *ngIf="navBar.login" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							Fenómenos Archivados
 						</a>

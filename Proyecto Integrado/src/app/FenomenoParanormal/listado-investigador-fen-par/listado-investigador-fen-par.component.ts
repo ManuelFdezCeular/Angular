@@ -11,6 +11,7 @@ import { FenomenoParanormal } from '../fenomeno-paranormal';
 export class ListadoInvestigadorFenParComponent implements OnInit {
 
   @Input() idInvestigador:number;
+  @Input() mostrarOpciones:boolean;
   public fenPar:FenomenoParanormal[];
   public mostrar:boolean;
 

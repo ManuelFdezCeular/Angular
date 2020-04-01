@@ -7,7 +7,7 @@
                 <th scope="col">Fecha</th>
                 <th scope="col">Lugar</th>
                 <th scope="col">Estado de investigación</th>
-                <th scope="col">Acciones</th>
+                <th scope="col" *ngIf="mostrarOpciones">Acciones</th>
             </tr>
         </thead>
         <tbody *ngFor="let fenomenoParanormal of fenPar">
@@ -16,7 +16,7 @@
                 <td scope="col">{{ fenomenoParanormal.fechaOcurrencia }}</td>
                 <td scope="col">{{ fenomenoParanormal.lugarOcurrencia }}</td>
                 <td scope="col">{{ fenomenoParanormal.nombreEstado }}</td>
-                <td scope="col"><button class="btn btn-info mr-2" routerLink="/archivar-fenomenoParanormal/{{ fenomenoParanormal.id }}">Archivar</button>
+                <td scope="col" *ngIf="mostrarOpciones"><button class="btn btn-info mr-2" routerLink="/archivar-fenomenoParanormal/{{ fenomenoParanormal.id }}">Archivar</button>
                                 <button class="btn btn-info" routerLink="/modificar-fenomenoParanormal/{{ fenomenoParanormal.id }}/{{ idInvestigador }}">Actualizar</button></td>
             </tr>
         </tbody>
@@ -25,6 +25,6 @@
 <div class="container mt-3" *ngIf="!mostrar">
     <p class="bg-dark text-light text-center">Aún no ha agregado ningún fenómeno paranormal. Anímese a compartir sus investigaciones con la comunidad!</p>
 </div>
-<div class="container mt-3">
+<div class="container mt-3" *ngIf="mostrarOpciones">
     <button class="mt-2 btn btn-info" routerLink="/anadir-fenomenoParanormal/{{ idInvestigador }}">Añadir nuevo fenómeno</button>
 </div>
