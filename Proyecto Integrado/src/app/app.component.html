@@ -15,14 +15,9 @@
         <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio<span class="sr-only">(current)</span></a>
 
         <li *ngIf="navBar.login" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/investigadores" routerLinkActive="active" id="navbarDropdownMenuLink"aria-haspopup="true" aria-expanded="false">
 							Investigadores
 					</a>
-          <div [ngbCollapse]="navBar.investigadores.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="/investigadores" routerLinkActive="active" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
-            <a class="dropdown-item" routerLink="/anadir-investigador" routerLinkActive="active" (click)="navBar.investigadores.dropdown = !navBar.investigadores.dropdown">Añadir nuevo</a>
-          </div>
         </li>
         <li *ngIf="navBar.login" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

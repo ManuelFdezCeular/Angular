@@ -1,9 +1,9 @@
 USE redFenomenosParanormales;
 
-INSERT IGNORE INTO investigadores VALUES (1, 'Federico', 'Fernández López', '79a4ab4af9f82358353d668a46f6f9aa', '56729832U', '899134333', 'FedFerLop@gmail.com', 'Huesca');
-INSERT IGNORE INTO investigadores VALUES (2, 'María', 'Rueda Perea', '79a4ab4af9f82358353d668a46f6f9aa', '67123231H', '812367222', 'MarRuePer@gmail.com', 'Madrid');
-INSERT IGNORE INTO investigadores VALUES (3, 'Yolanda', 'Silva Romero', '79a4ab4af9f82358353d668a46f6f9aa', '45628909B', '678111021', 'YolSilRom@gmail.com', 'Bilbao');
-INSERT IGNORE INTO investigadores VALUES (4, 'Rodrigo', 'Zambrano Rodriguez', '79a4ab4af9f82358353d668a46f6f9aa', '43210987D', '998765123', 'RodZamRod@gmail.com', 'Barcelona');
+INSERT IGNORE INTO investigadores VALUES (1, 'Federico', 'Fernández López', 'hVYYxR4xKYt4CHH+l+UqvUMaLrtiAnRKI8z2bSudtvEJzbwh9oxqW+h63UEz4y/442aZp5euIzxxVmwlw7KI0w==', '56729832U', '899134333', 'FedFerLop@gmail.com', 'Huesca');
+INSERT IGNORE INTO investigadores VALUES (2, 'María', 'Rueda Perea', 'hVYYxR4xKYt4CHH+l+UqvUMaLrtiAnRKI8z2bSudtvEJzbwh9oxqW+h63UEz4y/442aZp5euIzxxVmwlw7KI0w==', '67123231H', '812367222', 'MarRuePer@gmail.com', 'Madrid');
+INSERT IGNORE INTO investigadores VALUES (3, 'Yolanda', 'Silva Romero', 'hVYYxR4xKYt4CHH+l+UqvUMaLrtiAnRKI8z2bSudtvEJzbwh9oxqW+h63UEz4y/442aZp5euIzxxVmwlw7KI0w==', '45628909B', '678111021', 'YolSilRom@gmail.com', 'Bilbao');
+INSERT IGNORE INTO investigadores VALUES (4, 'Rodrigo', 'Zambrano Rodriguez', 'hVYYxR4xKYt4CHH+l+UqvUMaLrtiAnRKI8z2bSudtvEJzbwh9oxqW+h63UEz4y/442aZp5euIzxxVmwlw7KI0w==', '43210987D', '998765123', 'RodZamRod@gmail.com', 'Barcelona');
 
 INSERT IGNORE INTO estados VALUES (1, 'En investigación');
 INSERT IGNORE INTO estados VALUES (2, 'Demostrado');

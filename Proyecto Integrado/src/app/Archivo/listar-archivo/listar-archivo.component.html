@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="idUsuario!=null">
     <h1 class="container">Archivo de Fenómenos Paranormales</h1>
     <table class="table">
         <thead class="thead-danger">
@@ -16,7 +16,7 @@
                 <td scope="col">{{ archivo.explicacion }}</td>
                 <td scope="col">{{ archivo.fechaArchivo }}</td>
                 <td scope="col">{{ archivo.lugarArchivo }}</td>
-                <td scope="col"><button (click)="mostrarDiv(archivo)">Borrar definitivamente</button>
+                <td scope="col"><button (click)="mostrarDiv(archivo)" class="btn btn-dark text-light" *ngIf="archivo.investigador_id == idUsuario">Borrar definitivamente</button>
             </tr>
         </tbody>
     </table>

@@ -1,0 +1,11 @@
+* {
+    margin: 0 auto;
+    text-align: center;
+    width: 70%;
+}
+
+button,
+a {
+    width: 50%;
+    margin-top: 10px;
+}

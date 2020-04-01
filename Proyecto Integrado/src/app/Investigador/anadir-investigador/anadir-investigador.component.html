@@ -2,60 +2,66 @@
 <h3>Registro</h3>
     <div class="form-group">
         <label for="nombre">Nombre:</label>
-        <input type="text" class="form-control" required [(ngModel)]="investigador.nombre" name="nombre" #nombre="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="registro.nombre" name="nombre" #nombre="ngModel">
         <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
             El nombre es obligatorio
         </div>
     </div>
     <div class="form-group">
         <label for="apellidos">Apellidos:</label>
-        <input type="text" class="form-control" required [(ngModel)]="investigador.apellidos" name="apellidos" #apellidos="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="registro.apellidos" name="apellidos" #apellidos="ngModel">
         <div [hidden]="apellidos.valid || apellidos.pristine" class="alert alert-danger">
             Los apellidos son obligatorios
         </div>
     </div>
     <div class="form-group">
         <label for="clave">Clave:</label>
-        <input type="password" class="form-control" required [(ngModel)]="investigador.clave" name="clave" #clave="ngModel">
+        <input type="password" class="form-control" required [(ngModel)]="registro.clave" name="clave" #clave="ngModel" minlength="5">
         <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
             La contraseña es obligatoria
         </div>
     </div>
-    <!--<div class="form-group">
-        <label for="clave2">Repetir clave:</label>
-        <input type="password" class="form-control" required name="clave2">
-        <div [hidden]="clave2.valid || clave2.pristine" class="alert alert-danger">
-            Repita la contraseña
+    <div class="form-group">
+        <label>Repetir clave: </label>
+        <input type="password" class="form-control" required [(ngModel)]="registro.clave2" name="clave2" #clave2="ngModel" minlength="5">
+        <div [hidden]="clave.value == clave2.value" class="alert alert-danger">
+            Las claves deben ser iguales
         </div>
-    </div>-->
+    </div>
     <div class="form-group">
         <label for="dni">DNI:</label>
-        <input type="text" class="form-control" required [(ngModel)]="investigador.dni" name="dni" #dni="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="registro.dni" name="dni" #dni="ngModel">
         <div [hidden]="dni.valid || dni.pristine" class="alert alert-danger">
             El dni es obligatorio
         </div>
     </div>
     <div class="form-group">
         <label for="telefono">Teléfono:</label>
-        <input type="text" class="form-control" required [(ngModel)]="investigador.telefono" name="telefono" #telefono="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="registro.telefono" name="telefono" #telefono="ngModel">
         <div [hidden]="telefono.valid || telefono.pristine" class="alert alert-danger">
             El teléfono es obligatorio
         </div>
     </div>
     <div class="form-group">
         <label for="email">Email:</label>
-        <input type="Email" class="form-control" required [(ngModel)]="investigador.email" name="email" #email="ngModel">
+        <input type="Email" class="form-control" required [(ngModel)]="registro.email" name="email" #email="ngModel" (blur)="checkEmail(email.value)">
         <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
             El email es obligatorio
+        </div>
+        <div [hidden]="!checkCorreo" class="alert alert-info">
+            Comprobando correo ...
+        </div>
+        <div [hidden]="correoCorrecto" class="alert alert-danger">
+            Ese correo está en uso
         </div>
     </div>
     <div class="form-group">
         <label for="residencia">Residencia:</label>
-        <input type="text" class="form-control" required [(ngModel)]="investigador.residencia" name="residencia" #residencia="ngModel">
+        <input type="text" class="form-control" required [(ngModel)]="registro.residencia" name="residencia" #residencia="ngModel">
         <div [hidden]="residencia.valid || residencia.pristine" class="alert alert-danger">
             La residencia es obligatoria
         </div>
     </div>
     <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Registrarse</button>
-    <button routerLink="/investigadores" class="btn btn-dark">Cancelar</button>
+    <button routerLink="/" class="btn btn-dark">Cancelar</button>
 </form>

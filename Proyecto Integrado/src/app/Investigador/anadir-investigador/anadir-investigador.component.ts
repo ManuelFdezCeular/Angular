@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Investigador } from '../investigador';
 import { AnadirInvestigadorService } from './anadir-investigador.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoginService } from 'src/app/login/login.service';
+
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-anadir-investigador',
@@ -10,19 +13,48 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AnadirInvestigadorComponent implements OnInit {
 
-  public investigador:Investigador;
+  public correoCorrecto:boolean = true;
+  public checkCorreo:boolean = false;
+  public registro:{nombre:string, apellidos:string, clave:string, clave2:string, email:string, dni:string, telefono:string, residencia:string};
 
-  constructor(private servicioAnadirInvestigador:AnadirInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
-    this.investigador=<Investigador>{};
+  constructor(private servicioAnadirInvestigador:AnadirInvestigadorService, private servicioLogin:LoginService, private router:Router, private ruta:ActivatedRoute) {
+    this.registro = {
+      nombre: "",
+      apellidos: "",
+      clave: "",
+      clave2: "",
+      email: "",
+      dni: "",
+      telefono: "",
+      residencia: ""
+    }
   }
 
   ngOnInit() {
   }
 
   anadirInvestigador(){
-    console.log('investigador:', this.investigador);
-    this.servicioAnadirInvestigador.anadir(this.investigador).subscribe(resultado=>{
-      this.router.navigate(["/investigadores"]);
-    })
+    if(this.registro.clave == this.registro.clave2){
+      const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
+      this.registro.clave = claveHash;
+      console.log('investigador:', this.registro);
+      this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
+        this.router.navigate(["/investigadores"]);
+      })
+    }
   }
+
+  checkEmail(email:string){
+		console.log("Comprobamos el email: ", email);
+		this.checkCorreo = true;
+		this.servicioLogin.checkCorreo(email).subscribe(
+			res=>{
+				console.log(res);
+				//  Alza la bandera si el correo está libre, o no:
+				this.correoCorrecto = (res.estado && res.estado == "libre");
+				this.checkCorreo = false;
+			},
+			error=>console.log(error)
+		);
+	}
 }

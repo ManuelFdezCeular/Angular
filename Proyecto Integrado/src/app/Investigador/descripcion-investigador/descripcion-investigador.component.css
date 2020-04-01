@@ -6,5 +6,7 @@
     padding: 1em;
     text-align: center;
     border-radius: 11px;
-    background-color: bisque;
+    background-color: black;
+    color: green;
+    font-weight: bold;
 }

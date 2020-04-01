@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Investigador } from '../investigador';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnadirInvestigadorService {
 
-  url="http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php";
+  url = environment.url;
 
   constructor(private http:HttpClient) { }
 
-  anadir(investigador:Investigador){
+  anadir(investigador:any){
     let objeto = JSON.stringify({
       accion: "AnadirInvestigador",
       investigador: investigador

@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FenomenoParanormal } from '../fenomeno-paranormal';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListadoFenParService {
   
-  url = "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php";
+  url = environment.url;
 
   constructor(private http:HttpClient) { }
 

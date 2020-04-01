@@ -3,6 +3,8 @@ import { LoginService } from './login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UpdateMenuService } from './update-menu.service';
 
+import * as CryptoJS from 'crypto-js';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,6 +25,12 @@ export class LoginComponent implements OnInit {
   validar(log) {
     console.log(log);
 
+    console.log(log);
+			
+				//  Generamos el hash para la clave:
+    const claveHash = CryptoJS.SHA3(log.clave).toString(CryptoJS.enc.Base64);
+    log.clave = claveHash;
+    console.log("claveHash:", claveHash);
     this.servicioLogin.getLogin(log).subscribe(
       res => {
         console.log("resultado log:",res);
@@ -35,6 +43,7 @@ export class LoginComponent implements OnInit {
             //  Guardamos el JWT en el sesionStorage:
 						localStorage.setItem("JWT", res.JWT);
             localStorage.setItem('nombreUsuario', res.nombre + " " + res.apellidos);
+            localStorage.setItem('idUsuario', res.id);
 
 						this.servicioUpdateMenu.establecerLogin({login: true, usuario: localStorage.nombreUsuario, idUsuario: res.id});
 						
@@ -45,7 +54,6 @@ export class LoginComponent implements OnInit {
       error=> console.log(error)
     )
   }
-
 }
 
 /*import { Component, OnInit } from '@angular/core';
@@ -109,4 +117,3 @@ export class LoginComponent implements OnInit {
 	
 
 }*/
-

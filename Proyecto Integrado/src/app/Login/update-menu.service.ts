@@ -13,7 +13,7 @@ export class UpdateMenuService {
 	private resLogin$ = new Subject<any>();
 
 	constructor() {
-		this.resLogin = { login: false, usuario: "", idUsuario: -1};
+		this.resLogin = { login: false, usuario: "", idUsuario: -1 };
 	}
 
 	//  Actualizamos el observable:
@@ -25,10 +25,10 @@ export class UpdateMenuService {
 	//  Ofrecemos el observable:
 	ObtenerResLogin$(): Observable<any> {
 		return this.resLogin$.asObservable();
-  }
-  
-  ObtenerInicial():any {
-    return this.resLogin;
-  }
+	}
+
+	ObtenerInicial(): any {
+		return this.resLogin;
+	}
 
 }

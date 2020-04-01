@@ -13,11 +13,20 @@ export class LoginService {
 
 	getLogin(log) {
 		//  Clonamos el objeto:
-		let pa = JSON.parse(JSON.stringify(log));
+		let objeto = JSON.parse(JSON.stringify(log));
 		//  Le añadimos el nuevo atributo, servicio:
-		pa.servicio = "inicio_sesion";
-		console.log("objeto a enviar:", pa);
-		return this.http.post<any>(this.url, JSON.stringify(pa));
+		objeto.servicio = "inicio_sesion";
+		console.log("objeto en login:", objeto);
+		return this.http.post<any>(this.url, JSON.stringify(objeto));
+	}
+
+
+	checkCorreo(email:string){
+		const objeto = JSON.stringify({
+			servicio: "Comprobar_email",
+			email
+		});
+		return this.http.post<any>(this.url, objeto);
 	}
 }
 
