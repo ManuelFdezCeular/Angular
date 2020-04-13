@@ -18,6 +18,6 @@ export class AnadirFenomenoParanormalService {
       fenomenoParanormal: fenPar
     })
 
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 }

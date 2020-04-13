@@ -17,6 +17,6 @@ export class ListarEstadosService {
       accion: "Estados"
     })
 
-    return this.http.post<Estado[]>(this.url, objeto);
+    return this.http.post<Estado[]>(this.url, objeto, environment.cabecera());
   }
 }

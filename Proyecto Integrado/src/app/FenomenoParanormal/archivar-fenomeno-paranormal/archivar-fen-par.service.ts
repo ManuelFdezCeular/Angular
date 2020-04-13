@@ -20,7 +20,7 @@ export class ArchivaFenParService {
     })
     console.log("objeto:", objeto);
 
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 
   borrar(id:number){
@@ -31,7 +31,7 @@ export class ArchivaFenParService {
 
     console.log("borrar");
     
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 
   obtenerFenPar(id:number){
@@ -40,6 +40,6 @@ export class ArchivaFenParService {
       id: id
     })
 
-    return this.http.post<FenomenoParanormal>(this.url, objeto);
+    return this.http.post<FenomenoParanormal>(this.url, objeto, environment.cabecera());
   }
 }

@@ -23,17 +23,12 @@ export class LoginComponent implements OnInit {
   }
 
   validar(log) {
-    console.log(log);
-
-    console.log(log);
 			
 				//  Generamos el hash para la clave:
     const claveHash = CryptoJS.SHA3(log.clave).toString(CryptoJS.enc.Base64);
     log.clave = claveHash;
-    console.log("claveHash:", claveHash);
     this.servicioLogin.getLogin(log).subscribe(
       res => {
-        console.log("resultado log:",res);
         if ((res.estado) && (res.estado == "NO")) {
             alert("El correo o la clave son incorrectos");
             this.loginIncorrecto = true;

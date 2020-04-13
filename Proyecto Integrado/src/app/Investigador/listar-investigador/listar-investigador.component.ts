@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Investigador } from '../investigador';
 import { ListarInvestigadorService } from './listar-investigador.service';
+import { UpdateMenuService } from 'src/app/login/update-menu.service';
 
 @Component({
   selector: 'app-listar-investigador',
@@ -11,7 +12,9 @@ export class ListarInvestigadorComponent implements OnInit {
 
   public investigadores:Investigador[];
 
-  constructor(private servicioListar:ListarInvestigadorService) { }
+  constructor(private servicioListar:ListarInvestigadorService, private servicioUpdateLogin:UpdateMenuService) { 
+    this.servicioUpdateLogin.comprobarLogin();
+  }
 
   ngOnInit() {
     this.servicioListar.obtenerInvestigadores().subscribe(resultado=>{

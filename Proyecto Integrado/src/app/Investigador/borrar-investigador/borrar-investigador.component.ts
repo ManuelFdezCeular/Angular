@@ -20,7 +20,6 @@ export class BorrarInvestigadorComponent implements OnInit {
   }
 
   borrarInvestigador(){
-    console.log('investigador a borrar:', this.investigador);
     this.servicioBorrar.borrarInvestigador(this.investigador.id).subscribe(resultado=>{
       this.noMostrar.emit(resultado);
       this.router.navigate(["/investigadores"]);

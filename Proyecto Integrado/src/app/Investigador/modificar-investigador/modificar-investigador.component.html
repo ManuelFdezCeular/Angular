@@ -16,14 +16,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="clave">Clave:</label>
-            <input type="password" class="form-control" required [(ngModel)]="investigador.clave" name="clave" #clave="ngModel">
-            <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
-                La contraseña es obligatoria
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="DNI">DNI:</label>
+            <label for="dni">DNI:</label>
             <input type="text" class="form-control" required [(ngModel)]="investigador.dni" name="dni" #dni="ngModel">
             <div [hidden]="dni.valid || dni.pristine" class="alert alert-danger">
                 El dni es obligatorio
@@ -37,13 +30,6 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="Email" class="form-control" required [(ngModel)]="investigador.email" name="email" #email="ngModel">
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-                El email es obligatorio
-            </div>
-        </div>
-        <div class="form-group">
             <label for="residencia">Residencia:</label>
             <input type="text" class="form-control" required [(ngModel)]="investigador.residencia" name="residencia" #residencia="ngModel">
             <div [hidden]="residencia.valid || residencia.pristine" class="alert alert-danger">
@@ -51,7 +37,7 @@
             </div>
         </div>
         <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Modificar</button>
-        <button routerLink="/investigadores" class="btn btn-dark">Cancelar</button>
+        <button routerLink="/investigador/{{ id }}" class="btn btn-dark">Cancelar</button>
     </form>
 </div>
 

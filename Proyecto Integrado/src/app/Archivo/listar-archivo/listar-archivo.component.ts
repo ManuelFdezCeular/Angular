@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListarArchivoService } from './listar-archivo.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Archivo } from '../archivo';
+import { UpdateMenuService } from 'src/app/login/update-menu.service';
 
 @Component({
   selector: 'app-listar-archivo',
@@ -15,14 +16,14 @@ export class ListarArchivoComponent implements OnInit {
   public archivo:Archivo;
   public idUsuario;
 
-  constructor(private servicioListarArchivos:ListarArchivoService, private router:Router, private ruta:ActivatedRoute) {
+  constructor(private servicioListarArchivos:ListarArchivoService, private servicioUpdateLogin:UpdateMenuService, private router:Router, private ruta:ActivatedRoute) {
+    this.servicioUpdateLogin.comprobarLogin();
     this.idUsuario = localStorage.getItem('idUsuario');
     console.log("usuario id: ",this.idUsuario);
   }
 
   ngOnInit(){
     this.servicioListarArchivos.listar().subscribe(resultado=>{
-      console.log("archivos: ", resultado);
       this.archivos = resultado;
     })
   }

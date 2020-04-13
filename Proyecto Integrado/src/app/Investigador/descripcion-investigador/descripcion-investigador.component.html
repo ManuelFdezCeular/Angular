@@ -20,7 +20,8 @@
         </div>
     </table>
     <button class="mr-3 btn btn-dark" routerLink="/investigadores" [disabled]="mostrar">Volver</button>
-    <button class="mr-3 btn btn-dark" routerLink="/modificar-investigador/{{ investigador.id }}" [disabled]="mostrar" *ngIf="mostrarOpciones">Modificar</button>
+    <button class="mr-3 btn btn-dark" routerLink="/modificar-investigador/{{ investigador.id }}" [disabled]="mostrar" *ngIf="mostrarOpciones">Modificar Datos Personales</button>
+    <button class="mr-3 btn btn-dark" routerLink="/modificar-login/{{ investigador.id }}" [disabled]="mostrar" *ngIf="mostrarOpciones">Modificar Datos Cuenta</button>
     <button class="btn btn-dark" (click)="mostrarDiv(investigador)" [disabled]="mostrar" *ngIf="mostrarOpciones">Borrar</button>
 </div>
 <div *ngIf="investigador.id != undefined">

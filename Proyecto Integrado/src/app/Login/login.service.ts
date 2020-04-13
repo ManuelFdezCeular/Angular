@@ -16,7 +16,6 @@ export class LoginService {
 		let objeto = JSON.parse(JSON.stringify(log));
 		//  Le añadimos el nuevo atributo, servicio:
 		objeto.servicio = "inicio_sesion";
-		console.log("objeto en login:", objeto);
 		return this.http.post<any>(this.url, JSON.stringify(objeto));
 	}
 

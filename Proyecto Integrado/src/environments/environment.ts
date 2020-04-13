@@ -2,11 +2,24 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { HttpHeaders } from '@angular/common/http';
+
 export const environment = {
   production: false,
 
   urlLogin: "http://localhost/AJAX/ServidorProyectoIntegrado/login.php",
-  url: "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php"
+  url: "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicioPrivado.php",
+  urlAbierta: "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicio.php",
+
+  cabecera: function(){
+		let headers = { headers: new HttpHeaders({
+			'Content-Type': 'application/json',
+			'Accept': 'application/json',
+			'Authorization': 'Bearer ' + localStorage.JWT
+		})};
+		return headers;
+	},
+
 };
 
 /*

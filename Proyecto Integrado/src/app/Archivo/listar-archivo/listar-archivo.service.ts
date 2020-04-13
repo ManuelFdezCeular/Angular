@@ -17,7 +17,7 @@ export class ListarArchivoService {
       accion: "Archivos"
     })
 
-    return this.http.post<Archivo[]>(this.url, objeto);
+    return this.http.post<Archivo[]>(this.url, objeto, environment.cabecera());
   }
 
 }

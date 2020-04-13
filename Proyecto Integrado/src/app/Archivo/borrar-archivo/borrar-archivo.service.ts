@@ -17,6 +17,6 @@ export class BorrarArchivoService {
       id: id
     })
 
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 }

@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Modificar datos de inicio de sesión</h3>
+    <form class="form-horizontal container" #modificarForm="ngForm" (ngSubmit)="modificarDatos()">
+        <div class="form-group">
+            <label for="clave">Clave nueva:</label>
+            <input type="password" class="form-control" required [(ngModel)]="modificar.clave1_SIN" name="clave" #clave="ngModel" minlength="5">
+            <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
+                La contraseña es obligatoria
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="clave2">Repetir clave: </label>
+            <input type="password" class="form-control" required [(ngModel)]="modificar.clave2_SIN" name="clave2" #clave2="ngModel" minlength="5">
+            <div [hidden]="clave.value == clave2.value" class="alert alert-danger">
+                Las claves deben ser iguales
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email nuevo:</label>
+            <input type="Email" class="form-control" required [(ngModel)]="modificar.email" name="email" #email="ngModel" (blur)="checkEmail(email.value)">
+            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                El email es obligatorio
+            </div>
+            <div [hidden]="!checkCorreo" class="alert alert-info">
+                Comprobando correo ...
+            </div>
+            <div [hidden]="correoCorrecto" class="alert alert-danger">
+                Ese correo está en uso
+            </div>
+        </div>
+        <button type="submit" [disabled]="!modificarForm.valid" class="btn btn-dark">Aceptar</button>
+        <button routerLink="/investigador/{{ id }}" class="btn btn-dark">Cancelar</button>
+    </form>
+
+</div>

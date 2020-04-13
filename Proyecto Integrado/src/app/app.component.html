@@ -15,18 +15,14 @@
         <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio<span class="sr-only">(current)</span></a>
 
         <li *ngIf="navBar.login" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/investigadores" routerLinkActive="active" id="navbarDropdownMenuLink"aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/investigadores" routerLinkActive="active" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 							Investigadores
 					</a>
         </li>
         <li *ngIf="navBar.login" class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" style="cursor: pointer;" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							Fenómenos Archivados
-						</a>
-          <div [ngbCollapse]="navBar.archivos.dropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" routerLink="/listar-archivos" routerLinkActive="active" (click)="navBar.archivos.dropdown = !navBar.archivos.dropdown">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Todos</span></a>
-          </div>
+          <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/listar-archivos" routerLinkActive="active" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+							Archivo
+					</a>
         </li>
       </div>
     </div>

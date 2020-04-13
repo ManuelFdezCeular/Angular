@@ -16,7 +16,7 @@ export class AnadirInvestigadorService {
       accion: "AnadirInvestigador",
       investigador: investigador
     })
-    console.log("investigador en servicio: ", objeto);
-    return this.http.post<boolean>(this.url, objeto);
+    
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 }

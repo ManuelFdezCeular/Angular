@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from "../../environments/environment";
-
+import { HttpClient } from '@angular/common/http';
 import { Subject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -9,10 +10,11 @@ import { Subject, Observable } from 'rxjs';
 })
 export class UpdateMenuService {
 
+	
 	private resLogin: Object;
 	private resLogin$ = new Subject<any>();
 
-	constructor() {
+	constructor(private http:HttpClient, private ruta:Router) {
 		this.resLogin = { login: false, usuario: "", idUsuario: -1 };
 	}
 
@@ -30,5 +32,27 @@ export class UpdateMenuService {
 	ObtenerInicial(): any {
 		return this.resLogin;
 	}
+	
+	//  Con este método conseguimos validar si el JWT actual es válido:
+	validarLogin(){
+		return this.http.post<any>(environment.url, '{"accion":"nada"}', environment.cabecera());
+	}
 
+	comprobarLogin(){
+		if ((!localStorage.JWT) || ((localStorage.JWT.split(".").length != 3))) {
+			//  No hay JWT, o no tiene el formato correcto.
+			//  Vamos a inicio:
+			this.ruta.navigate(['/']);
+		  } else {
+			this.validarLogin().subscribe(
+			  res =>{
+				if (!res.accion) {  //  Si no devuelve servicio, es que el JWT NO es válido.
+				  //  Vamos a inicio:
+				  this.ruta.navigate(['/']);
+				}
+			  },
+			  error => console.log(error)
+			);
+		  }
+	}
 }

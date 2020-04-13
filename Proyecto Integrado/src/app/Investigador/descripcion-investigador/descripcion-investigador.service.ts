@@ -18,6 +18,6 @@ export class DescripcionInvestigadorService {
       id: id
     })
 
-    return this.http.post<Investigador>(this.url, objeto);
+    return this.http.post<Investigador>(this.url, objeto, environment.cabecera());
   }
 }

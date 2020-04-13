@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ListadoFenParService {
   
-  url = environment.url;
+  url = environment.urlAbierta;
 
   constructor(private http:HttpClient) { }
 

@@ -10,6 +10,7 @@ import { ModificarFenomenoParanormalComponent } from './FenomenoParanormal/modif
 import { ArchivarFenomenoParanormalComponent } from './fenomenoParanormal/archivar-fenomeno-paranormal/archivar-fenomeno-paranormal.component';
 import { LoginComponent } from './login/login.component';
 import { ListarArchivoComponent } from './Archivo/listar-archivo/listar-archivo.component';
+import { ModificarDatosLoginComponent } from './Investigador/modificar-datos-login/modificar-datos-login.component';
 
 
 const routes: Routes = [
@@ -52,6 +53,10 @@ const routes: Routes = [
   {
     path: "login",
     component: LoginComponent
+  },
+  {
+    path: "modificar-login/:id",
+    component: ModificarDatosLoginComponent
   }
 ];
 

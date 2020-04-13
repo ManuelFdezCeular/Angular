@@ -23,6 +23,7 @@ import { BorrarEstadoComponent } from './Estado/borrar-estado/borrar-estado.comp
 import { ListarArchivoComponent } from './Archivo/listar-archivo/listar-archivo.component';
 import { LoginComponent } from './login/login.component';
 import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.component';
+import { ModificarDatosLoginComponent } from './Investigador/modificar-datos-login/modificar-datos-login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BorrarArchivoComponent } from './Archivo/borrar-archivo/borrar-archivo.
     BorrarEstadoComponent,
     ListarArchivoComponent,
     LoginComponent,
-    BorrarArchivoComponent
+    BorrarArchivoComponent,
+    ModificarDatosLoginComponent
   ],
   imports: [
     BrowserModule,

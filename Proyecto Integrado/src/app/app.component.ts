@@ -13,30 +13,27 @@ export class AppComponent {
   public navBar = {
     isNavbarCollapsed: true,
     dropdown: true,
-    investigadores: {
-      dropdown: true
-    },
-    archivos: {
-      dropdown: true
-    },
     login: false,
     usuario: "",
-    perfil: -1
+    idUsuario: -1
   }
 
   constructor(private servicioUpdateMenu:UpdateMenuService, private router:Router, private ruta:ActivatedRoute){
     this.servicioUpdateMenu.ObtenerResLogin$().subscribe(resultado=>{
       this.navBar.login = resultado.login;
       this.navBar.usuario = resultado.usuario;
+      this.navBar.idUsuario = resultado.id
     })
   }
 
   cerrarLogin(){
 		if (confirm("¿Deseas cerrar sesión?")) {
 			localStorage.JWT = "";
-			localStorage.nombreUsuario = "";
+      localStorage.nombreUsuario = "";
+      localStorage.idUsuario = -1;
 			this.navBar.login = false;
-			this.navBar.usuario = "";
+      this.navBar.usuario = "";
+      this.navBar.idUsuario = -1;
 			 //  Vamos a inicio:
 			 this.router.navigate(['/']);
 		}

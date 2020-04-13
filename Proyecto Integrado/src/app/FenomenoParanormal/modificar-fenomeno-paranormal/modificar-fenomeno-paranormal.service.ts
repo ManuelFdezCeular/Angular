@@ -27,6 +27,6 @@ export class ModificarFenomenoParanormalService {
       id: id
     })
 
-    return this.http.post<FenomenoParanormal>(this.url, objeto);
+    return this.http.post<FenomenoParanormal>(this.url, objeto, environment.cabecera());
   }
 }

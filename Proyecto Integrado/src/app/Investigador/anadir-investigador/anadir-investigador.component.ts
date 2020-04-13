@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Investigador } from '../investigador';
 import { AnadirInvestigadorService } from './anadir-investigador.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/login/login.service';
@@ -37,15 +36,13 @@ export class AnadirInvestigadorComponent implements OnInit {
     if(this.registro.clave == this.registro.clave2){
       const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
       this.registro.clave = claveHash;
-      console.log('investigador:', this.registro);
       this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
-        this.router.navigate(["/investigadores"]);
+        this.router.navigate(["/"]);
       })
     }
   }
 
   checkEmail(email:string){
-		console.log("Comprobamos el email: ", email);
 		this.checkCorreo = true;
 		this.servicioLogin.checkCorreo(email).subscribe(
 			res=>{

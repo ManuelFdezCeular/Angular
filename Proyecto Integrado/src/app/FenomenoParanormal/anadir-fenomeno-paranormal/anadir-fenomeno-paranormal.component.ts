@@ -6,6 +6,7 @@ import { DescripcionInvestigadorService } from 'src/app/Investigador/descripcion
 import { Investigador } from 'src/app/Investigador/investigador';
 import { Estado } from 'src/app/Estado/estado';
 import { ListarEstadosService } from 'src/app/Estado/listar-estados/listar-estados.service';
+import { UpdateMenuService } from 'src/app/login/update-menu.service';
 @Component({
   selector: 'app-anadir-fenomeno-paranormal',
   templateUrl: './anadir-fenomeno-paranormal.component.html',
@@ -18,7 +19,8 @@ export class AnadirFenomenoParanormalComponent implements OnInit {
   public estados:Estado[];
   public idInvestigador:number =  this.ruta.snapshot.params["idInvestigador"];
 
-  constructor(private anadirServicio:AnadirFenomenoParanormalService, private servicioListar:ListarEstadosService, private servicioInvestigador:DescripcionInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
+  constructor(private anadirServicio:AnadirFenomenoParanormalService, private servicioUpdateLogin:UpdateMenuService, private servicioListar:ListarEstadosService, private servicioInvestigador:DescripcionInvestigadorService, private router:Router, private ruta:ActivatedRoute) {
+    this.servicioUpdateLogin.comprobarLogin();
     this.fenPar = <FenomenoParanormal>{};
     this.investigador = <Investigador>{};
   }

@@ -18,13 +18,6 @@
             La fecha es obligatoria
         </div>
     </div>
-    <div class="form-group">
-        <label for="Lugar">Lugar:</label>
-        <input type="text" class="form-control" required [(ngModel)]="archivo.lugarArchivo" name="lugarArchivo" #lugarArchivo="ngModel">
-        <div [hidden]="lugarArchivo.valid || lugarArchivo.pristine" class="alert alert-danger">
-            El lugar es obligatorio
-        </div>
-    </div>
     <button type="submit" [disabled]="!archivoForm.valid" class="btn btn-dark">Archivar</button>
     <button routerLink="/investigador/{{ fenPar.investigador_id }}" class="btn btn-dark">Cancelar</button>
 </form>
