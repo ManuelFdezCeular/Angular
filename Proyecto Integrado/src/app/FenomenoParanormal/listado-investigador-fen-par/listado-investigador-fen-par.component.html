@@ -13,7 +13,7 @@
         <tbody *ngFor="let fenomenoParanormal of fenPar">
             <tr scope="row">
                 <td scope="col">{{ fenomenoParanormal.descripcion }}</td>
-                <td scope="col">{{ fenomenoParanormal.fechaOcurrencia }}</td>
+                <td scope="col">{{ fenomenoParanormal.fechaOcurrencia | date:"dd-MM-yyyy" }}</td>
                 <td scope="col">{{ fenomenoParanormal.lugarOcurrencia }}</td>
                 <td scope="col">{{ fenomenoParanormal.nombreEstado }}</td>
                 <td scope="col" *ngIf="mostrarOpciones"><button class="btn btn-info mr-2" routerLink="/archivar-fenomenoParanormal/{{ fenomenoParanormal.id }}">Archivar</button>

@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AnadirInvestigadorService {
 
-  url = environment.url;
+  url = environment.urlAbierta;
 
   constructor(private http:HttpClient) { }
 
@@ -17,6 +17,6 @@ export class AnadirInvestigadorService {
       investigador: investigador
     })
     
-    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
+    return this.http.post<boolean>(this.url, objeto);
   }
 }

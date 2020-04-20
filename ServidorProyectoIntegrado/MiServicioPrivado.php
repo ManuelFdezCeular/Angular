@@ -1,13 +1,11 @@
 <?php
 
-header("Content-Type: application/json; charset=UTF-8");
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Origin: *"); // allow request from all origin
+header('Access-Control-Allow-Credentials: true');
+header("Access-Control-Allow-Methods: GET,HEAD,OPTIONS,POST,PUT");
+header("Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, X-Requested-With, Content-Type, Accept, Authorization");
 
-/*
-header("Access-Control-Allow-Origin: *");
 header('Content-Type: application/json');  //  Todo se devolverá en formato JSON.
-*/
 
 require_once 'jwt.php';
 $jwt = new jwt();
@@ -33,15 +31,17 @@ if (!$tokenValido->valido) {
   return;
 }
 
-
 /*
 	****************************************************************************
 
   ¡¡¡¡¡ SI LLEGAMOS AQUI ES PORQUE EL TOKEN ES VALIDO Y NO HA EXPIRADO !!!!
 
 	****************************************************************************
+*/
+//  Definimos la variable global $idUsuairo:
+$idUsuairo = $tokenValido->datos->id;
 
-require_once 'MiModelo.php';
+require_once 'MiModeloPrivado.php';
 $modelo = new ModeloPrivado();
 
 $datos = file_get_contents('php://input'); 
@@ -104,6 +104,13 @@ if($objeto != null) {
 			case "ModificaFenPar": 
 				print json_encode($modelo->ModificaFenPar($objeto->fenomenoParanormal));
 				break;
+
+			case "ModificarDatosLogin":
+				print json_encode($modelo->ModificarDatosLogin($objeto->clave, $objeto->email, $idUsuairo));
+				break;
+
+			default: 
+				print '{"accion": "NO"}';
     }  //  switch($objeto->accion)
 }  //  if($objeto != null)
 ?>

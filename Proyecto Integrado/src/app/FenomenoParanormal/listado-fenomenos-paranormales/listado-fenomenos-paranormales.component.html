@@ -12,7 +12,7 @@
         <tbody>
             <tr scope="row" *ngFor="let fenPar of fenomenosParanormales">
                 <td scope="col">{{ fenPar.descripcion }}</td>
-                <td scope="col">{{ fenPar.fechaOcurrencia }}</td>
+                <td scope="col">{{ fenPar.fechaOcurrencia | date:"dd-MM-yyyy"}}</td>
                 <td scope="col">{{ fenPar.lugarOcurrencia }}</td>
                 <td scope="col">{{ fenPar.provinciaOcurrencia }}</td>
                 <td scope="col">{{ fenPar.comunidadAutonoma }}</td>

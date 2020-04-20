@@ -17,6 +17,6 @@ export class BorrarInvestigadorService {
       id: id
     })
 
-    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
+    return this.http.post<any>(this.url, objeto, environment.cabecera());
   }
 }

@@ -36,9 +36,11 @@ export class AnadirInvestigadorComponent implements OnInit {
     if(this.registro.clave == this.registro.clave2){
       const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
       this.registro.clave = claveHash;
+      console.log("registro");
       this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
         this.router.navigate(["/"]);
-      })
+      },
+      error=>console.log(error));
     }
   }
 

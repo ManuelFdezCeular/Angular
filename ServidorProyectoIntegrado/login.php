@@ -72,7 +72,7 @@ class BD_login {
 	public function inicio_sesion($datos){
 		//  Instanciamos un objeto de la clase jwt:
 		$jwt = new jwt();
-		$dur = 1; // Ponemos una duración del token de 1 hora.
+		$dur = 4; // Ponemos una duración del token de 1 hora.
 	//	$dur = 0.50; // Ponemos una duración del token de media hora.
 	//	$dur = 0.5/60; // Ponemos una duración del token de 1 minuto.
 		

@@ -231,6 +231,20 @@ class ModeloPrivado {
 			return false;
 		}
 	}
+
+	public function ModificarDatosLogin($clave, $email, $id){
+		try {
+			$query = "UPDATE investigadores SET
+									clave = ?,
+									email = ?
+							WHERE id = ?";
+			$this->pdo->prepare($query)->execute(array($clave, $email, $id));
+			return true;
+		} catch (Exception $e) {
+			die($e->getMessage());
+			return false;
+		}
+	}
 }  //  class Modelo
 ?>
 

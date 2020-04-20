@@ -2,7 +2,7 @@
 <h3>Archivar Fenómeno Paranormal</h3>
     <div class="form-group">
         <label for="nombre">Fenomeno Paranormal:</label>
-        <input type="text" class="form-control" value="{{ fenPar.descripcion }}, {{ fenPar.fechaOcurrencia }}, {{ fenPar.lugarOcurrencia }}" readonly>
+        <input type="text" class="form-control" value="{{ fenPar.descripcion }}, {{ fenPar.fechaOcurrencia | date:'dd-MM-yyyy' }}, {{ fenPar.lugarOcurrencia }}" readonly>
     </div>
     <div class="form-group">
         <label for="Explicacion">Explicación:</label>
