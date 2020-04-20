@@ -9,3 +9,7 @@ input {
 input:focus {
     background: transparent;
 }
+
+.mr-1 {
+    border-right: 2px #03e9f4 solid;
+}

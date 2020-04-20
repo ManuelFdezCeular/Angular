@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ModificarDatosLoginService } from './modificar-datos-login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Investigador } from '../investigador';
@@ -14,7 +14,7 @@ import { UpdateMenuService } from 'src/app/login/update-menu.service';
 export class ModificarDatosLoginComponent implements OnInit {
 
   public investigador:Investigador;
-  public id:number = this.ruta.snapshot.params["id"];
+  @Input() idInvestigador:number;
   public modificar;
   public correoCorrecto:boolean = true;
   public checkCorreo:boolean = false;
@@ -45,7 +45,7 @@ export class ModificarDatosLoginComponent implements OnInit {
 
     this.servicioModificarDatosLogin.modificarDatosLogin(this.modificar.clave, this.modificar.email).subscribe(resultado=>{
       alert('Modificado con éxito');
-      this.router.navigate(['/investigador/'+this.id]);
+      this.router.navigate(['/investigador/'+this.idInvestigador]);
     })
   }
 
