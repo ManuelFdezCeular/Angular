@@ -1,10 +1,12 @@
 <h1>Consulta de Fenómenos Paranormales</h1>
 <h3 *ngIf="navBar.login">Bienvenido {{ navBar.usuario }}</h3>
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <a class="navbar-brand" href="#">Fenómenos Paranormales</a>
+<nav class="navbar navbar-expand-sm navbar-light bg-info">
+    <a class="navbar-brand" routerLink="/" routerLinkActive="active">Fenómenos Paranormales</a>
     <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+    <a *ngIf="!navBar.login" class="nav-item nav-link" routerLink="/anadir-investigador" routerLinkActive="active">REGISTRO</a>
+
     <a *ngIf="!navBar.login" class="nav-item nav-link" routerLink="/login" routerLinkActive="active">LOGIN</a>
 
     <a *ngIf="navBar.login" class="nav-item nav-link" (click)="cerrarLogin()" style="cursor: pointer;" routerLinkActive="active">LOGOUT</a>
@@ -12,8 +14,6 @@
     <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
     
       <div  class="navbar-nav">
-        <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio<span class="sr-only">(current)</span></a>
-
         <li *ngIf="navBar.login" class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/investigadores" routerLinkActive="active" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 							Investigadores

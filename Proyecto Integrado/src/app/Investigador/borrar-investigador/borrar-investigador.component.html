@@ -1,6 +1,6 @@
 <div *ngIf="investigador!=undefined">
-    <p><span>Desea eliminar al investigador {{investigador.nombre}} {{investigador.apellidos}}?</span></p>
+    <p><span>Desea abandonar la página como investigador, Sr/a. {{investigador.nombre}} {{investigador.apellidos}}?</span></p>
     <br/><br/>
-    <button (click)="borrarInvestigador()">Eliminar</button>
-    <button (click)="noMostrarDiv()">Cancelar</button>
+    <button class="btn btn-dark" (click)="borrarInvestigador()">Eliminar</button>
+    <button class="btn btn-dark" (click)="noMostrarDiv()">Cancelar</button>
 </div>

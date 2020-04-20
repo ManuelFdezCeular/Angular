@@ -1,0 +1,11 @@
+* {
+    color: white;
+}
+
+input {
+    background: transparent;
+}
+
+input:focus {
+    background: transparent;
+}

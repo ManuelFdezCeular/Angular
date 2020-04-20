@@ -24,7 +24,7 @@ export class BorrarInvestigadorComponent implements OnInit {
     this.servicioBorrar.borrarInvestigador(this.investigador.id).subscribe(resultado=>{
       if(resultado.borrado == "correcto"){
         this.noMostrar.emit(resultado);
-        this.router.navigate(["/investigadores"]);
+        this.router.navigate(["/"]);
       }else{
         alert("Error al borrar. Debe borrar los fenomenos paranormales definitivamente para poder marcharse.")
       }

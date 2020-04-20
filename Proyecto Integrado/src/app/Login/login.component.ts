@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   public loginIncorrecto:boolean = false;
 
   constructor(private servicioLogin:LoginService, private servicioUpdateMenu:UpdateMenuService, private router:Router, private ruta:ActivatedRoute) { 
-    this.login = {email:"FedFerLop@gmail.com", clave: "investigador"};
+    this.login = {email:"", clave: ""};
   }
 
   ngOnInit() {
