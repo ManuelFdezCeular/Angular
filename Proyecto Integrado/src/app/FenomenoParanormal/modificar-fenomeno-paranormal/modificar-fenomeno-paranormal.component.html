@@ -3,7 +3,7 @@
     <h3>Modificar Fenómeno Paranormal</h3>
         <div class="form-group" *ngIf="investigador!=undefined">
             <label for="nombre">Investigador:</label>
-            <input type="text" class="form-control" value="{{ investigador.nombre }} {{ investigador.apellidos }}" readonly>
+            <input type="text" class="form-control investigador" value="{{ investigador.nombre }} {{ investigador.apellidos }}" readonly>
         </div>
         <div class="form-group">
             <label for="Descripcion">Descripción:</label>

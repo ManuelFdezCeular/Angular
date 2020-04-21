@@ -49,6 +49,8 @@ export class UpdateMenuService {
 				if (!res.accion) {  //  Si no devuelve servicio, es que el JWT NO es válido.
 				  //  Vamos a inicio:
 				  this.ruta.navigate(['/']);
+				}else{
+					this.establecerLogin({login: true, usuario: localStorage.nombreUsuario, idUsuario: localStorage.idUsuario});
 				}
 			  },
 			  error => console.log(error)

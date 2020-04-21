@@ -1,11 +1,28 @@
-* {
-    color: white;
+input,
+input:read-only {
+    background: transparent;
+    color: #03e9f4
 }
 
-input {
-    background: transparent;
+h3,
+label {
+    color: #03e9f4
 }
 
 input:focus {
     background: transparent;
+    color: #03e9f4
+}
+
+select,
+option {
+    background: transparent;
+    color: #03e9f4
+}
+
+select:focus,
+option:focus {
+    background: transparent;
+    outline: none;
+    color: #03e9f4
 }
