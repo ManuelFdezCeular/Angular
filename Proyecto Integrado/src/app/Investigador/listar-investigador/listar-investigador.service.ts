@@ -19,4 +19,14 @@ export class ListarInvestigadorService {
 
     return this.http.post<Investigador[]>(this.url, objeto, environment.cabecera());
   }
+
+  filtrarInvestigador(nombre:string, residencia:string){
+    let objeto = JSON.stringify({
+      accion: "Filtrar",
+      nombre,
+      residencia
+    })
+    console.log("objeto:", objeto);
+    return this.http.post<Investigador[]>(this.url, objeto, environment.cabecera());
+  }
 }

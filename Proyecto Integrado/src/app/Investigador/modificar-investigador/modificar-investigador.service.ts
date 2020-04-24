@@ -15,9 +15,10 @@ export class ModificarInvestigadorService {
   modificar(investigador:Investigador){
     let objeto = JSON.stringify({
       accion: "ModificarInvestigador",
-      investigador: investigador
+      investigador
     })
+    console.log("objeto a modificar: ", objeto);
 
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 }

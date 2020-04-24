@@ -24,6 +24,7 @@ export class ListadoInvestigadorFenParComponent implements OnInit {
         this.mostrar = true;
       else
         this.mostrar = false;
-    })
+    },
+    error => console.log(error))
   }
 }

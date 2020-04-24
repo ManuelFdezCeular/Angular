@@ -44,9 +44,9 @@ export class ModificarDatosLoginComponent implements OnInit {
     this.modificar.clave = CryptoJS.SHA3(this.modificar.clave1_SIN).toString(CryptoJS.enc.Base64);
 
     this.servicioModificarDatosLogin.modificarDatosLogin(this.modificar.clave, this.modificar.email).subscribe(resultado=>{
-      alert('Modificado con éxito');
       this.router.navigate(['/investigador/'+this.idInvestigador]);
-    })
+    },
+    error => console.log(error))
   }
 
 }

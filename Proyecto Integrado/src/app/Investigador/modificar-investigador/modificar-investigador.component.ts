@@ -21,15 +21,18 @@ export class ModificarInvestigadorComponent implements OnInit {
     this.servicioUpdateLogin.comprobarLogin();
     this.servicioDescripcionInvestigador.obtenerInvestigador(this.id).subscribe(resultado=>{
       this.investigador = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
   ngOnInit() {
   }
 
   modificarInvestigador(){
+    console.log("investigador:", this.investigador);
     this.servicioModificarServicio.modificar(this.investigador).subscribe(resultado=>{
       this.router.navigate(["/investigador/"+this.id]);
-    })
+    },
+    error => console.log(error))
   }
 }

@@ -19,13 +19,13 @@ export class ListarArchivoComponent implements OnInit {
   constructor(private servicioListarArchivos:ListarArchivoService, private servicioUpdateLogin:UpdateMenuService, private router:Router, private ruta:ActivatedRoute) {
     this.servicioUpdateLogin.comprobarLogin();
     this.idUsuario = localStorage.getItem('idUsuario');
-    console.log("usuario id: ",this.idUsuario);
   }
 
   ngOnInit(){
     this.servicioListarArchivos.listar().subscribe(resultado=>{
       this.archivos = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
   mostrarDiv(archivoABorrar:Archivo){
@@ -33,13 +33,15 @@ export class ListarArchivoComponent implements OnInit {
     this.mostrar = true;
     this.servicioListarArchivos.listar().subscribe(resultado=>{
       this.archivos = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
   cancelarDiv(event){
     this.mostrar = false;
     this.servicioListarArchivos.listar().subscribe(resultado=>{
       this.archivos = resultado;
-    })
+    },
+    error => console.log(error))
   }
 }

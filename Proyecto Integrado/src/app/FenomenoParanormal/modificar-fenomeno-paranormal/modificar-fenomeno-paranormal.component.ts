@@ -29,10 +29,12 @@ export class ModificarFenomenoParanormalComponent implements OnInit {
     })
     this.servicioInvestigador.obtenerInvestigador(this.idInvestigador).subscribe(resultado=>{
       this.investigador = resultado;
-    })
+    },
+    error => console.log(error))
     this.servicioListar.listarEstados().subscribe(resultado=>{
       this.estados = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
   ngOnInit() {
@@ -42,6 +44,7 @@ export class ModificarFenomenoParanormalComponent implements OnInit {
     this.fenPar.id = this.idFenPar;
     this.servicioModificar.modificar(this.fenPar).subscribe(resultado=>{
       this.router.navigate(['/investigador/'+this.idInvestigador]);
-    })
+    },
+    error => console.log(error))
   }
 }

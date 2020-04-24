@@ -20,28 +20,20 @@ export class DescripcionInvestigadorComponent implements OnInit {
     this.servicioUpdateMenu.comprobarLogin();
     this.investigador = <Investigador>{};
     this.login = this.servicioUpdateMenu.ObtenerInicial();
+    const id:number = this.ruta.snapshot.params["id"];
     this.servicioUpdateMenu.ObtenerResLogin$().subscribe(resultado=>{
-      console.log("resultado login: ", resultado);
       this.login.login = resultado.login;
       this.login.usuario = resultado.usuario;
       this.login.idUsuario = resultado.idUsuario;
-      const id:number = this.ruta.snapshot.params["id"];
       this.mostrarOpciones = (this.login.idUsuario == id);
-      console.log("id: ", id, "idUsuario: ", this.login.idUsuario);
-      this.servicioDescripcionInvestigador.obtenerInvestigador(id).subscribe(resultado=>{
-        this.investigador = resultado;
-      })
     })
-  }
-
-  ngOnInit(){
-    /*const id:number = this.ruta.snapshot.params["id"];
-    this.mostrarOpciones = (this.login.idUsuario == id);
-    console.log("id: ", id, "idUsuario: ", this.login.idUsuario);
     this.servicioDescripcionInvestigador.obtenerInvestigador(id).subscribe(resultado=>{
       this.investigador = resultado;
-    })*/
+    },
+    error => console.log(error))
   }
+
+  ngOnInit(){}
 
   mostrarDiv(investigadorABorrar:Investigador){
     this.investigador = investigadorABorrar;

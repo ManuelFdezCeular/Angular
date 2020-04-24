@@ -22,7 +22,8 @@ export class BorrarArchivoComponent implements OnInit {
   borrarArchivo(){
     this.servicioBorrar.borrar(this.archivo.id).subscribe(resultado=>{
       this.noMostrar.emit(resultado);
-    })
+    },
+    error => console.log(error))
   }
 
   noMostrarDiv(){

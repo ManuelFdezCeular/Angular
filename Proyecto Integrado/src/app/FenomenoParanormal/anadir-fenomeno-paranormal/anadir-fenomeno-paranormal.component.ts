@@ -28,16 +28,19 @@ export class AnadirFenomenoParanormalComponent implements OnInit {
   ngOnInit() {
     this.servicioInvestigador.obtenerInvestigador(this.idInvestigador).subscribe(resultado=>{
       this.investigador = resultado;
-    })
+    },
+    error => console.log(error))
     this.servicioListar.listarEstados().subscribe(resultado=>{
       this.estados = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
   anadirFenomenoParanormal(){
     this.fenPar.investigador_id = this.idInvestigador;
     this.anadirServicio.anadirFenPar(this.fenPar).subscribe(resultado=>{
       this.router.navigate(["/investigador/"+this.idInvestigador]);
-    })
+    },
+    error => console.log(error))
   }
 }

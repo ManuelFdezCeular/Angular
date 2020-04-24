@@ -19,7 +19,8 @@ export class ArchivarFenomenoParanormalComponent implements OnInit {
     this.servicioUpdateLogin.comprobarLogin();
     this.servicioArchivar.obtenerFenPar(this.idFenPar).subscribe(resultado=>{
       this.fenPar = resultado;
-    });
+    },
+    error => console.log(error));
     this.archivo = <Archivo>{};
   }
 
@@ -33,7 +34,8 @@ export class ArchivarFenomenoParanormalComponent implements OnInit {
       if(resultado){
         this.servicioArchivar.borrar(this.idFenPar).subscribe(resultado=>{
           this.router.navigate(["/investigador/"+this.fenPar.investigador_id]);
-        })
+        },
+        error => console.log(error))
       }
     })
   }

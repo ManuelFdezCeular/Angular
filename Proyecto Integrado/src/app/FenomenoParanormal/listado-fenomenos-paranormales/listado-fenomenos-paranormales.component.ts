@@ -16,7 +16,8 @@ export class ListadoFenomenosParanormalesComponent implements OnInit {
   ngOnInit(){
     this.servicioListarFenPar.listarFenPar().subscribe(resultado=>{
       this.fenomenosParanormales = resultado;
-    })
+    },
+    error => console.log(error))
   }
 
 }

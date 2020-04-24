@@ -4,10 +4,12 @@
 
 input {
     background: transparent;
+    color: #03e9f4
 }
 
 input:focus {
     background: transparent;
+    color: #03e9f4
 }
 
 .mr-1 {

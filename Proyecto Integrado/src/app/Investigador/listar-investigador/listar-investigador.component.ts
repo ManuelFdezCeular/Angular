@@ -11,15 +11,27 @@ import { UpdateMenuService } from 'src/app/login/update-menu.service';
 export class ListarInvestigadorComponent implements OnInit {
 
   public investigadores:Investigador[];
+  public busqueda: {nombre:string, residencia:string};
 
   constructor(private servicioListar:ListarInvestigadorService, private servicioUpdateLogin:UpdateMenuService) { 
     this.servicioUpdateLogin.comprobarLogin();
+    this.busqueda = {nombre:"", residencia:""};
+    console.log(this.busqueda);
   }
 
   ngOnInit() {
     this.servicioListar.obtenerInvestigadores().subscribe(resultado=>{
       this.investigadores = resultado;
-    })
+    },
+    error => console.log(error))
+  }
+
+  buscar(){
+    console.log("nombre: "+ this.busqueda);
+    this.servicioListar.filtrarInvestigador(this.busqueda.nombre, this.busqueda.residencia).subscribe(resultado=>{
+      this.investigadores = resultado;
+    },
+    error=>console.log(error))
   }
 
 }
