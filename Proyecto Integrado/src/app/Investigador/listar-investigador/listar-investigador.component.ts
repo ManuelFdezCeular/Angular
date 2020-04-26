@@ -27,7 +27,6 @@ export class ListarInvestigadorComponent implements OnInit {
   }
 
   buscar(){
-    console.log("nombre: "+ this.busqueda);
     this.servicioListar.filtrarInvestigador(this.busqueda.nombre, this.busqueda.residencia).subscribe(resultado=>{
       this.investigadores = resultado;
     },

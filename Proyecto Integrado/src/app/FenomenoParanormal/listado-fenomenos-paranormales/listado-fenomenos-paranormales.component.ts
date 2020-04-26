@@ -10,8 +10,11 @@ import { ListadoFenParService } from './listado-fen-par.service';
 export class ListadoFenomenosParanormalesComponent implements OnInit {
 
   public fenomenosParanormales:FenomenoParanormal[];
+  public busqueda: {lugar:string, provincia:string, comunidadAutonoma:string};
 
-  constructor(private servicioListarFenPar:ListadoFenParService) { }
+  constructor(private servicioListarFenPar:ListadoFenParService) { 
+    this.busqueda = {lugar:"", provincia:"", comunidadAutonoma:""};
+  }
 
   ngOnInit(){
     this.servicioListarFenPar.listarFenPar().subscribe(resultado=>{
@@ -20,4 +23,11 @@ export class ListadoFenomenosParanormalesComponent implements OnInit {
     error => console.log(error))
   }
 
+  buscar(){
+    console.log("buscar:", this.busqueda);
+    this.servicioListarFenPar.filtrarFenPar(this.busqueda.lugar, this.busqueda.provincia, this.busqueda.comunidadAutonoma).subscribe(resultado=>{
+      console.log("resultado busqueda:", resultado);
+      this.fenomenosParanormales = resultado;
+    })
+  }
 }

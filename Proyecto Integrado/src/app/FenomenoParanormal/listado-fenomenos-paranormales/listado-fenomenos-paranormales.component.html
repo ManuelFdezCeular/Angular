@@ -1,21 +1,27 @@
+<label for="lugar" class="ml-3 mr-3">Comunidad Autónoma: </label>
+<input type="text" [(ngModel)]="busqueda.comunidadAutonoma" name="comunidad" #comunidad="ngModel" (keyup)="buscar()" placeholder="Búsqueda de comunidad autónoma">
+<label for="lugar" class="ml-3 mr-3">Provincia: </label>
+<input type="text" [(ngModel)]="busqueda.provincia" name="provincia" #provincia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de provincia">
+<label for="nombre" class="mt-4 ml-3 mr-3">Pueblo: </label>
+<input type="text" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de pueblo">
 <h3>Fenomenos Paranormales Registrados</h3>
 <table class="table">
-        <thead class="thead-danger">
-            <tr scope="row">
-                <th scope="col">Descripción</th>
-                <th scope="col">Fecha</th>
-                <th scope="col">Lugar</th>
-                <th scope="col">Provincia</th>
-                <th scope="col">Comunidad Autónoma</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr scope="row" *ngFor="let fenPar of fenomenosParanormales">
-                <td scope="col">{{ fenPar.descripcion }}</td>
-                <td scope="col">{{ fenPar.fechaOcurrencia | date:"dd-MM-yyyy"}}</td>
-                <td scope="col">{{ fenPar.lugarOcurrencia }}</td>
-                <td scope="col">{{ fenPar.provinciaOcurrencia }}</td>
-                <td scope="col">{{ fenPar.comunidadAutonoma }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <thead class="thead-danger">
+        <tr scope="row">
+            <th scope="col">Descripción</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Lugar</th>
+            <th scope="col">Provincia</th>
+            <th scope="col">Comunidad Autónoma</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr scope="row" *ngFor="let fenPar of fenomenosParanormales">
+            <td scope="col">{{ fenPar.descripcion }}</td>
+            <td scope="col">{{ fenPar.fechaOcurrencia | date:"dd-MM-yyyy"}}</td>
+            <td scope="col">{{ fenPar.lugarOcurrencia }}</td>
+            <td scope="col">{{ fenPar.provinciaOcurrencia }}</td>
+            <td scope="col">{{ fenPar.comunidadAutonoma }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -19,4 +19,15 @@ export class ListadoFenParService {
 
     return this.http.post<FenomenoParanormal[]>(this.url, objeto);
   }
+
+  filtrarFenPar(lugar:string, provincia:string, comunidad:string){
+    let objeto = JSON.stringify({
+      accion: "FiltrarFenPar",
+      lugar,
+      provincia,
+      comunidad
+    })
+
+    return this.http.post<FenomenoParanormal[]>(this.url, objeto);
+  }
 }

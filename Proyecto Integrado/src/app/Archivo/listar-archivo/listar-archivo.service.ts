@@ -20,4 +20,14 @@ export class ListarArchivoService {
     return this.http.post<Archivo[]>(this.url, objeto, environment.cabecera());
   }
 
+  filtrarArchivo(nombre:string, lugar:string){
+    let objeto = JSON.stringify({
+      accion: "FiltrarArchivo",
+      nombre,
+      lugar
+    })
+
+    return this.http.post<Archivo[]>(this.url, objeto, environment.cabecera());
+  }
+
 }

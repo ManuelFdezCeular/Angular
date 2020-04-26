@@ -1,6 +1,6 @@
 <div *ngIf="archivo!=undefined">
     <p><span>Desea eliminar permanentemente el fenómeno paranormal {{archivo.explicacion}} {{archivo.fechaArchivo}}?</span></p>
     <br/><br/>
-    <button (click)="borrarArchivo()">Eliminar</button>
-    <button (click)="noMostrarDiv()">Cancelar</button>
+    <button class="btn btn-dark" (click)="borrarArchivo()">Eliminar</button>
+    <button class="btn btn-dark" (click)="noMostrarDiv()">Cancelar</button>
 </div>

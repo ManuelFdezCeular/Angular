@@ -1,8 +1,10 @@
-<label for="nombre" class="mt-4 ml-3 mr-3">Nombre: </label>
-<input type="text" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
-<label for="nombre" class="ml-3 mr-3">Residencia: </label>
-<input type="text" [(ngModel)]="busqueda.residencia" name="residencia" #residencia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de residencia">
-<div class="container-fluid">
+<div class="container">
+    <label for="nombre" class="mt-4 ml-3 mr-3">Nombre: </label>
+    <input type="text" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
+    <label for="lugar" class="ml-3 mr-3">Residencia: </label>
+    <input type="text" [(ngModel)]="busqueda.residencia" name="residencia" #residencia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de residencia">
+</div>
+<div class="container">
     <h1 class="container">Listado de Investigadores</h1>
     <table class="table">
         <thead class="thead-danger">

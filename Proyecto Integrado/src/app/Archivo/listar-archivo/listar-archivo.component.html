@@ -1,26 +1,32 @@
-<div class="container-fluid" *ngIf="idUsuario!=null">
-    <h1 class="container">Archivo de Fenómenos Paranormales</h1>
-    <table class="table">
-        <thead class="thead-danger">
-            <tr scope="row">
-                <th scope="col">Nombre</th>
-                <th scope="col">Explicación del fenómeno paranormal</th>
-                <th scope="col">Fecha de Archivo</th>
-                <th scope="col">Lugar</th>
-                <th scope="col">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr scope="row" *ngFor="let archivo of archivos">
-                <td scope="col">{{ archivo.nombre }} {{ archivo.apellidos }}</td>
-                <td scope="col">{{ archivo.explicacion }}</td>
-                <td scope="col">{{ archivo.fechaArchivo }}</td>
-                <td scope="col">{{ archivo.lugarArchivo }}</td>
-                <td scope="col"><button (click)="mostrarDiv(archivo)" class="btn btn-dark text-light" *ngIf="archivo.investigador_id == idUsuario">Borrar definitivamente</button>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="principal" *ngIf="mostrar">
-    <app-borrar-archivo [archivo]="archivo" (noMostrar)="cancelarDiv($event)"></app-borrar-archivo>
+<div class="container">
+    <label for="nombre" class="mt-4 ml-3 mr-3">Nombre: </label>
+    <input type="text" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
+    <label for="lugar" class="ml-3 mr-3">Lugar: </label>
+    <input type="text" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de lugar">
+    <div class="container-fluid" *ngIf="idUsuario!=null">
+        <h1 class="container">Archivo de Fenómenos Paranormales</h1>
+        <table class="table">
+            <thead class="thead-danger">
+                <tr scope="row">
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Explicación del fenómeno paranormal</th>
+                    <th scope="col">Fecha de Archivo</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let archivo of archivos">
+                    <td scope="col">{{ archivo.nombre }} {{ archivo.apellidos }}</td>
+                    <td scope="col">{{ archivo.explicacion }}</td>
+                    <td scope="col">{{ archivo.fechaArchivo }}</td>
+                    <td scope="col">{{ archivo.lugarArchivo }}</td>
+                    <td scope="col"><button (click)="mostrarDiv(archivo)" class="btn btn-dark text-light" *ngIf="archivo.investigador_id == idUsuario">Borrar definitivamente</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="principal" *ngIf="mostrar">
+        <app-borrar-archivo [archivo]="archivo" (noMostrar)="cancelarDiv($event)"></app-borrar-archivo>
+    </div>
 </div>

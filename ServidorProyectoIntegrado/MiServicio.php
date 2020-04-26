@@ -20,6 +20,10 @@ if($objeto != null) {
 			case "FenomenosParanormales": 
 				print json_encode($modelo->ListarFenomenosParanormales());
 				break;
+			
+			case "FiltrarFenPar":
+				print json_encode($modelo->FiltrarFenomenosParanormales($objeto->ubicacion->lugar, $objeto->ubicacion->provincia, $objeto->ubicacion->comunidadAutonoma));
+				break;
     }  //  switch($objeto->accion)
 }  //  if($objeto != null)
 ?>
