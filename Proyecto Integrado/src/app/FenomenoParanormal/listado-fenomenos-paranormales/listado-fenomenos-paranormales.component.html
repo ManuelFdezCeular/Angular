@@ -1,9 +1,31 @@
-<label for="lugar" class="ml-3 mr-3">Comunidad Autónoma: </label>
-<input type="text" [(ngModel)]="busqueda.comunidadAutonoma" name="comunidad" #comunidad="ngModel" (keyup)="buscar()" placeholder="Búsqueda de comunidad autónoma">
-<label for="lugar" class="ml-3 mr-3">Provincia: </label>
-<input type="text" [(ngModel)]="busqueda.provincia" name="provincia" #provincia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de provincia">
-<label for="nombre" class="mt-4 ml-3 mr-3">Pueblo: </label>
-<input type="text" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de pueblo">
+<div class="container inputs">
+    <button class="btn btn-info text-light" (click)="mostrarDiv()">Búsqueda Precisa:</button>
+    <div *ngIf="mostrar">
+        <label for="comunidad" class="ml-2 mr-2">Comunidad Autónoma: </label>
+        <input type="text" [(ngModel)]="busqueda.comunidadAutonoma" name="comunidad" #comunidad="ngModel" (keyup)="buscar()" placeholder="Búsqueda de comunidad autónoma">
+        <label for="provincia" class="ml-2 mr-2">Provincia: </label>
+        <input type="text" [(ngModel)]="busqueda.provincia" name="provincia" #provincia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de provincia">
+        <label for="localidad" class="ml-2 mr-2">Localidad: </label>
+        <input type="text" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de pueblo">
+    </div>
+</div>
+<div class="container selects" *ngIf="comunidades != undefined">
+    <button class="btn btn-info text-light" (click)="mostrarDivSelects()">Búsqueda Por Escalas:</button>
+    <div *ngIf="mostrarSelects">
+        <label for="lugar" class="ml-2 mr-2">Seleccione una Comunidad Autónoma: </label>
+        <select #comunidadAutonoma="ngModel" [(ngModel)]="comunidad" name="comunidadAutonoma" (change)="cargarProvincias()">
+            <option *ngFor="let com of comunidades" [ngValue]="com" class="form-control">{{ com.nombre }}</option>
+        </select>
+        <label for="provincia" class="ml-2 mr-2">Seleccione una Provincia: </label>
+        <select #provinciaComunidadAutonoma="ngModel" [(ngModel)]="provincia" name="provinciaComunidadAutonoma" (change)="cargarLocalidades()">
+            <option *ngFor="let prov of provincias" [ngValue]="prov" class="form-control">{{ prov.nombre }}</option>
+        </select>
+        <label for="localidad" class="ml-2 mr-2">Seleccione una Localidad: </label>
+        <select #localidadProvincia="ngModel" [(ngModel)]="localidad" name="localidadProvincia" (change)="busquedaConSelects()">
+            <option *ngFor="let loc of localidades" [ngValue]="loc" class="form-control">{{ loc.nombre }}</option>
+        </select>
+    </div>
+</div>
 <h3>Fenomenos Paranormales Registrados</h3>
 <table class="table">
     <thead class="thead-danger">

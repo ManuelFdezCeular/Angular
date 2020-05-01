@@ -2,10 +2,13 @@
     color: white;
 }
 
-input {
+input,
+ :read-only {
     background: transparent;
+    color: #03e9f4
 }
 
 input:focus {
     background: transparent;
+    color: #03e9f4
 }

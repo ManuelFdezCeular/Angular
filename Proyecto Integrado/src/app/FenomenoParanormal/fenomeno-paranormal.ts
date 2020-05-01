@@ -1,5 +1,4 @@
 export class FenomenoParanormal {
-
     id:number;
     investigador_id:number;
     descripcion:string;
