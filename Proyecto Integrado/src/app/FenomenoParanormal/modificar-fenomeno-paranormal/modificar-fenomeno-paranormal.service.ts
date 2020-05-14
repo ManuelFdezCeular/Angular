@@ -16,9 +16,8 @@ export class ModificarFenomenoParanormalService {
       accion: 'ModificaFenPar',
       fenomenoParanormal: fenPar
     })
-    console.log(objeto);
 
-    return this.http.post<boolean>(this.url, objeto);
+    return this.http.post<any>(this.url, objeto);
   }
 
   obtenerFenPar(id:number){

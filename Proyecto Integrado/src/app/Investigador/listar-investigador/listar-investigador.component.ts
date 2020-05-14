@@ -16,7 +16,6 @@ export class ListarInvestigadorComponent implements OnInit {
   constructor(private servicioListar:ListarInvestigadorService, private servicioUpdateLogin:UpdateMenuService) { 
     this.servicioUpdateLogin.comprobarLogin();
     this.busqueda = {nombre:"", residencia:""};
-    console.log(this.busqueda);
   }
 
   ngOnInit() {

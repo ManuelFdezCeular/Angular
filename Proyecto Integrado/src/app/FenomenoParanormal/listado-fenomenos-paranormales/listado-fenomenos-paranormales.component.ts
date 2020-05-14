@@ -51,6 +51,7 @@ export class ListadoFenomenosParanormalesComponent implements OnInit {
   cargarProvincias(){
     this.servicioListarFenPar.listarProvinciasDeComunidad(this.comunidad.codigo).subscribe(resultado=>{
       this.provincias = resultado;
+      this.localidades = [];
     },
     error => console.log(error))
     this.busqueda.comunidadAutonoma = this.comunidad.nombre;
@@ -75,19 +76,26 @@ export class ListadoFenomenosParanormalesComponent implements OnInit {
     if(!this.mostrar){
       this.mostrar = true;
       this.mostrarSelects = false;
+      this.provincias = [];
+      this.localidades = [];
       this.busqueda = {lugar:"", provincia:"", comunidadAutonoma:""};
       this.buscar();
-    }else
+    }else {
       this.mostrar = false;
+    }
   }
 
   mostrarDivSelects(){
     if(!this.mostrarSelects){
       this.mostrarSelects = true;
       this.mostrar = false;
+      this.comunidad = <ComunidadAutonoma>{};
+      this.provincia = <Provincia>{};
+      this.localidad = <Localidad>{};
       this.busqueda = {lugar:"", provincia:"", comunidadAutonoma:""};
       this.buscar();
-    }else
+    }else {
       this.mostrarSelects = false;
+    }
   }
 }

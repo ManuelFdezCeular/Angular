@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 export const environment = {
   production: false,
+  mapBoxToken: 'pk.eyJ1IjoibWFudWVsamZjIiwiYSI6ImNrM3ptdjNheDFydmszbW8xcDc2ZWJiYTMifQ.FU9dx0mUfPWztiTrgnnnmw',
 
   urlLogin: "http://localhost/AJAX/ServidorProyectoIntegrado/login.php",
   url: "http://localhost/AJAX/ServidorProyectoIntegrado/MiServicioPrivado.php",
@@ -19,7 +20,6 @@ export const environment = {
 		})};
 		return headers;
 	},
-
 };
 
 /*

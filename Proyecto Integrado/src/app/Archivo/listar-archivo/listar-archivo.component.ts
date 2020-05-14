@@ -25,7 +25,6 @@ export class ListarArchivoComponent implements OnInit {
 
   ngOnInit(){
     this.servicioListarArchivos.listar().subscribe(resultado=>{
-      console.log(resultado);
       this.archivos = resultado;
     },
     error => console.log(error))

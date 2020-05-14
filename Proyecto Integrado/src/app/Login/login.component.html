@@ -1,40 +1,39 @@
-
 <div class="body">
-  <div class="login-box">
-    <h2>Identificación</h2>
-    <p *ngIf="loginIncorrecto" class="text-danger">Usuario y/clave INCORRECTOS, por favor proceda de nuevo</p>
-    <form class="form-horizontal" #loginForm="ngForm">
-      <div class="user-box">
-        <input type="text" required [(ngModel)]="login.email" name="email" #email="ngModel">
-        <label>Email: </label>
-        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-          El correo es obligatorio
-        </div>
-      </div>
-      <div class="user-box">
-        <input type="password" required [(ngModel)]="login.clave" name="clave" #clave="ngModel">
-        <label>Clave: </label>
-        <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
-          La clave es obligatoria
-        </div>
-      </div>
-      <div>
-        <button class="btn" [disabled]="!loginForm.valid" type="button" (click)="validar(loginForm.value)">
+    <div class="login-box">
+        <h2>Identificación</h2>
+        <p *ngIf="loginIncorrecto" class="text-danger">Usuario y/clave INCORRECTOS, por favor proceda de nuevo</p>
+        <form class="form-horizontal" #loginForm="ngForm">
+            <div class="user-box">
+                <input type="text" required [(ngModel)]="login.email" name="email" #email="ngModel">
+                <label>Email: </label>
+                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                    El correo es obligatorio
+                </div>
+            </div>
+            <div class="user-box">
+                <input type="password" required [(ngModel)]="login.clave" name="clave" #clave="ngModel">
+                <label>Clave: </label>
+                <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
+                    La clave es obligatoria
+                </div>
+            </div>
+            <div>
+                <button class="btn" [disabled]="!loginForm.valid" type="button" (click)="validar(loginForm.value)">
         <span></span>
         <span></span>
         <span></span>
         <span></span>Entrar</button>
-        <a routerLink="/anadir-investigador">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>Regístrate</a>
-      </div>
-    </form>
-  </div>
+                <a routerLink="/anadir-investigador">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Regístrate</a>
+            </div>
+        </form>
+    </div>
 </div>
 
- <!--class="btn btn-light btn-sm"
+<!--class="btn btn-light btn-sm"
  class="btn btn-sm btn-dark" 
  <div class="login-box">
   <h2>Login</h2>

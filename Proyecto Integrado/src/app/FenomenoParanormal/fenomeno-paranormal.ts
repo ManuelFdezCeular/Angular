@@ -6,5 +6,7 @@ export class FenomenoParanormal {
     lugarOcurrencia:string;
     provinciaOcurrencia:string;
     comunidadAutonoma:string;
+    latitud:number;
+    longitud:number;
     estado_id:number;
 }

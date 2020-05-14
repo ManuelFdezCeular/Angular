@@ -26,3 +26,20 @@ option:focus {
     outline: none;
     color: #03e9f4
 }
+
+#mapa {
+    width: 700px;
+    height: 700px;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    cursor: crosshair !important;
+}
+
+.ocultarMapa {
+    display: none;
+}
+
+.verMapa {
+    display: block;
+}
