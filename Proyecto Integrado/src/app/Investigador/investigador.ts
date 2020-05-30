@@ -7,4 +7,6 @@ export class Investigador {
     telefono:string;
     email:string;
     residencia:string;
+    imagen:string;
+    verificado:number;
 }

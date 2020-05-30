@@ -26,3 +26,15 @@ h5 {
 p {
     left: 260px;
 }
+
+@media only screen and (max-width: 766px) {
+    h5 {
+        left: 84px;
+    }
+    p {
+        left: 69px;
+    }
+    table {
+        width: 115%;
+    }
+}

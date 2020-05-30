@@ -1,8 +1,8 @@
 <div class="container">
-    <label for="nombre" class="mt-4 ml-3 mr-3">Nombre: </label>
-    <input type="text" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
-    <label for="lugar" class="ml-3 mr-3">Residencia: </label>
-    <input type="text" [(ngModel)]="busqueda.residencia" name="residencia" #residencia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de residencia">
+    <label for="nombre" class="col-xs-6 col-sm-6 col-md-2 mt-3">Nombre: </label>
+    <input type="text" id="nombre" class="col-xs-6 col-sm-6 col-md-4" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
+    <label for="residencia" class="col-xs-6 col-sm-6 col-md-2">Residencia: </label>
+    <input type="text" id="residencia" class="col-xs-6 col-sm-6 col-md-4" [(ngModel)]="busqueda.residencia" name="residencia" #residencia="ngModel" (keyup)="buscar()" placeholder="Búsqueda de residencia">
 </div>
 <div class="container">
     <h1 class="container">Listado de Investigadores</h1>

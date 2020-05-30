@@ -1,7 +1,7 @@
 <h1 class="container">Consulta de Fenómenos Paranormales</h1>
 <div class="container">
     <h3 *ngIf="navBar.login">Bienvenido {{ navBar.usuario }}</h3>
-    <nav class="navbar navbar-expand-sm navbar-light bg-info">
+    <nav id="navegador" class="navbar navbar-expand-sm navbar-light bg-info">
         <a class="navbar-brand" routerLink="/" routerLinkActive="active">Fenómenos Paranormales</a>
         <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>

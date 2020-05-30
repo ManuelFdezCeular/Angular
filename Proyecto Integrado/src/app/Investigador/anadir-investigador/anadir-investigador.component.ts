@@ -14,7 +14,7 @@ export class AnadirInvestigadorComponent implements OnInit {
 
   public correoCorrecto:boolean = true;
   public checkCorreo:boolean = false;
-  public registro:{nombre:string, apellidos:string, clave:string, clave2:string, email:string, dni:string, telefono:string, residencia:string};
+  public registro:{nombre:string, apellidos:string, clave:string, clave2:string, email:string, dni:string, telefono:string, residencia:string, imagen:string};
 
   constructor(private servicioAnadirInvestigador:AnadirInvestigadorService, private servicioLogin:LoginService, private router:Router, private ruta:ActivatedRoute) {
     this.registro = {
@@ -25,7 +25,8 @@ export class AnadirInvestigadorComponent implements OnInit {
       email: "",
       dni: "",
       telefono: "",
-      residencia: ""
+      residencia: "",
+      imagen: ""
     }
   }
 
@@ -36,7 +37,6 @@ export class AnadirInvestigadorComponent implements OnInit {
     if(this.registro.clave == this.registro.clave2){
       const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
       this.registro.clave = claveHash;
-      console.log("registro");
       this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
         this.router.navigate(["/"]);
       },
@@ -48,12 +48,44 @@ export class AnadirInvestigadorComponent implements OnInit {
 		this.checkCorreo = true;
 		this.servicioLogin.checkCorreo(email).subscribe(
 			res=>{
-				console.log(res);
 				//  Alza la bandera si el correo está libre, o no:
 				this.correoCorrecto = (res.estado && res.estado == "libre");
 				this.checkCorreo = false;
 			},
 			error=>console.log(error)
 		);
+  }
+  
+  leerImagen(ficheros){
+		// Cogemos el primer archivo
+		const archivo = ficheros[0];
+		// Creamos la instancia de FileReader
+		let reader = new FileReader();
+		//  Hacemos un apuntador al registro:
+		let imagenPerfil = this.registro;
+		let creaImagenRedu = this.creaImagenRedu;
+		
+		reader.onload = function(){
+			imagenPerfil.imagen = (<string>reader.result).split(",")[1];
+			//  Creamos la imagen reducida:
+			creaImagenRedu(imagenPerfil.imagen, imagenPerfil);
+    }
+    reader.readAsDataURL(archivo);
+	}
+
+	creaImagenRedu(datos, imagenPerfil:any){
+		let imagen = new Image();
+		imagen.onload = ()=> {
+      //  Creamos el canvas:
+      let canvasRedu = document.createElement('canvas');
+      let ctxRedu = canvasRedu.getContext("2d");
+      //  Le damos unas dimensiones:
+      canvasRedu.width = 100;
+      canvasRedu.height = 100;
+      ctxRedu.drawImage(imagen, 0, 0, canvasRedu.width, canvasRedu.height);
+      console.log("imagen reducida: ", canvasRedu.toDataURL("image/jpeg").split(",")[1])
+      imagenPerfil.imagen = canvasRedu.toDataURL("image/jpeg").split(",")[1];
+    }
+    imagen.src = "data:image/jpeg;base64," + datos;
 	}
 }

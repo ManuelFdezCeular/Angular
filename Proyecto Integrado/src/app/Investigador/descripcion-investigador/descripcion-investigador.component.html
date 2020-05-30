@@ -1,21 +1,30 @@
 <div class="container">
     <table class="table-bordered">
-        <legend class="bg-dark text-light text-center">Investigador: {{ investigador.nombre }} {{ investigador.apellidos }}</legend>
-        <div class="row">
-            <h5 class="col-4">DNI: </h5>
-            <p class="col-4">{{ investigador.dni }}
+        <legend class="bg-dark text-light text-center">Investigador/a: {{ investigador.nombre }} {{ investigador.apellidos }}</legend>
+        <div class="row ml-5">
+            <div class="col-4">
+                <img *ngIf="investigador.imagen" src="data:image/jpg;base64,{{ investigador.imagen }}" />
+            </div>
         </div>
-        <div class="row">
-            <h5 class="col-4">Teléfono: </h5>
-            <p class="col-4">{{ investigador.telefono }}
+        <div class="row ml-5">
+            <div class="col-6">
+                <h5>DNI: </h5>
+                <p>{{ investigador.dni }} </p>
+            </div>
+            <div class="col-6">
+                <h5>Teléfono: </h5>
+                <p>{{ investigador.telefono }} </p>
+            </div>
         </div>
-        <div class="row">
-            <h5 class="col-4">Email: </h5>
-            <p class="col-4">{{ investigador.email }}
-        </div>
-        <div class="row">
-            <h5 class="col-4">Residencia: </h5>
-            <p class="col-4">{{ investigador.residencia }}
+        <div class="row ml-5">
+            <div class="col-6">
+                <h5>Email: </h5>
+                <p>{{ investigador.email }} </p>
+            </div>
+            <div class="col-6">
+                <h5>Residencia: </h5>
+                <p>{{ investigador.residencia }} </p>
+            </div>
         </div>
     </table>
     <button class="mr-3 btn btn-dark" routerLink="/investigadores" [disabled]="mostrar">Volver</button>
@@ -25,6 +34,6 @@
 <div *ngIf="investigador.id != undefined">
     <app-listado-investigador-fen-par [idInvestigador]="investigador.id" [mostrarOpciones]="mostrarOpciones"></app-listado-investigador-fen-par>
 </div>
-<div class="principal" *ngIf="mostrar" >
+<div class="principal" *ngIf="mostrar">
     <app-borrar-investigador [investigador]="investigador" (noMostrar)="cancelarDiv($event)"></app-borrar-investigador>
 </div>

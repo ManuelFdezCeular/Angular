@@ -35,4 +35,37 @@ export class ModificarInvestigadorComponent implements OnInit {
     },
     error => console.log(error))
   }
+
+  leerImagen(ficheros){
+		// Cogemos el primer archivo
+		const archivo = ficheros[0];
+		// Creamos la instancia de FileReader
+		let reader = new FileReader();
+		//  Hacemos un apuntador al registro:
+		let imagenPerfil = this.investigador;
+		let creaImagenRedu = this.creaImagenRedu;
+		
+		reader.onload = function(){
+			imagenPerfil.imagen = (<string>reader.result).split(",")[1];
+			//  Creamos la imagen reducida:
+			creaImagenRedu(imagenPerfil.imagen, imagenPerfil);
+    }
+    reader.readAsDataURL(archivo);
+	}
+
+	creaImagenRedu(datos, imagenPerfil:any){
+		let imagen = new Image();
+		imagen.onload = ()=> {
+      //  Creamos el canvas:
+      let canvasRedu = document.createElement('canvas');
+      let ctxRedu = canvasRedu.getContext("2d");
+      //  Le damos unas dimensiones:
+      canvasRedu.width = 100;
+      canvasRedu.height = 100;
+      ctxRedu.drawImage(imagen, 0, 0, canvasRedu.width, canvasRedu.height);
+      console.log("imagen reducida: ", canvasRedu.toDataURL("image/jpeg").split(",")[1])
+      imagenPerfil.imagen = canvasRedu.toDataURL("image/jpeg").split(",")[1];
+    }
+    imagen.src = "data:image/jpeg;base64," + datos;
+	}
 }

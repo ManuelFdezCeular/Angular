@@ -29,10 +29,14 @@ export class LoginComponent implements OnInit {
     log.clave = claveHash;
     this.servicioLogin.getLogin(log).subscribe(
       res => {
+        console.log("resultado login: ", res);
         if ((res.estado) && (res.estado == "NO")) {
             alert("El correo o la clave son incorrectos");
             this.loginIncorrecto = true;
-          } else { //  Iniciamos sesión:
+          } else if(res.verificado == 0){
+            alert("El correo no ha sido verificado");
+            this.loginIncorrecto = true;
+          }else{//  Iniciamos sesión:
             this.loginIncorrecto = false;
 
             //  Guardamos el JWT en el sesionStorage:

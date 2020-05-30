@@ -1,8 +1,8 @@
 <div class="container">
-    <label for="nombre" class="mt-4 ml-3 mr-3">Nombre: </label>
-    <input type="text" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
-    <label for="lugar" class="ml-3 mr-3">Lugar: </label>
-    <input type="text" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de lugar">
+    <label for="nombre" class="col-xs-6 col-sm-6 col-md-2 mt-3">Nombre: </label>
+    <input type="text" id="nombre" class="col-xs-6 col-sm-6 col-md-4" [(ngModel)]="busqueda.nombre" name="nombre" #nombre="ngModel" (keyup)="buscar()" placeholder="Búsqueda de investigador">
+    <label for="localidad" class="col-xs-6 col-sm-6 col-md-2">Localidad: </label>
+    <input type="text" id="localidad" class="col-xs-6 col-sm-6 col-md-4" [(ngModel)]="busqueda.lugar" name="lugar" #lugar="ngModel" (keyup)="buscar()" placeholder="Búsqueda de localidad">
     <div class="container-fluid" *ngIf="idUsuario!=null">
         <h1 class="container">Archivo de Fenómenos Paranormales</h1>
         <table class="table">

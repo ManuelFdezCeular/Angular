@@ -1,5 +1,5 @@
 <form class="form-horizontal container" #investigadorForm="ngForm" (ngSubmit)="anadirInvestigador()">
-<h3>Registro</h3>
+    <h3>Registro</h3>
     <div class="form-group">
         <label for="nombre">Nombre:</label>
         <input type="text" class="form-control" required [(ngModel)]="registro.nombre" name="nombre" #nombre="ngModel">
@@ -61,6 +61,10 @@
         <div [hidden]="residencia.valid || residencia.pristine" class="alert alert-danger">
             La residencia es obligatoria
         </div>
+    </div>
+    <div class="form-group">
+        <label>Imagen: </label>
+        <input type="file" class="form-control" name="imagen" (change)="leerImagen($event.target.files)">
     </div>
     <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Registrarse</button>
     <button routerLink="/" class="btn btn-dark">Cancelar</button>

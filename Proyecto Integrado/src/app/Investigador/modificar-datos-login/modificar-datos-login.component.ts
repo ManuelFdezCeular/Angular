@@ -48,5 +48,4 @@ export class ModificarDatosLoginComponent implements OnInit {
     },
     error => console.log(error))
   }
-
 }
