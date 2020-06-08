@@ -1,5 +1,5 @@
 <form class="form-horizontal container" #archivoForm="ngForm" (ngSubmit)="archivarFenomenoParanormal()" *ngIf="fenPar!=undefined">
-<h3>Archivar Fenómeno Paranormal</h3>
+    <h3>Archivar Fenómeno Paranormal</h3>
     <div class="form-group">
         <label for="nombre">Fenomeno Paranormal:</label>
         <input type="text" class="form-control" value="{{ fenPar.descripcion }}, {{ fenPar.fechaOcurrencia | date:'dd-MM-yyyy' }}, {{ fenPar.lugarOcurrencia }}" readonly>
@@ -18,6 +18,6 @@
             La fecha es obligatoria
         </div>
     </div>
-    <button type="submit" [disabled]="!archivoForm.valid" class="btn btn-dark">Archivar</button>
-    <button routerLink="/investigador/{{ fenPar.investigador_id }}" class="btn btn-dark">Cancelar</button>
+    <button type="submit" [disabled]="!archivoForm.valid" class="btn btn-info">Archivar</button>
+    <button routerLink="/investigador/{{ fenPar.investigador_id }}" class="btn btn-info">Cancelar</button>
 </form>
