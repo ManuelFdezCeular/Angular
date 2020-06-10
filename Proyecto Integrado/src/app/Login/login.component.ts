@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   public login: {email:string, clave:string};
   public loginIncorrecto:boolean = false;
   public verRecuperacion:boolean = false;
+  public verReenvio:boolean = false;
 
   constructor(private servicioLogin:LoginService, private servicioUpdateMenu:UpdateMenuService, private router:Router, private ruta:ActivatedRoute) { 
     this.login = {email:"", clave: ""};
@@ -58,6 +59,21 @@ export class LoginComponent implements OnInit {
 
   mostrarFormularioContrasena(){
     this.verRecuperacion = !this.verRecuperacion;
+  }
+
+  mostrarFormularioCorreo(){
+    this.verReenvio = !this.verReenvio;
+  }
+
+  reenviarCorreoConfirmacion(){
+    this.servicioLogin.reenviarCorreo(this.login.email).subscribe(resultado=>{
+      if(resultado.correo == "ERROR"){
+        alert("El correo ya ha sido verificado");
+      }else{
+        alert("Correo enviado con éxito. Se le dirigirá a la pantalla principal")
+        this.router.navigate(['/']);
+      }
+    })
   }
 
   recuperarContrasena(){

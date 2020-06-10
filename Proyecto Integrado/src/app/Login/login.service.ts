@@ -8,6 +8,7 @@ import { environment } from "../../environments/environment";
 export class LoginService {
 
 	private url = environment.urlLogin;
+	private urlAbierta = environment.urlAbierta;
 
 	constructor(private http: HttpClient) { }
 
@@ -31,10 +32,19 @@ export class LoginService {
 
 	recuperarContrasena(email:string){
 		let objeto = JSON.stringify({
-			servicio: "enviarCorreoRecuperarClave",
+			servicio: "EnviarCorreoRecuperarClave",
 			email
 		})
 
 		return this.http.post<any>(this.url, objeto);
+	}
+
+	reenviarCorreo(email:string){
+		let objeto = JSON.stringify({
+			accion: "ReenvioCorreoConfirmacion",
+			email
+		})
+
+		return this.http.post<any>(this.urlAbierta, objeto);
 	}
 }

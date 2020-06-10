@@ -1,5 +1,5 @@
 <div class="body">
-    <div class="login-box" *ngIf="!verRecuperacion">
+    <div class="login-box" *ngIf="!verRecuperacion && !verReenvio">
         <h2>Identificación</h2>
         <p *ngIf="loginIncorrecto" class="text-danger">Usuario y/clave INCORRECTOS, por favor proceda de nuevo</p>
         <form class="form-horizontal" #loginForm="ngForm">
@@ -33,6 +33,7 @@
         <br/>
         <br/>
         <button class="btn btn-link" (click)="mostrarFormularioContrasena()">Recuperar Contraseña</button>
+        <button class="btn btn-link" (click)="mostrarFormularioCorreo()">Reenviar Correo Confirmación</button>
     </div>
     <div class="login-box" *ngIf="verRecuperacion">
         <form class="form-horizontal" #recuperarContrasenaForm="ngForm">
@@ -48,6 +49,26 @@
                 <span></span>
                 <span></span>Recuperar Contraseña</button>
             <button class="btn" type="button" (click)="mostrarFormularioContrasena()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Cancelar</button>
+        </form>
+    </div>
+    <div class="login-box" *ngIf="verReenvio">
+        <form class="form-horizontal" #reenviarCorreoConfirmacionForm="ngForm">
+            <div class="user-box">
+                <input type="email" required [(ngModel)]="login.email" name="email" #email="ngModel" />
+                <label>Introduce tu email:</label>
+            </div>
+            <br/>
+            <br/>
+            <button class="btn btn-link" [disabled]="!reenviarCorreoConfirmacionForm.valid" (click)="reenviarCorreoConfirmacion()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Reenviar Correo Confirmación</button>
+            <button class="btn" type="button" (click)="mostrarFormularioCorreo()">
                 <span></span>
                 <span></span>
                 <span></span>
