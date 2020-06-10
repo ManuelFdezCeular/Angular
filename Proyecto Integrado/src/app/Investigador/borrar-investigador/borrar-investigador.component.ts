@@ -3,6 +3,7 @@ import { Investigador } from '../investigador';
 import { BorrarInvestigadorService } from './borrar-investigador.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-borrar-investigador',
@@ -15,7 +16,7 @@ export class BorrarInvestigadorComponent implements OnInit {
 
   @Output() noMostrar = new EventEmitter();
 
-  constructor(private servicioBorrar:BorrarInvestigadorService, private router:Router, private ruta:ActivatedRoute) {}
+  constructor(private servicioBorrar:BorrarInvestigadorService, private cerrarSesion:AppComponent, private router:Router, private ruta:ActivatedRoute) {}
 
   ngOnInit() {
   }
@@ -24,7 +25,7 @@ export class BorrarInvestigadorComponent implements OnInit {
     this.servicioBorrar.borrarInvestigador(this.investigador.id).subscribe(resultado=>{
       if(resultado.borrado == "correcto"){
         this.noMostrar.emit(resultado);
-        this.router.navigate(["/"]);
+        this.cerrarSesion.cerrarLoginAlBorrar();
       }else{
         alert("Error al borrar. Debe borrar los fenomenos paranormales definitivamente para poder marcharse.")
       }

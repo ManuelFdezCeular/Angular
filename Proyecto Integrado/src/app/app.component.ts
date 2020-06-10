@@ -18,24 +18,36 @@ export class AppComponent {
     idUsuario: -1
   }
 
-  constructor(private servicioUpdateMenu:UpdateMenuService, private router:Router, private ruta:ActivatedRoute){
-    this.servicioUpdateMenu.ObtenerResLogin$().subscribe(resultado=>{
+  constructor(private servicioUpdateMenu: UpdateMenuService, private router: Router, private ruta: ActivatedRoute) {
+    this.servicioUpdateMenu.ObtenerResLogin$().subscribe(resultado => {
       this.navBar.login = resultado.login;
       this.navBar.usuario = resultado.usuario;
       this.navBar.idUsuario = resultado.id
     })
   }
 
-  cerrarLogin(){
-		if (confirm("¿Deseas cerrar sesión?")) {
-			localStorage.JWT = "";
+  cerrarLogin() {
+    if (confirm("¿Deseas cerrar sesión?")) {
+      localStorage.JWT = "";
       localStorage.nombreUsuario = "";
       localStorage.idUsuario = -1;
-			this.navBar.login = false;
+      this.navBar.login = false;
       this.navBar.usuario = "";
       this.navBar.idUsuario = -1;
-			 //  Vamos a inicio:
-			 this.router.navigate(['/']);
-		}
-	}
+      //  Vamos a inicio:
+      this.router.navigate(['/']);
+    }
+  }
+
+  cerrarLoginAlBorrar() {
+    alert('A continuación se le borrará de la base de datos y volverá al inicio de la aplicación.')
+    localStorage.JWT = "";
+    localStorage.nombreUsuario = "";
+    localStorage.idUsuario = -1;
+    this.navBar.login = false;
+    this.navBar.usuario = "";
+    this.navBar.idUsuario = -1;
+    //  Vamos a inicio:
+    this.router.navigate(['/']);
+  }
 }
