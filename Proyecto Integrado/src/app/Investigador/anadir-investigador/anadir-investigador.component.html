@@ -67,5 +67,5 @@
         <input type="file" class="form-control" name="imagen" (change)="leerImagen($event.target.files)">
     </div>
     <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Registrarse</button>
-    <button routerLink="/" class="btn btn-dark">Cancelar</button>
+    <button type="button" routerLink="/" class="btn btn-dark">Cancelar</button>
 </form>

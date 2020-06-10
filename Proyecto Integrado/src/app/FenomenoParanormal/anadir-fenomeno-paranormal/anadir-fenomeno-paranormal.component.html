@@ -48,7 +48,7 @@
     <button type="button" class="btn btn-info mr-3" (click)="mostrarMapa()">{{ textoMapa }} Mapa</button>
     <br/><br/>
     <button type="submit" [disabled]="!fenParForm.valid" class="btn btn-dark">Añadir</button>
-    <button routerLink="/investigador/{{ idInvestigador }}" class="btn btn-dark">Cancelar</button>
+    <button routerLink="/investigador/{{ idInvestigador }}" type="button" class="btn btn-dark">Cancelar</button>
     <div [ngClass]="{'ocultarMapa': !verMapa, 'verMapa': verMapa}" id="mapa">
 
     </div>

@@ -3,7 +3,8 @@ import { AnadirInvestigadorService } from './anadir-investigador.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from 'src/app/login/login.service';
 
-import * as CryptoJS from 'crypto-js';
+//import * as CryptoJS from 'crypto-js';
+import { sha3_256 } from 'js-sha3';
 
 @Component({
   selector: 'app-anadir-investigador',
@@ -35,7 +36,8 @@ export class AnadirInvestigadorComponent implements OnInit {
 
   anadirInvestigador(){
     if(this.registro.clave == this.registro.clave2){
-      const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
+      //const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
+      const claveHash =  btoa(sha3_256(this.registro.clave));
       this.registro.clave = claveHash;
       this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
         this.router.navigate(["/"]);

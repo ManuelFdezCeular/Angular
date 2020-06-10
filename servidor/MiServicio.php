@@ -20,9 +20,25 @@ if($objeto != null) {
 			case "FenomenosParanormales": 
 				print json_encode($modelo->ListarFenomenosParanormales());
 				break;
+
+			case "AnadirInvestigador":  
+				print json_encode($modelo->AnadeInvestigador($objeto->investigador));
+				break;
 			
 			case "FiltrarFenPar":
-				print json_encode($modelo->FiltrarFenomenosParanormales($objeto->ubicacion->lugar, $objeto->ubicacion->provincia, $objeto->ubicacion->comunidadAutonoma));
+				print json_encode($modelo->FiltrarFenomenosParanormales($objeto->lugar, $objeto->provincia, $objeto->comunidad));
+				break;
+			
+			case "ListarComunidades":
+				print json_encode($modelo->ListarComunidades());
+				break;
+
+			case "ListarProvincias":
+				print json_encode($modelo->ListarProvinciasPorComunidad($objeto->codigo));
+				break;
+
+			case "ListarLocalidades":
+				print json_encode($modelo->ListarLocalidadesPorProvincia($objeto->codigo));
 				break;
     }  //  switch($objeto->accion)
 }  //  if($objeto != null)

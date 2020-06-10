@@ -11,3 +11,9 @@ input:focus {
     background: transparent;
     color: #03e9f4
 }
+
+@media only screen and (max-width: 767px) {
+    h3 {
+        margin-top: 20px;
+    }
+}

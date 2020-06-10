@@ -15,20 +15,7 @@
                 Las claves deben ser iguales
             </div>
         </div>
-        <div class="form-group">
-            <label for="email">Email nuevo:</label>
-            <input type="Email" class="form-control" required [(ngModel)]="modificar.email" name="email" #email="ngModel" (blur)="checkEmail(email.value)">
-            <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
-                El email es obligatorio
-            </div>
-            <div [hidden]="!checkCorreo" class="alert alert-info">
-                Comprobando correo ...
-            </div>
-            <div [hidden]="correoCorrecto" class="alert alert-danger">
-                Ese correo está en uso
-            </div>
-        </div>
         <button type="submit" [disabled]="!modificarForm.valid" class="btn btn-dark">Aceptar</button>
-        <button routerLink="/investigador/{{ idInvestigador }}" class="btn btn-dark">Cancelar</button>
+        <button routerLink="/investigador/{{ idInvestigador }}" type="button" class="btn btn-dark">Cancelar</button>
     </form>
 </div>

@@ -12,6 +12,15 @@ input:focus {
     color: #03e9f4
 }
 
-.mr-1 {
-    border-right: 2px #03e9f4 solid;
+@media only screen and (min-width: 768px) {
+    .borde {
+        border-left: 2px #03e9f4 solid;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .borde {
+        border-top: 2px #03e9f4 solid;
+        margin-top: 10px;
+    }
 }

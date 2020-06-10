@@ -1,5 +1,5 @@
 <div class="row mt-3" *ngIf="investigador!=undefined">
-    <div class="col-5 mr-1">
+    <div class="col-md-5 col-sm-12 container mr-1">
         <form class="form-horizontal container" #investigadorForm="ngForm" (ngSubmit)="modificarInvestigador()">
             <h3>Modificar Investigador</h3>
             <div class="form-group">
@@ -42,10 +42,10 @@
                 <input type="file" class="form-control" name="imagen" (change)="leerImagen($event.target.files)">
             </div>
             <button type="submit" [disabled]="!investigadorForm.valid" class="btn btn-dark">Modificar</button>
-            <button routerLink="/investigador/{{ id }}" class="btn btn-dark">Cancelar</button>
+            <button routerLink="/investigador/{{ id }}" type="button" class="btn btn-dark">Cancelar</button>
         </form>
     </div>
-    <div class="col-6">
+    <div class="col-md-5 col-sm-12 container borde">
         <app-modificar-datos-login [idInvestigador]="id"></app-modificar-datos-login>
     </div>
 </div>

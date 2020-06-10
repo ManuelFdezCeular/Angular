@@ -2,9 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModificarDatosLoginService } from './modificar-datos-login.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Investigador } from '../investigador';
-import * as CryptoJS from 'crypto-js';
+//import * as CryptoJS from 'crypto-js';
 import { LoginService } from 'src/app/login/login.service';
 import { UpdateMenuService } from 'src/app/login/update-menu.service';
+
+import { sha3_256 } from 'js-sha3';
 
 @Component({
   selector: 'app-modificar-datos-login',
@@ -20,29 +22,16 @@ export class ModificarDatosLoginComponent implements OnInit {
   public checkCorreo:boolean = false;
 
   constructor(private servicioModificarDatosLogin:ModificarDatosLoginService, private servicioUpdateLogin:UpdateMenuService, private servicioLogin:LoginService, private router:Router, private ruta:ActivatedRoute) {
-    this.modificar = {clave: "", clave1_SIN: "", clave2_SIN: "", email: ""};
+    this.modificar = {clave: "", clave1_SIN: "", clave2_SIN: ""};
     this.servicioUpdateLogin.comprobarLogin();
   }
 
   ngOnInit() {
   }
-
-  checkEmail(email:string){
-		this.checkCorreo = true;
-		this.servicioLogin.checkCorreo(email).subscribe(
-			res=>{
-				console.log(res);
-				//  Alza la bandera si el correo está libre, o no:
-				this.correoCorrecto = (res.estado && res.estado == "libre");
-				this.checkCorreo = false;
-			},
-			error=>console.log(error)
-		);
-  }
   
   modificarDatos(){
-    this.modificar.clave = CryptoJS.SHA3(this.modificar.clave1_SIN).toString(CryptoJS.enc.Base64);
-
+    //this.modificar.clave = CryptoJS.SHA3(this.modificar.clave1_SIN).toString(CryptoJS.enc.Base64);
+    this.modificar.clave  =  btoa(sha3_256(this.modificar.clave1_SIN));
     this.servicioModificarDatosLogin.modificarDatosLogin(this.modificar.clave, this.modificar.email).subscribe(resultado=>{
       this.router.navigate(['/investigador/'+this.idInvestigador]);
     },

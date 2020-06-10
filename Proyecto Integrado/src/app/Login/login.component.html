@@ -1,5 +1,5 @@
 <div class="body">
-    <div class="login-box">
+    <div class="login-box" *ngIf="!verRecuperacion">
         <h2>Identificación</h2>
         <p *ngIf="loginIncorrecto" class="text-danger">Usuario y/clave INCORRECTOS, por favor proceda de nuevo</p>
         <form class="form-horizontal" #loginForm="ngForm">
@@ -19,10 +19,10 @@
             </div>
             <div>
                 <button class="btn" [disabled]="!loginForm.valid" type="button" (click)="validar(loginForm.value)">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>Entrar</button>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>Entrar</button>
                 <a routerLink="/anadir-investigador">
                     <span></span>
                     <span></span>
@@ -30,28 +30,28 @@
                     <span></span>Regístrate</a>
             </div>
         </form>
+        <br/>
+        <br/>
+        <button class="btn btn-link" (click)="mostrarFormularioContrasena()">Recuperar Contraseña</button>
+    </div>
+    <div class="login-box" *ngIf="verRecuperacion">
+        <form class="form-horizontal" #recuperarContrasenaForm="ngForm">
+            <div class="user-box">
+                <input type="email" required [(ngModel)]="login.email" name="email" #email="ngModel" />
+                <label>Introduce tu email:</label>
+            </div>
+            <br/>
+            <br/>
+            <button class="btn btn-link" [disabled]="!recuperarContrasenaForm.valid" (click)="recuperarContrasena()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Recuperar Contraseña</button>
+            <button class="btn" type="button" (click)="mostrarFormularioContrasena()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Cancelar</button>
+        </form>
     </div>
 </div>
-
-<!--class="btn btn-light btn-sm"
- class="btn btn-sm btn-dark" 
- <div class="login-box">
-  <h2>Login</h2>
-  <form>
-    <div class="user-box">
-      <input type="text" name="" required="">
-      <label>Username</label>
-    </div>
-    <div class="user-box">
-      <input type="password" name="" required="">
-      <label>Password</label>
-    </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Submit
-    </a>
-  </form>
-</div>-->

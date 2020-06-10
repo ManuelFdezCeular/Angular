@@ -21,10 +21,20 @@ export class LoginService {
 
 
 	checkCorreo(email:string){
-		const objeto = JSON.stringify({
+		let objeto = JSON.stringify({
 			servicio: "Comprobar_email",
 			email
 		});
+
+		return this.http.post<any>(this.url, objeto);
+	}
+
+	recuperarContrasena(email:string){
+		let objeto = JSON.stringify({
+			servicio: "enviarCorreoRecuperarClave",
+			email
+		})
+		console.log(objeto);
 		return this.http.post<any>(this.url, objeto);
 	}
 }

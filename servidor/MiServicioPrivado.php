@@ -14,6 +14,7 @@ $claveSecreta = 'Ciao bella ciao';
 //  Vamos a comprobar el JWT:
 //  Obtenemos el JWT que nos ha debido de pasar el cliente (en la cabecera):
 $token = $jwt->getBearerToken();
+
 if (($token == null) || ($token == "")) {
 	//  Devuelve información indicando que la sesión NO está creada:
 	print '{"sesion":"NO"}';
@@ -52,6 +53,14 @@ if($objeto != null) {
 			case "Investigadores": 
 				print json_encode($modelo->ListarInvestigadores());
 				break;
+			
+			case "Filtrar":
+				print json_encode($modelo->FiltrarInvestigadores($objeto->nombre, $objeto->residencia));
+				break;
+			
+			case "FiltrarArchivo":
+				print json_encode($modelo->FiltrarArchivo($objeto->nombre, $objeto->lugar));
+				break;
 
 			case "Estados":
 				print json_encode($modelo->ListarEstados());
@@ -72,17 +81,17 @@ if($objeto != null) {
 			case "FenomenoParanormal":
 				print json_encode($modelo->ObtenerFenPar($objeto->id));
 				break;
-			
-			case "AnadirInvestigador":  
-				print json_encode($modelo->AnadeInvestigador($objeto->investigador));
-				break;
 				
 			case "AnadirFenPar":  
 				print json_encode($modelo->AnadeFenomenoParanormal($objeto->fenomenoParanormal));
 				break;
 				
 			case "BorrarInvestigador":  
-				print json_encode($modelo->BorrarInvestigador($objeto->id));
+				$resultado = ($modelo->BorrarInvestigador($objeto->id));
+				if($resultado)
+					print '{"borrado":"correcto"}';
+				else
+					print '{"borrado":"incorrecto"}';
 				break;	
 				
 			case "BorrarFenPar":  
@@ -98,19 +107,24 @@ if($objeto != null) {
 				break;
 				
 			case "ModificarInvestigador": 
-				print json_encode($modelo->ModificaInvestigador($objeto->investigador));
+				if($modelo->ModificaInvestigador($objeto->investigador))
+					print '{"modificado":"correcto"}';
+				else
+					print '{"modificado":"incorrecto"}';
 				break;
 					
 			case "ModificaFenPar": 
-				print json_encode($modelo->ModificaFenPar($objeto->fenomenoParanormal));
+				if($modelo->ModificaFenPar($objeto->fenomenoParanormal))
+					print '{"modificado":"correcto"}';
+				else
+					print '{"modificado":"incorrecto"}';
 				break;
 
 			case "ModificarDatosLogin":
 				print json_encode($modelo->ModificarDatosLogin($objeto->clave, $objeto->email, $idUsuairo));
 				break;
-
+				
 			default: 
 				print '{"accion": "NO"}';
     }  //  switch($objeto->accion)
 }  //  if($objeto != null)
-?>
