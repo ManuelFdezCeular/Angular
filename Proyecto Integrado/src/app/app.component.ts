@@ -40,7 +40,7 @@ export class AppComponent {
   }
 
   cerrarLoginAlBorrar() {
-    alert('A continuación se le borrará de la base de datos y volverá al inicio de la aplicación.')
+    alert('A continuación se le borrará de la base de datos y volverá al inicio de la aplicación.');
     localStorage.JWT = "";
     localStorage.nombreUsuario = "";
     localStorage.idUsuario = -1;
