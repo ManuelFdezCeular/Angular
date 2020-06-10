@@ -16,7 +16,6 @@ export class ListarEstadosComponent implements OnInit {
 
   ngOnInit(){
     this.servicioListar.listarEstados().subscribe(resultado=>{
-      console.log("estados:",resultado);
       this.estados = resultado;
       this.estadoSeleccionado.emit()
     })

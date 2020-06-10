@@ -17,7 +17,6 @@ export class ModificarInvestigadorService {
       accion: "ModificarInvestigador",
       investigador
     })
-    console.log("objeto a modificar: ", objeto);
 
     return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }

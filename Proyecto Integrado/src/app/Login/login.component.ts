@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     log.clave = claveHash;
     this.servicioLogin.getLogin(log).subscribe(
       res => {
-        console.log("resultado login: ", res);
         if ((res.estado) && (res.estado == "NO")) {
             alert("El correo o la clave son incorrectos");
             this.loginIncorrecto = true;
@@ -62,10 +61,7 @@ export class LoginComponent implements OnInit {
   }
 
   recuperarContrasena(){
-    console.log("email:", this.login.email);
     this.servicioLogin.recuperarContrasena(this.login.email).subscribe(resultado=>{
-      console.log(resultado);
-
     },error => console.log(error))
   }
 }

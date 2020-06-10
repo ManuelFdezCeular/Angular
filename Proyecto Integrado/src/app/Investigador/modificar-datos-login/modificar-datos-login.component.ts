@@ -32,7 +32,7 @@ export class ModificarDatosLoginComponent implements OnInit {
   modificarDatos(){
     //this.modificar.clave = CryptoJS.SHA3(this.modificar.clave1_SIN).toString(CryptoJS.enc.Base64);
     this.modificar.clave  =  btoa(sha3_256(this.modificar.clave1_SIN));
-    this.servicioModificarDatosLogin.modificarDatosLogin(this.modificar.clave, this.modificar.email).subscribe(resultado=>{
+    this.servicioModificarDatosLogin.modificarDatosLogin(this.modificar.clave).subscribe(resultado=>{
       this.router.navigate(['/investigador/'+this.idInvestigador]);
     },
     error => console.log(error))

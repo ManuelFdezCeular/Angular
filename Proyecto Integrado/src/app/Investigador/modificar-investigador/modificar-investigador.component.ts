@@ -29,7 +29,6 @@ export class ModificarInvestigadorComponent implements OnInit {
   }
 
   modificarInvestigador(){
-    console.log("investigador:", this.investigador);
     this.servicioModificarServicio.modificar(this.investigador).subscribe(resultado=>{
       this.router.navigate(["/investigador/"+this.id]);
     },
@@ -63,7 +62,6 @@ export class ModificarInvestigadorComponent implements OnInit {
       canvasRedu.width = 100;
       canvasRedu.height = 100;
       ctxRedu.drawImage(imagen, 0, 0, canvasRedu.width, canvasRedu.height);
-      console.log("imagen reducida: ", canvasRedu.toDataURL("image/jpeg").split(",")[1])
       imagenPerfil.imagen = canvasRedu.toDataURL("image/jpeg").split(",")[1];
     }
     imagen.src = "data:image/jpeg;base64," + datos;

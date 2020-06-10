@@ -26,7 +26,7 @@ const routes: Routes = [
     component: DescripcionInvestigadorComponent
   },
   {
-    path: "anadir-investigador",
+    path: "registro",
     component: AnadirInvestigadorComponent
   },
   {

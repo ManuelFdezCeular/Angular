@@ -11,11 +11,10 @@ export class ModificarDatosLoginService {
 
   constructor(private http:HttpClient) { }
 
-  modificarDatosLogin(clave:string, email:string){
+  modificarDatosLogin(clave:string){
     let objeto = JSON.stringify({
       accion: "ModificarDatosLogin",
-      clave: clave,
-      email: email
+      clave
     })
 
     return this.http.put<boolean>(this.url, objeto, environment.cabecera());

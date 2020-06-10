@@ -26,7 +26,7 @@ export class ListarInvestigadorService {
       nombre,
       residencia
     })
-    console.log("objeto:", objeto);
+    
     return this.http.post<Investigador[]>(this.url, objeto, environment.cabecera());
   }
 }

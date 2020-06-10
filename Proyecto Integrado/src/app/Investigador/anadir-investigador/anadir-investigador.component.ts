@@ -15,29 +15,30 @@ export class AnadirInvestigadorComponent implements OnInit {
 
   public correoCorrecto:boolean = true;
   public checkCorreo:boolean = false;
-  public registro:{nombre:string, apellidos:string, clave:string, clave2:string, email:string, dni:string, telefono:string, residencia:string, imagen:string};
+  public registro:{nombre:string, apellidos:string, clave:string, email:string, dni:string, telefono:string, residencia:string, imagen:string};
+  public contrasena:string;
 
   constructor(private servicioAnadirInvestigador:AnadirInvestigadorService, private servicioLogin:LoginService, private router:Router, private ruta:ActivatedRoute) {
     this.registro = {
       nombre: "",
       apellidos: "",
       clave: "",
-      clave2: "",
       email: "",
       dni: "",
       telefono: "",
       residencia: "",
       imagen: ""
-    }
+    };
+    this.contrasena = "";
   }
 
   ngOnInit() {
   }
 
   anadirInvestigador(){
-    if(this.registro.clave == this.registro.clave2){
+    if(this.contrasena == this.registro.clave){
       //const claveHash = CryptoJS.SHA3(this.registro.clave).toString(CryptoJS.enc.Base64);
-      const claveHash =  btoa(sha3_256(this.registro.clave));
+      const claveHash =  btoa(sha3_256(this.contrasena));
       this.registro.clave = claveHash;
       this.servicioAnadirInvestigador.anadir(this.registro).subscribe(resultado=>{
         this.router.navigate(["/"]);
@@ -85,7 +86,6 @@ export class AnadirInvestigadorComponent implements OnInit {
       canvasRedu.width = 100;
       canvasRedu.height = 100;
       ctxRedu.drawImage(imagen, 0, 0, canvasRedu.width, canvasRedu.height);
-      console.log("imagen reducida: ", canvasRedu.toDataURL("image/jpeg").split(",")[1])
       imagenPerfil.imagen = canvasRedu.toDataURL("image/jpeg").split(",")[1];
     }
     imagen.src = "data:image/jpeg;base64," + datos;

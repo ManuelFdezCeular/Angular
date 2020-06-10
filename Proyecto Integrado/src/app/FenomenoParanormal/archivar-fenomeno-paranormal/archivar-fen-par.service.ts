@@ -18,7 +18,6 @@ export class ArchivaFenParService {
       accion: "ArchivarFenPar",
       archivo: archivo
     })
-    console.log("objeto:", objeto);
 
     return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }

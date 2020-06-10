@@ -16,14 +16,14 @@
     </div>
     <div class="form-group">
         <label for="clave">Clave:</label>
-        <input type="password" class="form-control" required [(ngModel)]="registro.clave" name="clave" #clave="ngModel" minlength="5">
+        <input type="password" class="form-control" required [(ngModel)]="contrasena" name="clave" #clave="ngModel" minlength="5">
         <div [hidden]="clave.valid || clave.pristine" class="alert alert-danger">
             La contraseña es obligatoria
         </div>
     </div>
     <div class="form-group">
         <label>Repetir clave: </label>
-        <input type="password" class="form-control" required [(ngModel)]="registro.clave2" name="clave2" #clave2="ngModel" minlength="5">
+        <input type="password" class="form-control" required [(ngModel)]="registro.clave" name="clave2" #clave2="ngModel" minlength="5">
         <div [hidden]="clave.value == clave2.value" class="alert alert-danger">
             Las claves deben ser iguales
         </div>

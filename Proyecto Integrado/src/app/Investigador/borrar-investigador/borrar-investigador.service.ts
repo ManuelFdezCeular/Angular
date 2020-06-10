@@ -14,7 +14,7 @@ export class BorrarInvestigadorService {
   borrarInvestigador(id:number){
     let objeto = JSON.stringify({
       accion: "BorrarInvestigador",
-      id: id
+      id
     })
 
     return this.http.post<any>(this.url, objeto, environment.cabecera());
