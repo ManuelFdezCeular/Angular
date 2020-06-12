@@ -13,7 +13,7 @@ export class ModificarFenomenoParanormalService {
 
   modificar(fenPar:FenomenoParanormal){
     let objeto = JSON.stringify({
-      accion: 'ModificaFenPar',
+      servicio: 'ModificaFenPar',
       fenomenoParanormal: fenPar
     })
 
@@ -22,7 +22,7 @@ export class ModificarFenomenoParanormalService {
 
   obtenerFenPar(id:number){
     let objeto = JSON.stringify({
-      accion: 'FenomenoParanormal',
+      servicio: 'FenomenoParanormal',
       id: id
     })
 

@@ -13,7 +13,7 @@ export class ModificarDatosLoginService {
 
   modificarDatosLogin(clave:string){
     let objeto = JSON.stringify({
-      accion: "ModificarDatosLogin",
+      servicio: "ModificarDatosLogin",
       clave
     })
 

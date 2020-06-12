@@ -13,7 +13,7 @@ export class BorrarArchivoService {
 
   borrar(id:number){
     let objeto = JSON.stringify({
-      accion: "BorrarArchivo",
+      servicio: "BorrarArchivo",
       id: id
     })
 

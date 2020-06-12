@@ -17,7 +17,7 @@ export class ListadoFenParService {
 
   listarFenPar(){
     let objeto = JSON.stringify({
-      accion: "FenomenosParanormales"
+      servicio: "FenomenosParanormales"
     })
 
     return this.http.post<FenomenoParanormal[]>(this.url, objeto);
@@ -25,7 +25,7 @@ export class ListadoFenParService {
 
   filtrarFenPar(lugar:string, provincia:string, comunidad:string){
     let objeto = JSON.stringify({
-      accion: "FiltrarFenPar",
+      servicio: "FiltrarFenPar",
       lugar,
       provincia,
       comunidad
@@ -36,7 +36,7 @@ export class ListadoFenParService {
 
   listarComunidades(){
     let objeto = JSON.stringify({
-      accion: "ListarComunidades"
+      servicio: "ListarComunidades"
     })
 
     return this.http.post<ComunidadAutonoma[]>(this.url, objeto);
@@ -44,7 +44,7 @@ export class ListadoFenParService {
 
   listarProvinciasDeComunidad(codigo:number){
     let objeto = JSON.stringify({
-      accion: "ListarProvincias",
+      servicio: "ListarProvincias",
       codigo
     })
 
@@ -53,7 +53,7 @@ export class ListadoFenParService {
 
   listarLocalidadesDeProvincia(codigo:number){
     let objeto = JSON.stringify({
-      accion: "ListarLocalidades",
+      servicio: "ListarLocalidades",
       codigo
     })
 

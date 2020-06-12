@@ -15,7 +15,7 @@ export class ArchivaFenParService {
 
   archivar(archivo:Archivo){
     let objeto = JSON.stringify({
-      accion: "ArchivarFenPar",
+      servicio: "ArchivarFenPar",
       archivo: archivo
     })
 
@@ -24,18 +24,16 @@ export class ArchivaFenParService {
 
   borrar(id:number){
     let objeto = JSON.stringify({
-      accion: "BorrarFenPar",
+      servicio: "BorrarFenPar",
       id: id
     })
-
-    console.log("borrar");
     
     return this.http.post<boolean>(this.url, objeto, environment.cabecera());
   }
 
   obtenerFenPar(id:number){
     let objeto = JSON.stringify({
-      accion: 'FenomenoParanormal',
+      servicio: 'FenomenoParanormal',
       id: id
     })
 

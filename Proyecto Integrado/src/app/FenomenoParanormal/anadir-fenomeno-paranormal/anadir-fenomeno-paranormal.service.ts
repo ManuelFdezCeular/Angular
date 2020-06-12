@@ -14,7 +14,7 @@ export class AnadirFenomenoParanormalService {
 
   anadirFenPar(fenPar:FenomenoParanormal){
     let objeto = JSON.stringify({
-      accion: "AnadirFenPar",
+      servicio: "AnadirFenPar",
       fenomenoParanormal: fenPar
     })
 

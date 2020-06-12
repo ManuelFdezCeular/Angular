@@ -1,0 +1,7 @@
+Manuel Jesús Fernández Ceular
+	
+	1. Abrir Xampp y ejecutar Apache y MySQL
+	2. Abrir la base de datos phpmyadmin e importar el archivo redfenomenosparanormales.sql
+	3. Llevar la carpeta ProyectoIntegrado a C:/xampp/htdocs
+	4. Ir al navegador y buscar la dirección Localhost/ProyectoIntegrado
+	5. Recomendable usar la resolucion 1920x1080

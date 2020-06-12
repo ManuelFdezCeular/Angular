@@ -115,11 +115,13 @@ class BD_login {
 	public function enviarCorreoRecuperarClave($datos){
 		//  Generamos un parámetro-código aleatorio:
 		
-		$url_enlace = "http://localhost/AJAX/ServidorProyectoIntegrado/recuperarPWD.php?codGen=";
-		
 		$cod = getdate()[0] . $this->generarCadenaRandom(15);
 		
+		//  Creamos el link para confirmar:
+		$url_enlace = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+		$url_enlace .= '/recuperarPWD.php?codGen=';
 		$url_enlace .= $cod;
+		
 		$id_usuario = -1;
 		
 		//  Obtener el id del usuario según su correo:

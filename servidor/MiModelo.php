@@ -133,10 +133,11 @@ class Modelo {
 	
 	public function enviarCorreoConfirmar_email($cod, $email) {
 		
-		$url_enlace = "http://localhost/AJAX/ServidorProyectoIntegrado/confirm.php?codGen=";
-			
+		//  Creamos el link para confirmar:
+		$url_enlace = 'http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']);
+		$url_enlace .= '/confirm.php?codGen=';
 		$url_enlace .= $cod;
-		
+
 		//  Creamos el mensaje:
 			$asunto = "Confirmar correo"; 
 			$cuerpo = ' 

@@ -9,6 +9,7 @@ export class LoginService {
 
 	private url = environment.urlLogin;
 	private urlAbierta = environment.urlAbierta;
+	private urlPrivada = environment.url;
 
 	constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class LoginService {
 		//  Clonamos el objeto:
 		let objeto = JSON.parse(JSON.stringify(log));
 		//  Le añadimos el nuevo atributo, servicio:
-		objeto.servicio = "inicio_sesion";
+		objeto.servicio = "Inicio_sesion";
 		return this.http.post<any>(this.url, JSON.stringify(objeto));
 	}
 
@@ -41,7 +42,7 @@ export class LoginService {
 
 	reenviarCorreo(email:string){
 		let objeto = JSON.stringify({
-			accion: "ReenvioCorreoConfirmacion",
+			servicio: "ReenvioCorreoConfirmacion",
 			email
 		})
 

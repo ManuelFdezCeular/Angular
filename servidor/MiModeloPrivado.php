@@ -161,10 +161,17 @@ class ModeloPrivado
 	public function BorrarInvestigador($id)
 	{
 		try {
-			$sc = "SELECT id FROM fenomenosparanormales WHERE investigador_id = ?";
-			$stm = $this->pdo->prepare($sc);
-			$stm->execute(array($id));
-			if ($stm->rowCount() != 0)
+			$query1 = "SELECT id FROM fenomenosparanormales WHERE investigador_id = ?";
+			$stm1 = $this->pdo->prepare($query1);
+			$stm1->execute(array($id));
+			$registroPrimeraQuery = $stm1->rowCount();
+
+			$query2 = "SELECT id FROM archivo WHERE investigador_id = ?";
+			$stm2 = $this->pdo->prepare($query2);
+			$stm2->execute(array($id));
+			$registroSegundaQuery = $stm2->rowCount();
+
+			if(($registroPrimeraQuery != 0) || ($registroSegundaQuery != 0))
 				return false;
 			else {
 				$stm = $this->pdo->prepare("DELETE FROM investigadores WHERE id = ?");
@@ -285,14 +292,13 @@ class ModeloPrivado
 		}
 	}
 
-	public function ModificarDatosLogin($clave, $email, $id)
+	public function ModificarDatosLogin($clave, $id)
 	{
 		try {
 			$query = "UPDATE investigadores SET
-									clave = ?,
-									email = ?
+									clave = ?
 							WHERE id = ?";
-			$this->pdo->prepare($query)->execute(array($clave, $email, $id));
+			$this->pdo->prepare($query)->execute(array($clave, $id));
 			return true;
 		} catch (Exception $e) {
 			die($e->getMessage());

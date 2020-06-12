@@ -13,7 +13,7 @@ export class AnadirInvestigadorService {
 
   anadir(investigador:any){
     let objeto = JSON.stringify({
-      accion: "AnadirInvestigador",
+      servicio: "AnadirInvestigador",
       investigador: investigador
     })
     

@@ -13,7 +13,7 @@ export class BorrarInvestigadorService {
 
   borrarInvestigador(id:number){
     let objeto = JSON.stringify({
-      accion: "BorrarInvestigador",
+      servicio: "BorrarInvestigador",
       id
     })
 

@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
 })
 export class UpdateMenuService {
 
-	
+
 	private resLogin: Object;
 	private resLogin$ = new Subject<any>();
 
-	constructor(private http:HttpClient, private ruta:Router) {
-		this.resLogin = { login: false, usuario: "", idUsuario: -1 };
+	constructor(private http: HttpClient, private ruta: Router) {
+		this.resLogin = { login: false, usuario: "", idUsuario: -1, verificado: false };
 	}
 
 	//  Actualizamos el observable:
@@ -32,29 +32,29 @@ export class UpdateMenuService {
 	ObtenerInicial(): any {
 		return this.resLogin;
 	}
-	
+
 	//  Con este método conseguimos validar si el JWT actual es válido:
-	validarLogin(){
-		return this.http.post<any>(environment.url, '{"accion":"nada"}', environment.cabecera());
+	validarLogin() {
+		return this.http.post<any>(environment.url, '{"servicio":"nada"}', environment.cabecera());
 	}
 
-	comprobarLogin(){
+	comprobarLogin() {
 		if ((!localStorage.JWT) || ((localStorage.JWT.split(".").length != 3))) {
 			//  No hay JWT, o no tiene el formato correcto.
 			//  Vamos a inicio:
 			this.ruta.navigate(['/']);
-		  } else {
+		} else {
 			this.validarLogin().subscribe(
-			  res =>{
-				if (!res.accion) {  //  Si no devuelve servicio, es que el JWT NO es válido.
-				  //  Vamos a inicio:
-				  this.ruta.navigate(['/']);
-				}else{
-					this.establecerLogin({login: true, usuario: localStorage.nombreUsuario, idUsuario: localStorage.idUsuario});
-				}
-			  },
-			  error => console.log(error)
+				res => {
+					if (!res.servicio) {  //  Si no devuelve servicio, es que el JWT NO es válido.
+						//  Vamos a inicio:
+						this.ruta.navigate(['/']);
+					} else {
+						this.establecerLogin({ login: true, usuario: localStorage.nombreUsuario, idUsuario: localStorage.idUsuario, verificado: localStorage.verificado});
+					}
+				},
+				error => console.log(error)
 			);
-		  }
+		}
 	}
 }

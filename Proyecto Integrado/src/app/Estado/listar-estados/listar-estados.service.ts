@@ -14,7 +14,7 @@ export class ListarEstadosService {
 
   listarEstados(){
     let objeto = JSON.stringify({
-      accion: "Estados"
+      servicio: "Estados"
     })
 
     return this.http.post<Estado[]>(this.url, objeto, environment.cabecera());

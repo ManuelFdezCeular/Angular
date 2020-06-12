@@ -14,7 +14,7 @@ export class ListarArchivoService {
 
   listar(){
     let objeto = JSON.stringify({
-      accion: "Archivos"
+      servicio: "Archivos"
     })
 
     return this.http.post<Archivo[]>(this.url, objeto, environment.cabecera());
@@ -22,7 +22,7 @@ export class ListarArchivoService {
 
   filtrarArchivo(nombre:string, lugar:string){
     let objeto = JSON.stringify({
-      accion: "FiltrarArchivo",
+      servicio: "FiltrarArchivo",
       nombre,
       lugar
     })

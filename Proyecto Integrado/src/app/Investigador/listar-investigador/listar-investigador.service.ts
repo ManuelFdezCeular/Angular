@@ -14,7 +14,7 @@ export class ListarInvestigadorService {
 
   obtenerInvestigadores(){
     let objeto = JSON.stringify({
-      accion: "Investigadores"
+      servicio: "Investigadores"
     })
 
     return this.http.post<Investigador[]>(this.url, objeto, environment.cabecera());
@@ -22,7 +22,7 @@ export class ListarInvestigadorService {
 
   filtrarInvestigador(nombre:string, residencia:string){
     let objeto = JSON.stringify({
-      accion: "Filtrar",
+      servicio: "Filtrar",
       nombre,
       residencia
     })

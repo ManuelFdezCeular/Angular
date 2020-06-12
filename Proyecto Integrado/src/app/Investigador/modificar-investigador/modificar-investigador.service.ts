@@ -14,7 +14,7 @@ export class ModificarInvestigadorService {
 
   modificar(investigador:Investigador){
     let objeto = JSON.stringify({
-      accion: "ModificarInvestigador",
+      servicio: "ModificarInvestigador",
       investigador
     })
 

@@ -86,9 +86,8 @@ if($objeto != null) {
 				print json_encode($modelo->AnadeFenomenoParanormal($objeto->fenomenoParanormal));
 				break;
 				
-			case "BorrarInvestigador":  
-				$resultado = ($modelo->BorrarInvestigador($objeto->id));
-				if($resultado)
+			case "BorrarInvestigador":
+				if($modelo->BorrarInvestigador($objeto->id))
 					print '{"borrado":"correcto"}';
 				else
 					print '{"borrado":"incorrecto"}';
@@ -121,7 +120,7 @@ if($objeto != null) {
 				break;
 
 			case "ModificarDatosLogin":
-				print json_encode($modelo->ModificarDatosLogin($objeto->clave, $objeto->email, $idUsuairo));
+				print json_encode($modelo->ModificarDatosLogin($objeto->clave, $idUsuairo));
 				break;
 				
 			default: 

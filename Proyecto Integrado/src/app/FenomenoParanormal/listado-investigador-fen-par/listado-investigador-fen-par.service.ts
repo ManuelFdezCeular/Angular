@@ -14,7 +14,7 @@ export class ListadoInvestigadorFenParService {
 
   listarFenParInvestigador(id:number){
     let objeto = JSON.stringify({
-      accion: "FenParInvestigador",
+      servicio: "FenParInvestigador",
       id: id
     })
 

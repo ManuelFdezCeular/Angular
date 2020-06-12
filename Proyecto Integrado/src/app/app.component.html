@@ -12,15 +12,17 @@
 
         <a *ngIf="navBar.login" class="nav-item nav-link" (click)="cerrarLogin()" style="cursor: pointer;" routerLinkActive="active">LOGOUT</a>
 
+        <a *ngIf="navBar.login && !navBar.verificado" class="nav-item nav-link" (click)="reenviarCorreo()" style="cursor: pointer;" routerLinkActive="active">Reenviar Correo</a>
+
         <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
             <div class="navbar-nav">
-                <li *ngIf="navBar.login" class="nav-item dropdown">
+                <li *ngIf="navBar.login && navBar.verificado" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/investigadores" routerLinkActive="active" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 							Investigadores
 					</a>
                 </li>
-                <li *ngIf="navBar.login" class="nav-item dropdown">
+                <li *ngIf="navBar.login && navBar.verificado" class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="cursor: pointer;" routerLink="/listar-archivos" routerLinkActive="active" id="navbarDropdownMenuLink" aria-haspopup="true" aria-expanded="false">
 							Archivo
 					</a>

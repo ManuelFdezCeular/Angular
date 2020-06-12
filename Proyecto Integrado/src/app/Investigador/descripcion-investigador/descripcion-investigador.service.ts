@@ -14,7 +14,7 @@ export class DescripcionInvestigadorService {
 
   obtenerInvestigador(id:number){
     let objeto = JSON.stringify({
-      accion: "Investigador",
+      servicio: "Investigador",
       id: id
     })
 
